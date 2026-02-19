@@ -217,3 +217,31 @@
 .hero-service-item span small{font-weight:400;color:var(--gray-500);font-size:.7rem}
 @media(max-width:768px){.hero-services-grid{gap:.75rem}.hero-service-item{padding:.75rem 1rem;min-width:85px}.hero-service-item i{font-size:1.25rem}.hero-service-item span{font-size:.75rem}}
 @media(max-width:480px){.hero-services-grid{gap:.5rem}.hero-service-item{min-width:70px;padding:.6rem .75rem}.hero-service-item span{font-size:.7rem}.hero-service-item span small{font-size:.6rem}}
+
+/* Hero Services Grid - iOS Glass 3D Style */
+.hero-services-grid{display:flex;justify-content:center;gap:.75rem;flex-wrap:wrap;margin:1.5rem 0}
+.hero-service-item{display:flex;align-items:center;gap:.75rem;padding:.75rem 1.25rem;background:rgba(255,255,255,.7);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-radius:16px;border:1px solid rgba(255,255,255,.5);box-shadow:0 8px 32px rgba(31,38,135,.15),0 2px 8px rgba(0,0,0,.1),inset 0 1px 0 rgba(255,255,255,.6);text-decoration:none;transition:all .4s cubic-bezier(.175,.885,.32,1.275);position:relative;overflow:hidden}
+.hero-service-item::before{content:'';position:absolute;top:0;left:0;right:0;height:50%;background:linear-gradient(180deg,rgba(255,255,255,.4) 0%,transparent 100%);border-radius:16px 16px 0 0;pointer-events:none}
+.hero-service-item:hover{transform:translateY(-8px) scale(1.02);box-shadow:0 20px 40px rgba(31,38,135,.25),0 4px 12px rgba(0,0,0,.15),inset 0 1px 0 rgba(255,255,255,.8)}
+.hero-service-item:active{transform:translateY(-4px) scale(.98)}
+.service-icon-wrap{width:40px;height:40px;border-radius:12px;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 12px rgba(0,0,0,.15),inset 0 -2px 0 rgba(0,0,0,.1);position:relative;z-index:1}
+.service-icon-wrap::after{content:'';position:absolute;inset:0;border-radius:12px;background:linear-gradient(135deg,rgba(255,255,255,.4) 0%,transparent 50%);pointer-events:none}
+.hero-service-item:nth-child(1) .service-icon-wrap{background:linear-gradient(135deg,#3b82f6 0%,#1d4ed8 100%)}
+.hero-service-item:nth-child(2) .service-icon-wrap{background:linear-gradient(135deg,#fbbf24 0%,#d97706 100%)}
+.hero-service-item:nth-child(3) .service-icon-wrap{background:linear-gradient(135deg,#10b981 0%,#059669 100%)}
+.hero-service-item:nth-child(4) .service-icon-wrap{background:linear-gradient(135deg,#ef4444 0%,#dc2626 100%)}
+.hero-service-item:nth-child(5) .service-icon-wrap{background:linear-gradient(135deg,#6366f1 0%,#4f46e5 100%)}
+.service-icon-wrap i{color:#fff;font-size:1.1rem;text-shadow:0 2px 4px rgba(0,0,0,.2)}
+.hero-service-item span{font-family:'Plus Jakarta Sans',sans-serif;font-size:.85rem;font-weight:700;color:var(--gray-900);white-space:nowrap;position:relative;z-index:1}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+@keyframes shine{0%{transform:translateX(-100%) rotate(45deg)}100%{transform:translateX(100%) rotate(45deg)}}
+.hero-service-item::after{content:'';position:absolute;top:-50%;left:-50%;width:200%;height:200%;background:linear-gradient(45deg,transparent 30%,rgba(255,255,255,.3) 50%,transparent 70%);transform:translateX(-100%) rotate(45deg);transition:none;pointer-events:none}
+.hero-service-item:hover::after{animation:shine .8s ease-in-out}
+
+/* Hero CTA Bottom */
+.hero-ctas-bottom{display:flex;justify-content:center;gap:1rem;margin:2rem 0;flex-wrap:wrap}
+
+/* Mobile Responsive */
+@media(max-width:992px){.hero-services-grid{gap:.6rem}.hero-service-item{padding:.6rem 1rem}.service-icon-wrap{width:36px;height:36px}.hero-service-item span{font-size:.8rem}}
+@media(max-width:768px){.hero-services-grid{gap:.5rem}.hero-service-item{padding:.5rem .85rem;border-radius:12px}.service-icon-wrap{width:32px;height:32px;border-radius:10px}.service-icon-wrap i{font-size:1rem}.hero-service-item span{font-size:.75rem}.hero-ctas-bottom{flex-direction:column;align-items:center}.hero-ctas-bottom .btn{width:100%;max-width:280px;justify-content:center}}
+@media(max-width:480px){.hero-service-item{padding:.45rem .75rem}.service-icon-wrap{width:28px;height:28px}.hero-service-item span{font-size:.7rem}}
