@@ -7,11 +7,12 @@
     <meta name="description" content="GTACarsPH - Buy, Sell & Trade Quality Cars in Metro Manila. 10/10 Rating. Financing Available.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Playfair+Display:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <!-- Desktop Navigation -->
     <nav class="navbar" id="navbar">
         <div class="container">
             <a href="#" class="logo">
@@ -26,61 +27,131 @@
                 <li><a href="#about">About</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
+            <a href="tel:+639985100590" class="btn btn-primary nav-cta">
+                <i class="fas fa-phone"></i>
+                <span>Call Now</span>
+            </a>
             <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
                 <i class="fas fa-bars"></i>
             </button>
         </div>
     </nav>
 
+    <!-- Mobile Bottom Navigation -->
+    <nav class="mobile-nav" id="mobileNav">
+        <a href="#home" class="nav-item active">
+            <i class="fas fa-home"></i>
+            <span>Home</span>
+        </a>
+        <a href="#buy" class="nav-item">
+            <i class="fas fa-car"></i>
+            <span>Cars</span>
+        </a>
+        <a href="#sell" class="nav-item nav-item-main">
+            <div class="nav-main-btn">
+                <i class="fas fa-plus"></i>
+            </div>
+            <span>Sell</span>
+        </a>
+        <a href="#services" class="nav-item">
+            <i class="fas fa-tools"></i>
+            <span>Services</span>
+        </a>
+        <a href="#contact" class="nav-item">
+            <i class="fas fa-phone"></i>
+            <span>Contact</span>
+        </a>
+    </nav>
+
+    <!-- Sticky floating CTA -->
+    <a href="tel:+639985100590" class="sticky-cta-mobile" id="stickyCta">
+        <i class="fas fa-phone-alt"></i>
+        Call Now
+    </a>
+
+    <!-- Hero Section -->
     <section class="hero" id="home">
+        <!-- Video/Image Background -->
+        <div class="hero-bg">
+            <!-- Placeholder gradient - real video will be added later -->
+            <div class="hero-gradient"></div>
+        </div>
+        
         <div class="container">
             <div class="hero-content">
-                <div class="hero-badge">
+                <!-- Animated badge -->
+                <div class="hero-badge animate-fade-in">
                     <i class="fas fa-star"></i>
-                    10/10 Rating Metro Manila
+                    <span>10/10 Rating Metro Manila</span>
                 </div>
-                <div class="hero-badge" style="background:#001f3f;color:#fff;margin-bottom:1rem">
+                
+                <!-- Ford Expert Badge -->
+                <div class="hero-badge hero-badge-secondary animate-fade-in delay-05">
                     <i class="fas fa-wrench"></i>
-                    🔧 Ford Repair Expert
+                    <span>🔧 Ford Repair Expert</span>
                 </div>
-                <h1>Quality Cars.<br><span>Honest Deals.</span><br>Best Prices.</h1>
-                <p>Buy, Sell & Trade Quality Affordable Cars in Metro Manila</p>
-                <div class="hero-btns">
-                    <a href="#buy" class="btn btn-primary"><i class="fas fa-search"></i> Browse Cars</a>
-                    <a href="#sell" class="btn btn-secondary"><i class="fas fa-tag"></i> Sell Your Car</a>
+                
+                <!-- Main headline with animation -->
+                <h1 class="animate-slide-up">
+                    Drive Home Your<br>
+                    <span class="text-gradient">Dream Car</span>
+                </h1>
+                
+                <p class="hero-subtitle animate-slide-up delay-1">
+                    Zero Hassle. Total Transparency. Best Prices in Metro Manila.
+                </p>
+                
+                <!-- CTA Buttons -->
+                <div class="hero-ctas animate-slide-up delay-2">
+                    <a href="#buy" class="btn btn-glow">
+                        <i class="fas fa-search"></i>
+                        Explore Inventory
+                    </a>
+                    <a href="#sell" class="btn btn-outline-light">
+                        <i class="fas fa-tag"></i>
+                        Sell Your Car
+                    </a>
                 </div>
-                <div class="hero-stats">
-                    <div class="stat">
-                        <strong>10/10</strong>
-                        <span>Rating</span>
+                
+                <!-- Stats row -->
+                <div class="hero-stats animate-slide-up delay-3">
+                    <div class="stat-item">
+                        <span class="stat-number" data-count="10">0</span>
+                        <span class="stat-label">/10 Rating</span>
                     </div>
-                    <div class="stat">
-                        <strong>100+</strong>
-                        <span>Cars Sold</span>
+                    <div class="stat-divider"></div>
+                    <div class="stat-item">
+                        <span class="stat-number" data-count="100">0</span>
+                        <span class="stat-suffix">+</span>
+                        <span class="stat-label">Cars Sold</span>
                     </div>
-                    <div class="stat">
-                        <strong>5+</strong>
-                        <span>Years</span>
+                    <div class="stat-divider"></div>
+                    <div class="stat-item">
+                        <span class="stat-number" data-count="500">0</span>
+                        <span class="stat-suffix">+</span>
+                        <span class="stat-label">Happy Clients</span>
                     </div>
-                </div>
-            </div>
-            <div class="hero-image">
-                <div class="hero-car">
-                    <i class="fas fa-car-side"></i>
                 </div>
             </div>
         </div>
+        
+        <!-- Scroll indicator -->
+        <div class="scroll-indicator">
+            <span>Scroll to explore</span>
+            <i class="fas fa-chevron-down"></i>
+        </div>
     </section>
 
+    <!-- Buy Cars Section -->
     <section class="section buy-cars" id="buy">
         <div class="container">
-            <div class="section-header">
-                <span>Our Inventory</span>
-                <h2>Buy Your <span>Dream Car</span></h2>
+            <div class="section-header scroll-reveal">
+                <span class="section-label">Our Inventory</span>
+                <h2>Buy Your <span class="text-gradient">Dream Car</span></h2>
                 <p>Quality inspected vehicles at affordable prices</p>
             </div>
             <div class="cars-grid">
-                <div class="car-card">
+                <div class="car-card scroll-reveal">
                     <div class="car-image">
                         <span class="car-badge">Hot Deal</span>
                         <i class="fas fa-car"></i>
@@ -90,12 +161,12 @@
                         <p class="car-details">Diesel • Automatic • 45,000 km</p>
                         <div class="car-price">
                             <span class="price">₱1,250,000</span>
-                            <span>Negotiable</span>
+                            <span class="price-tag">Negotiable</span>
                         </div>
                         <a href="#contact" class="btn btn-outline btn-sm">Inquire Now</a>
                     </div>
                 </div>
-                <div class="car-card">
+                <div class="car-card scroll-reveal">
                     <div class="car-image">
                         <i class="fas fa-car"></i>
                     </div>
@@ -104,12 +175,12 @@
                         <p class="car-details">Gasoline • Automatic • 32,000 km</p>
                         <div class="car-price">
                             <span class="price">₱850,000</span>
-                            <span>Cash/Financing</span>
+                            <span class="price-tag">Cash/Financing</span>
                         </div>
                         <a href="#contact" class="btn btn-outline btn-sm">Inquire Now</a>
                     </div>
                 </div>
-                <div class="car-card">
+                <div class="car-card scroll-reveal">
                     <div class="car-image">
                         <span class="car-badge">New</span>
                         <i class="fas fa-truck-pickup"></i>
@@ -119,50 +190,51 @@
                         <p class="car-details">Diesel • Manual • 28,000 km</p>
                         <div class="car-price">
                             <span class="price">₱980,000</span>
-                            <span>Financing</span>
+                            <span class="price-tag">Financing</span>
                         </div>
                         <a href="#contact" class="btn btn-outline btn-sm">Inquire Now</a>
                     </div>
                 </div>
             </div>
-            <div style="text-align:center;margin-top:3rem">
+            <div style="text-align:center;margin-top:3rem" class="scroll-reveal">
                 <a href="#contact" class="btn btn-primary">View All Cars</a>
             </div>
         </div>
     </section>
 
+    <!-- Sell Car Section -->
     <section class="section sell-car" id="sell">
         <div class="container">
-            <div class="section-header">
-                <span>Sell Your Car</span>
-                <h2>Get the <span>Best Price</span></h2>
+            <div class="section-header scroll-reveal">
+                <span class="section-label">Sell Your Car</span>
+                <h2>Get the <span class="text-gradient">Best Price</span></h2>
                 <p>Fill out the form and we'll get back to you within 24 hours</p>
             </div>
             <div class="sell-grid">
                 <div class="sell-info">
-                    <div class="info-card">
+                    <div class="info-card scroll-reveal">
                         <div class="info-icon"><i class="fas fa-money-bill-wave"></i></div>
                         <h3>Best Market Price</h3>
                         <p>Competitive prices based on current market value</p>
                     </div>
-                    <div class="info-card">
+                    <div class="info-card scroll-reveal">
                         <div class="info-icon"><i class="fas fa-bolt"></i></div>
                         <h3>Fast Transaction</h3>
                         <p>Quick processing and same-day payment</p>
                     </div>
-                    <div class="info-card">
+                    <div class="info-card scroll-reveal">
                         <div class="info-icon"><i class="fas fa-shield-alt"></i></div>
                         <h3>Hassle-Free</h3>
                         <p>We handle all the paperwork for you</p>
                     </div>
-                    <div class="contact-box">
+                    <div class="contact-box scroll-reveal">
                         <h4>Prefer to talk?</h4>
                         <p><i class="fas fa-phone"></i> <a href="tel:+639985100590">+63 998 510 0590</a></p>
                         <p><i class="fas fa-envelope"></i> <a href="mailto:gtacarsph@gmail.com">gtacarsph@gmail.com</a></p>
-                        <a href="https://m.me/GTACARSPH" target="_blank" class="btn"><i class="fab fa-facebook-messenger"></i> Chat on Messenger</a>
+                        <a href="https://m.me/GTACARSPH" target="_blank" class="btn btn-light"><i class="fab fa-facebook-messenger"></i> Chat on Messenger</a>
                     </div>
                 </div>
-                <div class="form-wrap">
+                <div class="form-wrap scroll-reveal">
                     <h3>Tell Us About Your Car</h3>
                     <form id="sellCarForm">
                         <div class="form-row">
@@ -231,39 +303,40 @@
         </div>
     </section>
 
+    <!-- Services Section -->
     <section class="section services" id="services">
         <div class="container">
-            <div class="section-header">
-                <span>Our Services</span>
-                <h2>What We <span>Offer</span></h2>
+            <div class="section-header scroll-reveal">
+                <span class="section-label">Our Services</span>
+                <h2>What We <span class="text-gradient">Offer</span></h2>
                 <p>Complete automotive solutions</p>
             </div>
             <div class="serv-grid">
-                <div class="serv-card">
+                <div class="serv-card scroll-reveal">
                     <div class="serv-icon"><i class="fas fa-car"></i></div>
                     <h3>Buy Cars</h3>
                     <p>Wide selection of quality inspected vehicles</p>
                     <a href="#buy">Browse Cars <i class="fas fa-arrow-right"></i></a>
                 </div>
-                <div class="serv-card featured">
+                <div class="serv-card featured scroll-reveal">
                     <div class="serv-icon"><i class="fas fa-hand-holding-usd"></i></div>
                     <h3>Sell Your Car</h3>
                     <p>Get the best market price with fast processing</p>
                     <a href="#sell">Get Quote <i class="fas fa-arrow-right"></i></a>
                 </div>
-                <div class="serv-card">
+                <div class="serv-card scroll-reveal">
                     <div class="serv-icon"><i class="fas fa-exchange-alt"></i></div>
                     <h3>Trade-In</h3>
                     <p>Upgrade your car with our trade-in program</p>
                     <a href="#sell">Learn More <i class="fas fa-arrow-right"></i></a>
                 </div>
-                <div class="serv-card">
+                <div class="serv-card scroll-reveal">
                     <div class="serv-icon"><i class="fas fa-percentage"></i></div>
                     <h3>Financing</h3>
                     <p>Flexible payment options available</p>
                     <a href="#contact">Apply Now <i class="fas fa-arrow-right"></i></a>
                 </div>
-                <div class="serv-card">
+                <div class="serv-card scroll-reveal">
                     <div class="serv-icon"><i class="fas fa-wrench"></i></div>
                     <h3>Ford Repairs & Parts</h3>
                     <p>Expert repair services and genuine parts for all Ford units</p>
@@ -273,15 +346,16 @@
         </div>
     </section>
 
+    <!-- Vlogs Section -->
     <section class="section vlogs" id="vlogs">
         <div class="container">
-            <div class="section-header">
-                <span>Watch Our Vlogs</span>
-                <h2>Latest <span>Content</span></h2>
+            <div class="section-header scroll-reveal">
+                <span class="section-label">Watch Our Vlogs</span>
+                <h2>Latest <span class="text-gradient">Content</span></h2>
                 <p>Car reviews and updates</p>
             </div>
             <div class="vlog-grid">
-                <div class="vlog-main">
+                <div class="vlog-main scroll-reveal">
                     <div class="vlog-video">
                         <iframe src="https://www.youtube.com/embed/PL3Odw-k8W4" allowfullscreen></iframe>
                     </div>
@@ -291,21 +365,21 @@
                     </div>
                 </div>
                 <div class="vlog-list">
-                    <a href="https://youtube.com/@RaffaGTACARS" target="_blank" class="vlog-item">
+                    <a href="https://youtube.com/@RaffaGTACARS" target="_blank" class="vlog-item scroll-reveal">
                         <div class="vlog-thumb"><i class="fas fa-play-circle"></i></div>
                         <div>
                             <h4>2023 Toyota Fortuner Review</h4>
                             <span><i class="fas fa-eye"></i> 12K views</span>
                         </div>
                     </a>
-                    <a href="https://youtube.com/@RaffaGTACARS" target="_blank" class="vlog-item">
+                    <a href="https://youtube.com/@RaffaGTACARS" target="_blank" class="vlog-item scroll-reveal">
                         <div class="vlog-thumb"><i class="fas fa-play-circle"></i></div>
                         <div>
                             <h4>How to Check a Used Car</h4>
                             <span><i class="fas fa-eye"></i> 8.5K views</span>
                         </div>
                     </a>
-                    <a href="https://youtube.com/@RaffaGTACARS" target="_blank" class="vlog-item">
+                    <a href="https://youtube.com/@RaffaGTACARS" target="_blank" class="vlog-item scroll-reveal">
                         <div class="vlog-thumb"><i class="fas fa-play-circle"></i></div>
                         <div>
                             <h4>Top Budget Cars Under 500K</h4>
@@ -314,18 +388,19 @@
                     </a>
                 </div>
             </div>
-            <div style="text-align:center;margin-top:2rem">
-                <a href="https://youtube.com/@RaffaGTACARS" target="_blank" class="btn btn-primary" style="background:#ff0000"><i class="fab fa-youtube"></i> Subscribe on YouTube</a>
+            <div style="text-align:center;margin-top:2rem" class="scroll-reveal">
+                <a href="https://youtube.com/@RaffaGTACARS" target="_blank" class="btn btn-youtube"><i class="fab fa-youtube"></i> Subscribe on YouTube</a>
             </div>
         </div>
     </section>
 
+    <!-- About Section -->
     <section class="section about" id="about">
         <div class="container">
             <div class="about-grid">
-                <div class="about-content">
-                    <span class="section-header" style="text-align:left"><span>About Us</span></span>
-                    <h2 style="font-family:Poppins,sans-serif;font-size:2.5rem;margin-bottom:1rem">Trusted Car Dealer in <span style="color:var(--primary)">Metro Manila</span></h2>
+                <div class="about-content scroll-reveal">
+                    <span class="section-label">About Us</span>
+                    <h2>Trusted Car Dealer in <span class="text-gradient">Metro Manila</span></h2>
                     <p>GTACarsPH is your trusted partner for buying, selling, and trading quality cars. With a 10/10 customer rating, we've helped hundreds find their perfect vehicle.</p>
                     <p>Located in San Juan City, we pride ourselves on honest deals and transparent pricing.</p>
                     <ul>
@@ -336,20 +411,20 @@
                     </ul>
                 </div>
                 <div class="about-stats">
-                    <div class="stat-box">
-                        <strong class="counter" data-target="10">10</strong>
+                    <div class="stat-box scroll-reveal">
+                        <strong class="counter" data-target="10">0</strong>
                         <span>/10 Rating</span>
                     </div>
-                    <div class="stat-box highlight">
-                        <strong class="counter" data-target="100">100</strong>
+                    <div class="stat-box highlight scroll-reveal">
+                        <strong class="counter" data-target="100">0</strong>
                         <span>+ Cars Sold</span>
                     </div>
-                    <div class="stat-box">
-                        <strong class="counter" data-target="5">5</strong>
+                    <div class="stat-box scroll-reveal">
+                        <strong class="counter" data-target="5">0</strong>
                         <span>+ Years</span>
                     </div>
-                    <div class="stat-box">
-                        <strong class="counter" data-target="500">500</strong>
+                    <div class="stat-box scroll-reveal">
+                        <strong class="counter" data-target="500">0</strong>
                         <span>+ Happy Clients</span>
                     </div>
                 </div>
@@ -357,45 +432,47 @@
         </div>
     </section>
 
+    <!-- Contact Section -->
     <section class="section contact" id="contact">
         <div class="container">
-            <div class="section-header">
-                <span>Contact Us</span>
-                <h2>Get In <span>Touch</span></h2>
+            <div class="section-header scroll-reveal">
+                <span class="section-label">Contact Us</span>
+                <h2>Get In <span class="text-gradient">Touch</span></h2>
                 <p>Visit our showroom or contact us</p>
             </div>
             <div class="contact-grid">
                 <div class="contact-info">
-                    <div class="c-card">
+                    <div class="c-card scroll-reveal">
                         <div class="c-icon"><i class="fas fa-map-marker-alt"></i></div>
                         <h4>Visit Us</h4>
                         <p>138 G. Reyes, Brgy. Balong Bato<br>San Juan 1500, Metro Manila</p>
                     </div>
-                    <div class="c-card">
+                    <div class="c-card scroll-reveal">
                         <div class="c-icon"><i class="fas fa-phone-alt"></i></div>
                         <h4>Call Us</h4>
                         <p><a href="tel:+639985100590">+63 998 510 0590</a></p>
                         <p><a href="tel:+639053684532">+63 905 368 4532</a></p>
                     </div>
-                    <div class="c-card">
+                    <div class="c-card scroll-reveal">
                         <div class="c-icon"><i class="fas fa-envelope"></i></div>
                         <h4>Email Us</h4>
                         <p><a href="mailto:gtacarsph@gmail.com">gtacarsph@gmail.com</a></p>
                     </div>
-                    <div class="c-card">
+                    <div class="c-card scroll-reveal">
                         <div class="c-icon"><i class="fas fa-clock"></i></div>
                         <h4>Business Hours</h4>
                         <p>Mon - Sat: 9AM - 6PM</p>
                         <p class="closed">Sunday: Closed</p>
                     </div>
                 </div>
-                <div class="c-map">
+                <div class="c-map scroll-reveal">
                     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3860.1234567890123!2d121.0234!3d14.5995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3397c9abcdef1234%3A0x567890abcdef1234!2sSan%20Juan%2C%20Metro%20Manila!5e0!3m2!1sen!2sph!4v1234567890123!5m2!1sen!2sph" allowfullscreen loading="lazy"></iframe>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- Footer -->
     <footer class="footer">
         <div class="container">
             <div class="footer-grid">
@@ -442,6 +519,7 @@
         </div>
     </footer>
 
+    <!-- Success Modal -->
     <div class="modal" id="successModal">
         <div class="modal-box">
             <i class="fas fa-check-circle"></i>
