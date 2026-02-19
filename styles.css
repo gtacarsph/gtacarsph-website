@@ -140,3 +140,38 @@
 /* Mobile Responsive */
 @media(max-width:768px){.youtube-grid,.facebook-grid{grid-template-columns:1fr}.video-desc{-webkit-line-clamp:2}.fb-post-text{font-size:.85rem}}
 @media(max-width:480px){.youtube-grid,.facebook-grid{grid-template-columns:1fr}.hashtags span{font-size:.7rem;padding:.2rem .5rem}.video-meta{flex-wrap:wrap;gap:.75rem}.fb-post-stats{gap:1rem;font-size:.8rem}}
+
+/* Ford Repair Section */
+.ford-repair{background:linear-gradient(135deg,var(--gray-900) 0%,#1a1a2e 100%);color:var(--white)}
+.ford-repair .section-header h2,.ford-repair .section-header p{color:var(--white)}
+.ford-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:4rem;align-items:start}
+.ford-badge{display:inline-flex;align-items:center;gap:.5rem;background:rgba(37,99,235,.2);color:var(--primary-light);padding:.5rem 1rem;border-radius:50px;font-size:.875rem;font-weight:600;margin-bottom:1.5rem}
+.ford-badge i{color:var(--accent)}
+.ford-content h3{font-family:'Plus Jakarta Sans',sans-serif;font-size:2rem;font-weight:700;margin-bottom:1rem;color:var(--white)}
+.ford-content>p{color:var(--gray-300);font-size:1.1rem;margin-bottom:2rem;line-height:1.7}
+.ford-services-list{display:flex;flex-direction:column;gap:1.25rem;margin-bottom:2rem}
+.ford-service-item{display:flex;gap:1rem;align-items:flex-start}
+.ford-service-item i{color:var(--success);font-size:1.5rem;margin-top:.25rem}
+.ford-service-item h4{font-size:1.1rem;font-weight:600;color:var(--white);margin-bottom:.25rem}
+.ford-service-item p{color:var(--gray-400);font-size:.9rem}
+.ford-models{margin-bottom:2rem}
+.ford-models h4{color:var(--white);font-size:1rem;margin-bottom:.75rem}
+.model-tags{display:flex;flex-wrap:wrap;gap:.5rem}
+.model-tags span{background:rgba(255,255,255,.1);color:var(--white);padding:.4rem .8rem;border-radius:20px;font-size:.85rem;font-weight:500;border:1px solid rgba(255,255,255,.2)}
+.ford-contact-box{background:rgba(37,99,235,.15);border:1px solid rgba(37,99,235,.3);padding:1.5rem;border-radius:12px}
+.ford-contact-box h4{color:var(--white);font-size:1.1rem;margin-bottom:1rem}
+.ford-contact-box p{color:var(--gray-300);margin-bottom:.5rem}
+.ford-contact-box a{color:var(--primary-light);text-decoration:none}
+.ford-contact-box .btn{margin-top:1rem;width:100%}
+.ford-visual{display:flex;flex-direction:column;gap:2rem}
+.ford-image-main{height:300px;background:linear-gradient(135deg,var(--primary) 0%,var(--primary-dark) 100%);border-radius:20px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1rem;box-shadow:0 20px 40px rgba(37,99,235,.3)}
+.ford-image-main i{font-size:6rem;color:rgba(255,255,255,.9)}
+.ford-image-main span{font-family:'Plus Jakarta Sans',sans-serif;font-size:1.5rem;font-weight:700;color:var(--white)}
+.ford-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
+.ford-stat{background:rgba(255,255,255,.05);padding:1.5rem;border-radius:12px;text-align:center;border:1px solid rgba(255,255,255,.1)}
+.ford-stat strong{display:block;font-family:'Plus Jakarta Sans',sans-serif;font-size:2rem;font-weight:700;color:var(--primary-light);margin-bottom:.25rem}
+.ford-stat span{color:var(--gray-400);font-size:.85rem}
+
+/* Responsive Ford Section */
+@media(max-width:992px){.ford-grid{grid-template-columns:1fr}.ford-visual{order:-1}}
+@media(max-width:768px){.ford-stats{grid-template-columns:1fr}.ford-image-main{height:200px}.ford-image-main i{font-size:4rem}}
