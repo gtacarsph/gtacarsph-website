@@ -175,3 +175,30 @@
 /* Responsive Ford Section */
 @media(max-width:992px){.ford-grid{grid-template-columns:1fr}.ford-visual{order:-1}}
 @media(max-width:768px){.ford-stats{grid-template-columns:1fr}.ford-image-main{height:200px}.ford-image-main i{font-size:4rem}}
+
+/* Hero Banners Section */
+.hero-banners{background:var(--gray-50);padding:3rem 0}
+.banners-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1.25rem}
+.banner-card{background:var(--white);border-radius:16px;padding:1.5rem;box-shadow:var(--shadow-md);border:1px solid var(--gray-200);transition:all .3s;display:flex;flex-direction:column;align-items:center;text-align:center;position:relative;overflow:hidden}
+.banner-card:hover{transform:translateY(-8px);box-shadow:var(--shadow-xl)}
+.banner-icon{width:60px;height:60px;border-radius:50%;display:flex;align-items:center;justify-content:center;margin-bottom:1rem;font-size:1.5rem}
+.banner-ford .banner-icon{background:var(--primary-50);color:var(--primary)}
+.banner-dealer .banner-icon{background:linear-gradient(135deg,#fef3c7 0%,#fde68a 100%);color:#d97706}
+.banner-buysell .banner-icon{background:linear-gradient(135deg,#d1fae5 0%,#a7f3d0 100%);color:#059669}
+.banner-vlogs .banner-icon{background:linear-gradient(135deg,#fee2e2 0%,#fecaca 100%);color:#dc2626}
+.banner-maintenance .banner-icon{background:linear-gradient(135deg,#dbeafe 0%,#bfdbfe 100%);color:#2563eb}
+.banner-badge{display:inline-flex;align-items:center;gap:.25rem;font-size:.7rem;font-weight:600;padding:.25rem .75rem;border-radius:20px;margin-bottom:.5rem}
+.banner-ford .banner-badge{background:var(--primary-50);color:var(--primary)}
+.banner-dealer .banner-badge{background:#fef3c7;color:#d97706}
+.banner-buysell .banner-badge{background:#d1fae5;color:#059669}
+.banner-vlogs .banner-badge{background:#fee2e2;color:#dc2626}
+.banner-maintenance .banner-badge{background:#dbeafe;color:#2563eb}
+.banner-content h3{font-family:'Plus Jakarta Sans',sans-serif;font-size:1.1rem;font-weight:700;color:var(--gray-900);margin-bottom:.5rem;line-height:1.2}
+.banner-content h3 span{font-weight:400;color:var(--gray-500)}
+.banner-content p{font-size:.8rem;color:var(--gray-500);margin-bottom:1rem;line-height:1.4}
+.banner-link{display:inline-flex;align-items:center;gap:.5rem;font-size:.8rem;font-weight:600;color:var(--primary);transition:all .3s}
+.banner-link:hover{gap:.75rem}
+.banner-link i{font-size:.7rem}
+@media(max-width:992px){.banners-grid{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:768px){.banners-grid{grid-template-columns:repeat(2,1fr)}.banner-card{padding:1.25rem}}
+@media(max-width:480px){.banners-grid{grid-template-columns:repeat(2,1fr)}.banner-content h3{font-size:1rem}.banner-content p{font-size:.75rem}}
