@@ -1,14 +1,14 @@
 /**
- * GTACarsPH - Main JavaScript
- * Mobile navigation, smooth scrolling, form handling
+ * GTACarsPH Website - Main JavaScript
+ * Professional Automotive Dealership Website
  */
 
 document.addEventListener('DOMContentLoaded', function() {
     // Initialize all components
     initNavigation();
     initScrollEffects();
-    initFormHandling();
-    initActiveLinks();
+    initSellCarForm();
+    initSmoothScroll();
 });
 
 /**
@@ -17,20 +17,18 @@ document.addEventListener('DOMContentLoaded', function() {
 function initNavigation() {
     const navToggle = document.getElementById('navToggle');
     const navMenu = document.getElementById('navMenu');
-    const navLinks = document.querySelectorAll('.nav-link');
-    const navbar = document.getElementById('navbar');
     
-    // Toggle menu on hamburger click
     if (navToggle && navMenu) {
         navToggle.addEventListener('click', function() {
-            navToggle.classList.toggle('active');
+            this.classList.toggle('active');
             navMenu.classList.toggle('active');
             document.body.classList.toggle('menu-open');
         });
         
         // Close menu when clicking a link
+        const navLinks = navMenu.querySelectorAll('a');
         navLinks.forEach(link => {
-            link.addEventListener('click', function() {
+            link.addEventListener('click', () => {
                 navToggle.classList.remove('active');
                 navMenu.classList.remove('active');
                 document.body.classList.remove('menu-open');
@@ -39,8 +37,9 @@ function initNavigation() {
     }
     
     // Navbar background on scroll
+    const navbar = document.getElementById('navbar');
     if (navbar) {
-        window.addEventListener('scroll', function() {
+        window.addEventListener('scroll', () => {
             if (window.scrollY > 50) {
                 navbar.classList.add('scrolled');
             } else {
@@ -51,111 +50,43 @@ function initNavigation() {
 }
 
 /**
- * Scroll Effects - Fade in elements on scroll
+ * Smooth Scroll for Anchor Links
  */
-function initScrollEffects() {
-    const observerOptions = {
-        root: null,
-        rootMargin: '0px',
-        threshold: 0.1
-    };
-    
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.style.opacity = '1';
-                entry.target.style.transform = 'translateY(0)';
-                observer.unobserve(entry.target);
+function initSmoothScroll() {
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            const targetId = this.getAttribute('href');
+            if (targetId === '#') return;
+            
+            const targetElement = document.querySelector(targetId);
+            if (targetElement) {
+                e.preventDefault();
+                const navHeight = document.querySelector('.nav').offsetHeight || 70;
+                const targetPosition = targetElement.offsetTop - navHeight;
+                
+                window.scrollTo({
+                    top: targetPosition,
+                    behavior: 'smooth'
+                });
             }
         });
-    }, observerOptions);
-    
-    // Observe cards and sections
-    const animatedElements = document.querySelectorAll(
-        '.video-card, .service-card, .contact-card, .about-content, .about-visual'
-    );
-    
-    animatedElements.forEach((el, index) => {
-        el.style.opacity = '0';
-        el.style.transform = 'translateY(20px)';
-        el.style.transition = `opacity 0.6s ease ${index * 0.1}s, transform 0.6s ease ${index * 0.1}s`;
-        observer.observe(el);
     });
 }
 
 /**
- * Form Handling
+ * Scroll Effects - Active Link & Reveal
  */
-function initFormHandling() {
-    const contactForm = document.getElementById('contactForm');
-    
-    if (contactForm) {
-        contactForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // Get form data
-            const formData = new FormData(contactForm);
-            const data = Object.fromEntries(formData.entries());
-            
-            // Validate required fields
-            const requiredFields = ['name', 'phone', 'interest'];
-            let isValid = true;
-            let missingFields = [];
-            
-            requiredFields.forEach(field => {
-                const input = contactForm.querySelector(`[name="${field}"]`);
-                if (!data[field] || data[field].trim() === '') {
-                    isValid = false;
-                    missingFields.push(field);
-                    if (input) {
-                        input.style.borderColor = '#FF3B3B';
-                    }
-                } else {
-                    if (input) {
-                        input.style.borderColor = '';
-                    }
-                }
-            });
-            
-            if (!isValid) {
-                showNotification('Please fill in all required fields', 'error');
-                return;
-            }
-            
-            // Show success message
-            showNotification('Thank you! We will contact you soon.', 'success');
-            
-            // Reset form
-            contactForm.reset();
-            
-            // Log data (in production, this would be sent to a server)
-            console.log('Form submitted:', data);
-        });
-        
-        // Clear error styling on input
-        const inputs = contactForm.querySelectorAll('input, select, textarea');
-        inputs.forEach(input => {
-            input.addEventListener('input', function() {
-                this.style.borderColor = '';
-            });
-        });
-    }
-}
-
-/**
- * Active Link Highlighting on Scroll
- */
-function initActiveLinks() {
+function initScrollEffects() {
+    // Active link highlighting
     const sections = document.querySelectorAll('section[id]');
-    const navLinks = document.querySelectorAll('.nav-link');
+    const navLinks = document.querySelectorAll('.nav-links a');
     
-    window.addEventListener('scroll', function() {
+    window.addEventListener('scroll', () => {
         let current = '';
         
         sections.forEach(section => {
             const sectionTop = section.offsetTop;
             const sectionHeight = section.clientHeight;
-            
             if (window.scrollY >= sectionTop - 200) {
                 current = section.getAttribute('id');
             }
@@ -168,6 +99,193 @@ function initActiveLinks() {
             }
         });
     });
+    
+    // Intersection Observer for fade-in animations
+    const observerOptions = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.1
+    };
+    
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('revealed');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, observerOptions);
+    
+    document.querySelectorAll('.car-card, .serv-card, .info-card, .stat-box').forEach(el => {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(20px)';
+        el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+        observer.observe(el);
+    });
+    
+    // Add revealed class styles
+    const style = document.createElement('style');
+    style.textContent = '.revealed { opacity: 1 !important; transform: translateY(0) !important; }';
+    document.head.appendChild(style);
+}
+
+/**
+ * Sell Your Car Form Handling
+ */
+function initSellCarForm() {
+    const form = document.getElementById('sellCarForm');
+    const fileInput = document.getElementById('carPhotos');
+    const filePreview = document.getElementById('filePreview');
+    
+    if (!form) return;
+    
+    // File upload preview
+    if (fileInput && filePreview) {
+        fileInput.addEventListener('change', function(e) {
+            filePreview.innerHTML = '';
+            const files = Array.from(e.target.files).slice(0, 5); // Max 5 files
+            
+            files.forEach((file, index) => {
+                if (file.type.startsWith('image/')) {
+                    const reader = new FileReader();
+                    reader.onload = function(e) {
+                        const div = document.createElement('div');
+                        div.className = 'file-preview-item';
+                        div.innerHTML = `
+                            <img src="${e.target.result}" alt="Preview">
+                            <button type="button" class="remove-file" data-index="${index}">&times;</button>
+                        `;
+                        filePreview.appendChild(div);
+                    };
+                    reader.readAsDataURL(file);
+                }
+            });
+        });
+        
+        // Remove file handler
+        filePreview.addEventListener('click', function(e) {
+            if (e.target.classList.contains('remove-file')) {
+                e.target.parentElement.remove();
+            }
+        });
+    }
+    
+    // Form submission
+    form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        // Get form data
+        const formData = new FormData(form);
+        const data = Object.fromEntries(formData.entries());
+        
+        // Validate required fields
+        const requiredFields = ['carBrand', 'carYear', 'mileage', 'condition', 'expectedPrice', 'ownerName', 'contactNumber', 'location'];
+        let isValid = true;
+        let missingFields = [];
+        
+        requiredFields.forEach(field => {
+            const input = form.querySelector(`[name="${field}"]`);
+            if (!data[field] || data[field].trim() === '') {
+                isValid = false;
+                missingFields.push(field);
+                if (input) {
+                    input.style.borderColor = '#EF4444';
+                    input.style.boxShadow = '0 0 0 3px rgba(239, 68, 68, 0.1)';
+                }
+            } else {
+                if (input) {
+                    input.style.borderColor = '';
+                    input.style.boxShadow = '';
+                }
+            }
+        });
+        
+        if (!isValid) {
+            showNotification('Please fill in all required fields', 'error');
+            return;
+        }
+        
+        // Format message for Facebook Messenger and Email
+        const message = `🚗 CAR SELLING INQUIRY
+
+📋 CAR DETAILS:
+• Brand/Model: ${data.carBrand}
+• Year: ${data.carYear}
+• Mileage: ${data.mileage} km
+• Condition: ${data.condition}
+• Expected Price: ₱${parseInt(data.expectedPrice).toLocaleString()}
+
+👤 SELLER INFO:
+• Name: ${data.ownerName}
+• Contact: ${data.contactNumber}
+• Location: ${data.location}
+
+📝 Notes: ${data.notes || 'None'}
+
+---
+Sent from GTACarsPH Website`;
+        
+        // Open Facebook Messenger
+        const fbUrl = `https://m.me/GTACARSPH?ref=${encodeURIComponent(message.substring(0, 200))}`;
+        window.open(fbUrl, '_blank');
+        
+        // Prepare email
+        const emailSubject = `Car Selling Inquiry - ${data.carBrand} (${data.carYear})`;
+        const emailBody = encodeURIComponent(message);
+        const mailtoLink = `mailto:gtacarsph@gmail.com?subject=${encodeURIComponent(emailSubject)}&body=${emailBody}`;
+        
+        // Open email in new tab (delayed)
+        setTimeout(() => {
+            window.open(mailtoLink, '_blank');
+        }, 1000);
+        
+        // Show success modal
+        showSuccessModal();
+        
+        // Reset form
+        form.reset();
+        if (filePreview) filePreview.innerHTML = '';
+    });
+    
+    // Clear error styling on input
+    form.querySelectorAll('input, select, textarea').forEach(input => {
+        input.addEventListener('input', function() {
+            this.style.borderColor = '';
+            this.style.boxShadow = '';
+        });
+    });
+}
+
+/**
+ * Show Success Modal
+ */
+function showSuccessModal() {
+    const modal = document.getElementById('successModal');
+    if (modal) {
+        modal.classList.add('active');
+        
+        // Close on outside click
+        modal.addEventListener('click', function(e) {
+            if (e.target === modal) {
+                modal.classList.remove('active');
+            }
+        });
+        
+        // Auto close after 5 seconds
+        setTimeout(() => {
+            modal.classList.remove('active');
+        }, 5000);
+    }
+}
+
+/**
+ * Close Modal Function
+ */
+function closeModal() {
+    const modal = document.getElementById('successModal');
+    if (modal) {
+        modal.classList.remove('active');
+    }
 }
 
 /**
@@ -176,113 +294,58 @@ function initActiveLinks() {
 function showNotification(message, type = 'info') {
     // Remove existing notifications
     const existing = document.querySelector('.notification');
-    if (existing) {
-        existing.remove();
-    }
+    if (existing) existing.remove();
     
-    // Create notification element
     const notification = document.createElement('div');
     notification.className = `notification notification-${type}`;
     notification.innerHTML = `
-        <span class="notification-message">${message}</span>
-        <button class="notification-close" aria-label="Close">&times;</button>
+        <span>${message}</span>
+        <button onclick="this.parentElement.remove()">&times;</button>
     `;
     
-    // Add styles
     notification.style.cssText = `
         position: fixed;
-        bottom: 20px;
+        top: 20px;
         right: 20px;
         padding: 16px 24px;
-        border-radius: 8px;
+        border-radius: 12px;
         font-weight: 500;
-        z-index: 10000;
+        z-index: 9999;
         display: flex;
         align-items: center;
-        gap: 12px;
-        box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        gap: 16px;
+        box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);
         animation: slideIn 0.3s ease;
-        background: ${type === 'success' ? '#00C853' : type === 'error' ? '#FF3B3B' : '#FF6B00'};
+        background: ${type === 'success' ? '#10B981' : type === 'error' ? '#EF4444' : '#2563EB'};
         color: white;
     `;
     
-    // Add close button styles
     const style = document.createElement('style');
     style.textContent = `
         @keyframes slideIn {
             from { transform: translateX(100%); opacity: 0; }
             to { transform: translateX(0); opacity: 1; }
         }
-        @keyframes slideOut {
-            from { transform: translateX(0); opacity: 1; }
-            to { transform: translateX(100%); opacity: 0; }
-        }
-        .notification-close {
+        .notification button {
             background: none;
             border: none;
             color: white;
             font-size: 20px;
             cursor: pointer;
             padding: 0;
-            line-height: 1;
         }
     `;
     document.head.appendChild(style);
-    
-    // Add to DOM
     document.body.appendChild(notification);
     
-    // Close button functionality
-    const closeBtn = notification.querySelector('.notification-close');
-    closeBtn.addEventListener('click', function() {
-        notification.style.animation = 'slideOut 0.3s ease forwards';
-        setTimeout(() => notification.remove(), 300);
-    });
-    
-    // Auto dismiss after 5 seconds
+    // Auto remove after 4 seconds
     setTimeout(() => {
-        if (notification.parentNode) {
-            notification.style.animation = 'slideOut 0.3s ease forwards';
-            setTimeout(() => notification.remove(), 300);
-        }
-    }, 5000);
+        if (notification.parentNode) notification.remove();
+    }, 4000);
 }
 
 /**
- * Smooth Scroll for Anchor Links (Fallback for older browsers)
- */
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
-        const targetId = this.getAttribute('href');
-        if (targetId === '#') return;
-        
-        const targetElement = document.querySelector(targetId);
-        if (targetElement) {
-            e.preventDefault();
-            targetElement.scrollIntoView({
-                behavior: 'smooth',
-                block: 'start'
-            });
-        }
-    });
-});
-
-/**
- * YouTube Video Cards Click Handler
- * Opens videos in new tab (placeholder functionality)
- */
-document.querySelectorAll('.video-card').forEach(card => {
-    card.style.cursor = 'pointer';
-    card.addEventListener('click', function() {
-        const videoTitle = this.querySelector('.video-card-title').textContent;
-        showNotification(`Opening: ${videoTitle}`, 'info');
-        // In production, this would link to actual YouTube videos
-        window.open('https://www.youtube.com/@RaffaGTACARS', '_blank');
-    });
-});
-
-/**
- * Performance: Lazy load images (if any added later)
+ * Lazy Loading for Images
  */
 if ('IntersectionObserver' in window) {
     const imageObserver = new IntersectionObserver((entries) => {
@@ -302,3 +365,41 @@ if ('IntersectionObserver' in window) {
         imageObserver.observe(img);
     });
 }
+
+/**
+ * Counter Animation for Stats
+ */
+function animateCounter(element, target, duration = 2000) {
+    let start = 0;
+    const increment = target / (duration / 16);
+    
+    const timer = setInterval(() => {
+        start += increment;
+        if (start >= target) {
+            element.textContent = target;
+            clearInterval(timer);
+        } else {
+            element.textContent = Math.floor(start);
+        }
+    }, 16);
+}
+
+// Initialize counters when they come into view
+const counterObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            const counters = entry.target.querySelectorAll('.counter');
+            counters.forEach(counter => {
+                const target = parseInt(counter.dataset.target);
+                animateCounter(counter, target);
+            });
+            counterObserver.unobserve(entry.target);
+        }
+    });
+}, { threshold: 0.5 });
+
+document.querySelectorAll('.hero-stats, .about-stats').forEach(section => {
+    counterObserver.observe(section);
+});
+
+console.log('🚗 GTACarsPH Website Loaded Successfully!');

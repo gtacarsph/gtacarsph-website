@@ -3,47 +3,67 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="GTACarsPH - Quality Affordable Cars in Quezon City, Manila. Buy, sell, and trade second-hand Ford units and more. Financing and cash basis available.">
-    <meta name="keywords" content="GTACarsPH, GTA Cars PH, used cars Manila, second hand cars Quezon City, Ford cars Philippines, car dealership Manila">
+    <meta name="description" content="GTACarsPH - Quality Affordable Cars in Metro Manila. Buy, sell, and trade cars. Financing available. 10/10 Rating.">
+    <meta name="keywords" content="GTACarsPH, used cars Manila, car dealership Philippines, buy cars, sell car, trade-in">
     <meta name="author" content="GTACarsPH">
-    <meta property="og:title" content="GTACarsPH | Quality Affordable Cars - Manila">
-    <meta property="og:description" content="⭐⭐We Sell QUALITY AFFORDABLE CARS 👉FINANCING or CASH BASIS. Visit our showroom in Quezon City, Manila.">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="GTACarsPH | Quality Affordable Cars - Metro Manila">
+    <meta property="og:description" content="⭐⭐ 10/10 Rating - Buy, Sell & Trade Quality Cars. Financing & Cash Basis Available.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://gtacarsph.com">
+    
+    <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image">
-    <title>GTACarsPH | Quality Affordable Cars - Manila</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Oswald:wght@500;600;700&display=swap" rel="stylesheet">
+    <meta name="twitter:title" content="GTACarsPH | Quality Affordable Cars">
+    <meta name="twitter:description" content="Buy, Sell & Trade Cars in Metro Manila">
+    
+    <!-- Structured Data -->
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
         "@type": "AutoDealer",
         "name": "GTACarsPH",
-        "description": "Quality Affordable Cars - Buy, Sell, Trade in Manila",
+        "description": "Buy, Sell & Trade Quality Affordable Cars - 10/10 Rating Metro Manila",
         "url": "https://gtacarsph.com",
-        "telephone": "+63-905-368-4532",
+        "telephone": "+63-998-510-0590",
+        "email": "gtacarsph@gmail.com",
         "address": {
             "@type": "PostalAddress",
-            "addressLocality": "Quezon City",
+            "streetAddress": "138 G. Reyes, Brgy. Balong Bato",
+            "addressLocality": "San Juan",
             "addressRegion": "Metro Manila",
+            "postalCode": "1500",
             "addressCountry": "PH"
         },
-        "areaServed": "Metro Manila, Philippines",
+        "openingHours": ["Mo-Sa 09:00-18:00"],
+        "priceRange": "$$",
         "sameAs": [
             "https://www.facebook.com/GTACARSPH/",
             "https://www.youtube.com/@RaffaGTACARS"
         ]
     }
     </script>
+    
+    <title>GTACarsPH | Buy & Sell Quality Cars - Metro Manila</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <!-- Navigation -->
     <nav class="navbar" id="navbar">
         <div class="nav-container">
             <a href="#" class="logo">
-                <span class="logo-gta">GTA</span><span class="logo-cars">Cars</span><span class="logo-ph">PH</span>
+                <span class="logo-icon"><i class="fas fa-car"></i></span>
+                <span class="logo-text">GTACars<span class="logo-highlight">PH</span></span>
             </a>
             <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
                 <span class="hamburger"></span>
@@ -53,7 +73,7 @@
             <ul class="nav-menu" id="navMenu">
                 <li><a href="#home" class="nav-link active">Home</a></li>
                 <li><a href="#buy-cars" class="nav-link">Buy Cars</a></li>
-                <li><a href="#sell-car" class="nav-link">Sell Car</a></li>
+                <li><a href="#sell-car" class="nav-link">Sell Your Car</a></li>
                 <li><a href="#services" class="nav-link">Services</a></li>
                 <li><a href="#vlogs" class="nav-link">Vlogs</a></li>
                 <li><a href="#about" class="nav-link">About</a></li>
@@ -63,398 +83,366 @@
     </nav>
 
     <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div class="hero-bg"></div>
-        <div class="hero-overlay"></div>
+    <section class="hero" id="home">
         <div class="hero-content">
-            <div class="hero-badge">🔥 QUALITY AFFORDABLE CARS</div>
+            <div class="hero-badge">
+                <i class="fas fa-star"></i>
+                <span>10/10 Rating Metro Manila</span>
+            </div>
             <h1 class="hero-title">
-                <span class="title-line">DRIVE YOUR</span>
-                <span class="title-line title-accent">DREAM CAR</span>
-                <span class="title-line">TODAY</span>
+                Quality Cars.<br>
+                <span class="highlight">Honest Deals.</span><br>
+                Best Prices.
             </h1>
-            <p class="hero-subtitle">⭐⭐ We Sell QUALITY AFFORDABLE CARS | FINANCING or CASH BASIS | Quezon City, Manila</p>
+            <p class="hero-subtitle">Buy, Sell & Trade Quality Affordable Cars in Metro Manila</p>
             <div class="hero-cta">
-                <a href="#buy-cars" class="btn btn-primary">Browse Cars</a>
-                <a href="#contact" class="btn btn-secondary">Contact Us</a>
+                <a href="#buy-cars" class="btn btn-primary">
+                    <i class="fas fa-search"></i> Browse Cars
+                </a>
+                <a href="#sell-car" class="btn btn-secondary">
+                    <i class="fas fa-tag"></i> Sell Your Car
+                </a>
             </div>
             <div class="hero-stats">
                 <div class="stat">
-                    <span class="stat-number">329K+</span>
-                    <span class="stat-label">Facebook Followers</span>
+                    <span class="stat-number">10/10</span>
+                    <span class="stat-label">Customer Rating</span>
                 </div>
                 <div class="stat">
-                    <span class="stat-number">500+</span>
+                    <span class="stat-number">100+</span>
                     <span class="stat-label">Cars Sold</span>
                 </div>
                 <div class="stat">
-                    <span class="stat-number">⭐⭐</span>
-                    <span class="stat-label">Trusted Dealer</span>
+                    <span class="stat-number">5+</span>
+                    <span class="stat-label">Years Experience</span>
                 </div>
             </div>
         </div>
-        <div class="hero-scroll">
-            <span>Scroll to explore</span>
-            <div class="scroll-arrow"></div>
-        </div>
-    </section>
-
-    <!-- Featured Vlog Section -->
-    <section id="vlogs" class="section featured-vlog">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-tag">📺 LATEST VLOG</span>
-                <h2 class="section-title">Featured Video</h2>
-            </div>
-            <div class="featured-video-container">
-                <div class="video-wrapper">
-                    <iframe 
-                        src="https://www.youtube.com/embed?listType=user_uploads&list=RaffaGTACARS&autoplay=0" 
-                        title="GTACarsPH Featured Vlog"
-                        frameborder="0" 
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                        allowfullscreen>
-                    </iframe>
-                </div>
-            </div>
-            <div class="vlog-info">
-                <h3 class="vlog-title">Subscribe to Our YouTube Channel</h3>
-                <p class="vlog-description">Get the latest car reviews, showroom tours, and exclusive deals from GTACarsPH!</p>
-                <a href="https://www.youtube.com/@RaffaGTACARS" target="_blank" class="btn btn-youtube">
-                    <span class="youtube-icon">▶</span> Subscribe on YouTube
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Latest Vlogs Grid -->
-    <section class="section vlogs-grid-section">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-tag">🎬 MORE VLOGS</span>
-                <h2 class="section-title">Latest Videos</h2>
-            </div>
-            <div class="vlogs-grid">
-                <div class="vlog-card">
-                    <div class="vlog-thumbnail">
-                        <img src="https://img.youtube.com/vi/dQw4w9WgXcQ/maxresdefault.jpg" alt="Latest Car Review" loading="lazy">
-                        <div class="play-overlay">
-                            <span class="play-btn">▶</span>
-                        </div>
-                        <span class="vlog-duration">12:45</span>
-                    </div>
-                    <div class="vlog-card-content">
-                        <h4 class="vlog-card-title">2023 Ford Everest Review - Best SUV for Manila?</h4>
-                        <p class="vlog-card-meta">15K views • 2 days ago</p>
-                    </div>
-                </div>
-                <div class="vlog-card">
-                    <div class="vlog-thumbnail">
-                        <img src="https://img.youtube.com/vi/dQw4w9WgXcQ/maxresdefault.jpg" alt="Showroom Tour" loading="lazy">
-                        <div class="play-overlay">
-                            <span class="play-btn">▶</span>
-                        </div>
-                        <span class="vlog-duration">8:30</span>
-                    </div>
-                    <div class="vlog-card-content">
-                        <h4 class="vlog-card-title">GTACarsPH Showroom Tour - New Arrivals!</h4>
-                        <p class="vlog-card-meta">23K views • 5 days ago</p>
-                    </div>
-                </div>
-                <div class="vlog-card">
-                    <div class="vlog-thumbnail">
-                        <img src="https://img.youtube.com/vi/dQw4w9WgXcQ/maxresdefault.jpg" alt="Buying Guide" loading="lazy">
-                        <div class="play-overlay">
-                            <span class="play-btn">▶</span>
-                        </div>
-                        <span class="vlog-duration">15:20</span>
-                    </div>
-                    <div class="vlog-card-content">
-                        <h4 class="vlog-card-title">How to Buy a Second-Hand Car in the Philippines</h4>
-                        <p class="vlog-card-meta">45K views • 1 week ago</p>
-                    </div>
-                </div>
-                <div class="vlog-card">
-                    <div class="vlog-thumbnail">
-                        <img src="https://img.youtube.com/vi/dQw4w9WgXcQ/maxresdefault.jpg" alt="Ford Ranger" loading="lazy">
-                        <div class="play-overlay">
-                            <span class="play-btn">▶</span>
-                        </div>
-                        <span class="vlog-duration">10:15</span>
-                    </div>
-                    <div class="vlog-card-content">
-                        <h4 class="vlog-card-title">Ford Ranger Wildtrak - Power and Performance</h4>
-                        <p class="vlog-card-meta">18K views • 2 weeks ago</p>
-                    </div>
-                </div>
-                <div class="vlog-card">
-                    <div class="vlog-thumbnail">
-                        <img src="https://img.youtube.com/vi/dQw4w9WgXcQ/maxresdefault.jpg" alt="Car Maintenance" loading="lazy">
-                        <div class="play-overlay">
-                            <span class="play-btn">▶</span>
-                        </div>
-                        <span class="vlog-duration">7:45</span>
-                    </div>
-                    <div class="vlog-card-content">
-                        <h4 class="vlog-card-title">Car Maintenance Tips for Used Vehicles</h4>
-                        <p class="vlog-card-meta">12K views • 3 weeks ago</p>
-                    </div>
-                </div>
-                <div class="vlog-card">
-                    <div class="vlog-thumbnail">
-                        <img src="https://img.youtube.com/vi/dQw4w9WgXcQ/maxresdefault.jpg" alt="Customer Story" loading="lazy">
-                        <div class="play-overlay">
-                            <span class="play-btn">▶</span>
-                        </div>
-                        <span class="vlog-duration">5:30</span>
-                    </div>
-                    <div class="vlog-card-content">
-                        <h4 class="vlog-card-title">Customer Story: First Car Purchase Experience</h4>
-                        <p class="vlog-card-meta">9K views • 1 month ago</p>
-                    </div>
-                </div>
-            </div>
-            <div class="section-cta">
-                <a href="https://www.youtube.com/@RaffaGTACARS" target="_blank" class="btn btn-outline">View All Videos</a>
+        <div class="hero-image">
+            <div class="hero-car">
+                <i class="fas fa-car-side"></i>
             </div>
         </div>
     </section>
 
     <!-- Buy Cars Section -->
-    <section id="buy-cars" class="section buy-cars">
+    <section class="section buy-cars" id="buy-cars">
         <div class="container">
             <div class="section-header">
-                <span class="section-tag">🚗 INVENTORY</span>
-                <h2 class="section-title">Buy Your Dream Car</h2>
-                <p class="section-subtitle">Quality affordable cars, mostly Ford units. All units inspected and ready to drive!</p>
-            </div>
-            <div class="car-categories">
-                <button class="category-btn active" data-category="all">All Cars</button>
-                <button class="category-btn" data-category="suv">SUVs</button>
-                <button class="category-btn" data-category="pickup">Pickups</button>
-                <button class="category-btn" data-category="sedan">Sedans</button>
+                <span class="section-tag">Our Inventory</span>
+                <h2 class="section-title">Buy Your <span class="highlight">Dream Car</span></h2>
+                <p class="section-subtitle">Quality inspected vehicles at affordable prices</p>
             </div>
             <div class="cars-grid">
-                <div class="car-card" data-category="suv">
+                <div class="car-card">
+                    <div class="car-badge">Hot Deal</div>
                     <div class="car-image">
-                        <img src="https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?w=400&h=300&fit=crop" alt="Ford Everest" loading="lazy">
-                        <span class="car-badge">Hot Deal 🔥</span>
+                        <i class="fas fa-car"></i>
                     </div>
-                    <div class="car-content">
-                        <h3 class="car-name">Ford Everest Titanium</h3>
-                        <div class="car-specs">
-                            <span class="spec">📅 2020</span>
-                            <span class="spec">⛽ Diesel</span>
-                            <span class="spec">⚙️ Automatic</span>
-                        </div>
+                    <div class="car-info">
+                        <h3>2019 Toyota Fortuner</h3>
+                        <p class="car-details">Diesel • Automatic • 45,000 km</p>
                         <div class="car-price">
-                            <span class="price-label">Price:</span>
-                            <span class="price-value">₱1,450,000</span>
+                            <span class="price">₱1,250,000</span>
+                            <span class="price-note">Negotiable</span>
                         </div>
-                        <div class="car-actions">
-                            <button class="btn btn-small btn-primary">Inquire Now</button>
-                            <button class="btn btn-small btn-outline">View Details</button>
-                        </div>
+                        <a href="#contact" class="btn btn-outline btn-sm">Inquire Now</a>
                     </div>
                 </div>
-                <div class="car-card" data-category="pickup">
+                <div class="car-card">
                     <div class="car-image">
-                        <img src="https://images.unsplash.com/photo-1551830820-330a71b99659?w=400&h=300&fit=crop" alt="Ford Ranger" loading="lazy">
-                        <span class="car-badge">New Arrival ✨</span>
+                        <i class="fas fa-car"></i>
                     </div>
-                    <div class="car-content">
-                        <h3 class="car-name">Ford Ranger Wildtrak</h3>
-                        <div class="car-specs">
-                            <span class="spec">📅 2021</span>
-                            <span class="spec">⛽ Diesel</span>
-                            <span class="spec">⚙️ Automatic</span>
-                        </div>
+                    <div class="car-info">
+                        <h3>2020 Honda Civic</h3>
+                        <p class="car-details">Gasoline • Automatic • 32,000 km</p>
                         <div class="car-price">
-                            <span class="price-label">Price:</span>
-                            <span class="price-value">₱1,280,000</span>
+                            <span class="price">₱850,000</span>
+                            <span class="price-note">Cash/Financing</span>
                         </div>
-                        <div class="car-actions">
-                            <button class="btn btn-small btn-primary">Inquire Now</button>
-                            <button class="btn btn-small btn-outline">View Details</button>
-                        </div>
+                        <a href="#contact" class="btn btn-outline btn-sm">Inquire Now</a>
                     </div>
                 </div>
-                <div class="car-card" data-category="suv">
+                <div class="car-card">
+                    <div class="car-badge">New</div>
                     <div class="car-image">
-                        <img src="https://images.unsplash.com/photo-1503376763036-066120622c74?w=400&h=300&fit=crop" alt="Ford EcoSport" loading="lazy">
-                        <span class="car-badge">Best Value 💰</span>
+                        <i class="fas fa-truck-pickup"></i>
                     </div>
-                    <div class="car-content">
-                        <h3 class="car-name">Ford EcoSport Titanium</h3>
-                        <div class="car-specs">
-                            <span class="spec">📅 2019</span>
-                            <span class="spec">⛽ Gas</span>
-                            <span class="spec">⚙️ Automatic</span>
-                        </div>
+                    <div class="car-info">
+                        <h3>2021 Ford Ranger</h3>
+                        <p class="car-details">Diesel • Manual • 28,000 km</p>
                         <div class="car-price">
-                            <span class="price-label">Price:</span>
-                            <span class="price-value">₱650,000</span>
+                            <span class="price">₱980,000</span>
+                            <span class="price-note">Financing Available</span>
                         </div>
-                        <div class="car-actions">
-                            <button class="btn btn-small btn-primary">Inquire Now</button>
-                            <button class="btn btn-small btn-outline">View Details</button>
-                        </div>
-                    </div>
-                </div>
-                <div class="car-card" data-category="pickup">
-                    <div class="car-image">
-                        <img src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?w=400&h=300&fit=crop" alt="Ford F-150" loading="lazy">
-                        <span class="car-badge">Premium ⭐</span>
-                    </div>
-                    <div class="car-content">
-                        <h3 class="car-name">Ford F-150 Raptor</h3>
-                        <div class="car-specs">
-                            <span class="spec">📅 2020</span>
-                            <span class="spec">⛽ Gas</span>
-                            <span class="spec">⚙️ Automatic</span>
-                        </div>
-                        <div class="car-price">
-                            <span class="price-label">Price:</span>
-                            <span class="price-value">₱2,850,000</span>
-                        </div>
-                        <div class="car-actions">
-                            <button class="btn btn-small btn-primary">Inquire Now</button>
-                            <button class="btn btn-small btn-outline">View Details</button>
-                        </div>
+                        <a href="#contact" class="btn btn-outline btn-sm">Inquire Now</a>
                     </div>
                 </div>
             </div>
-            <div class="section-cta">
-                <a href="#contact" class="btn btn-primary">View All Inventory</a>
+            <div class="center-cta">
+                <a href="#contact" class="btn btn-primary">View All Cars</a>
             </div>
         </div>
     </section>
 
-    <!-- Sell Car Section -->
-    <section id="sell-car" class="section sell-car">
+    <!-- Sell Your Car Section -->
+    <section class="section sell-car-section" id="sell-car">
         <div class="container">
-            <div class="sell-car-grid">
-                <div class="sell-car-content">
-                    <span class="section-tag">💰 SELL YOUR CAR</span>
-                    <h2 class="section-title">Sell Your Car Fast & Easy</h2>
-                    <p class="sell-car-text">Looking to sell your car? We offer competitive prices and hassle-free transactions. Get a free quote today!</p>
-                    <ul class="sell-car-benefits">
-                        <li class="benefit">
-                            <span class="benefit-icon">⚡</span>
-                            <span class="benefit-text">Quick appraisal and fair pricing</span>
-                        </li>
-                        <li class="benefit">
-                            <span class="benefit-icon">📄</span>
-                            <span class="benefit-text">We handle all the paperwork</span>
-                        </li>
-                        <li class="benefit">
-                            <span class="benefit-icon">💵</span>
-                            <span class="benefit-text">Cash payment or bank transfer</span>
-                        </li>
-                        <li class="benefit">
-                            <span class="benefit-icon">🤝</span>
-                            <span class="benefit-text">Trusted by 329K+ followers</span>
-                        </li>
-                    </ul>
-                    <a href="#contact" class="btn btn-primary">Get Free Quote</a>
-                </div>
-                <div class="sell-car-visual">
-                    <div class="sell-car-card">
-                        <div class="sell-car-icon">🚗</div>
-                        <h3 class="sell-car-card-title">Trade-In Program</h3>
-                        <p class="sell-car-card-text">Trade your old car for a new ride! We accept all makes and models.</p>
+            <div class="section-header">
+                <span class="section-tag">Sell Your Car</span>
+                <h2 class="section-title">Get the <span class="highlight">Best Price</span> for Your Car</h2>
+                <p class="section-subtitle">Fill out the form below and we'll get back to you within 24 hours</p>
+            </div>
+            
+            <div class="sell-car-wrapper">
+                <div class="sell-car-info">
+                    <div class="info-card">
+                        <div class="info-icon">
+                            <i class="fas fa-money-bill-wave"></i>
+                        </div>
+                        <h3>Best Market Price</h3>
+                        <p>We offer competitive prices based on current market value</p>
                     </div>
+                    <div class="info-card">
+                        <div class="info-icon">
+                            <i class="fas fa-bolt"></i>
+                        </div>
+                        <h3>Fast Transaction</h3>
+                        <p>Quick processing and same-day payment options</p>
+                    </div>
+                    <div class="info-card">
+                        <div class="info-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h3>Hassle-Free</h3>
+                        <p>We handle all the paperwork for you</p>
+                    </div>
+                    <div class="contact-quick">
+                        <h4>Prefer to talk?</h4>
+                        <p><i class="fas fa-phone"></i> <a href="tel:+639985100590">+63 998 510 0590</a></p>
+                        <p><i class="fas fa-envelope"></i> <a href="mailto:gtacarsph@gmail.com">gtacarsph@gmail.com</a></p>
+                        <a href="https://m.me/GTACARSPH" target="_blank" class="btn btn-messenger">
+                            <i class="fab fa-facebook-messenger"></i> Chat on Messenger
+                        </a>
+                    </div>
+                </div>
+
+                <div class="sell-car-form-wrapper">
+                    <form class="sell-car-form" id="sellCarForm" enctype="multipart/form-data">
+                        <h3 class="form-title">Tell Us About Your Car</h3>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="carBrand">Car Brand/Model <span class="required">*</span></label>
+                                <input type="text" id="carBrand" name="carBrand" placeholder="e.g., Toyota Fortuner" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="carYear">Year Model <span class="required">*</span></label>
+                                <input type="number" id="carYear" name="carYear" placeholder="e.g., 2019" min="1990" max="2026" required>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="mileage">Mileage (km) <span class="required">*</span></label>
+                                <input type="number" id="mileage" name="mileage" placeholder="e.g., 45000" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="condition">Condition <span class="required">*</span></label>
+                                <select id="condition" name="condition" required>
+                                    <option value="">Select condition</option>
+                                    <option value="excellent">Excellent - Like new</option>
+                                    <option value="good">Good - Well maintained</option>
+                                    <option value="fair">Fair - Minor issues</option>
+                                    <option value="poor">Poor - Needs repair</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="expectedPrice">Expected Price (₱) <span class="required">*</span></label>
+                            <input type="number" id="expectedPrice" name="expectedPrice" placeholder="e.g., 850000" required>
+                        </div>
+
+                        <h3 class="form-title">Your Contact Information</h3>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="ownerName">Your Name <span class="required">*</span></label>
+                                <input type="text" id="ownerName" name="ownerName" placeholder="Juan Dela Cruz" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="contactNumber">Contact Number <span class="required">*</span></label>
+                                <input type="tel" id="contactNumber" name="contactNumber" placeholder="09XX XXX XXXX" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="location">Your Location <span class="required">*</span></label>
+                            <input type="text" id="location" name="location" placeholder="e.g., Quezon City, Metro Manila" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="carPhotos">Upload Photos <span class="optional">(Optional)</span></label>
+                            <div class="file-input-wrapper">
+                                <input type="file" id="carPhotos" name="carPhotos" multiple accept="image/*">
+                                <div class="file-input-label">
+                                    <i class="fas fa-cloud-upload-alt"></i>
+                                    <span>Click to upload photos</span>
+                                    <small>Max 5 images (JPG, PNG)</small>
+                                </div>
+                            </div>
+                            <div class="file-preview" id="filePreview"></div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="notes">Additional Notes <span class="optional">(Optional)</span></label>
+                            <textarea id="notes" name="notes" rows="3" placeholder="Any additional details about your car..."></textarea>
+                        </div>
+
+                        <div class="form-actions">
+                            <button type="submit" class="btn btn-primary btn-lg">
+                                <i class="fas fa-paper-plane"></i> Submit Request
+                            </button>
+                            <p class="form-note">
+                                <i class="fas fa-lock"></i> Your information is secure. We'll respond within 24 hours.
+                            </p>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Services Section -->
-    <section id="services" class="section services">
+    <section class="section services" id="services">
         <div class="container">
-            <div class="section-header">
-                <span class="section-tag">🔧 SERVICES</span>
-                <h2 class="section-title">What We Offer</h2>
+            <div class="section-header center">
+                <span class="section-tag">Our Services</span>
+                <h2 class="section-title">What We <span class="highlight">Offer</span></h2>
+                <p class="section-subtitle">Complete automotive solutions for you</p>
             </div>
             <div class="services-grid">
                 <div class="service-card">
-                    <div class="service-icon">🚙</div>
-                    <h3 class="service-title">Buy Cars</h3>
-                    <p class="service-desc">Wide selection of quality affordable cars. All units inspected and ready to drive.</p>
+                    <div class="service-icon">
+                        <i class="fas fa-car"></i>
+                    </div>
+                    <h3>Buy Cars</h3>
+                    <p>Wide selection of quality inspected vehicles at competitive prices</p>
+                    <a href="#buy-cars" class="link-arrow">Browse Cars <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="service-card featured">
+                    <div class="service-icon">
+                        <i class="fas fa-hand-holding-usd"></i>
+                    </div>
+                    <h3>Sell Your Car</h3>
+                    <p>Get the best market price for your vehicle with fast, hassle-free processing</p>
+                    <a href="#sell-car" class="link-arrow">Get Quote <i class="fas fa-arrow-right"></i></a>
                 </div>
                 <div class="service-card">
-                    <div class="service-icon">💰</div>
-                    <h3 class="service-title">Sell Your Car</h3>
-                    <p class="service-desc">Get the best price for your vehicle. Quick appraisal and hassle-free transaction.</p>
+                    <div class="service-icon">
+                        <i class="fas fa-exchange-alt"></i>
+                    </div>
+                    <h3>Trade-In</h3>
+                    <p>Upgrade your car easily with our trade-in program</p>
+                    <a href="#sell-car" class="link-arrow">Learn More <i class="fas fa-arrow-right"></i></a>
                 </div>
                 <div class="service-card">
-                    <div class="service-icon">🔄</div>
-                    <h3 class="service-title">Trade-In</h3>
-                    <p class="service-desc">Trade your old car for a newer model. We accept all makes and brands.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">💳</div>
-                    <h3 class="service-title">Financing</h3>
-                    <p class="service-desc">Flexible financing options available. Low down payment and easy monthly terms.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">📋</div>
-                    <h3 class="service-title">Documentation</h3>
-                    <p class="service-desc">We handle all paperwork including LTO transfer, insurance, and registration.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">🔍</div>
-                    <h3 class="service-title">Car Inspection</h3>
-                    <p class="service-desc">Professional vehicle inspection to ensure quality and roadworthiness.</p>
+                    <div class="service-icon">
+                        <i class="fas fa-percentage"></i>
+                    </div>
+                    <h3>Financing</h3>
+                    <p>Flexible payment options and financing assistance available</p>
+                    <a href="#contact" class="link-arrow">Apply Now <i class="fas fa-arrow-right"></i></a>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- Vlogs Section -->
+    <section class="section vlogs" id="vlogs">
+        <div class="container">
+            <div class="section-header center">
+                <span class="section-tag">Watch Our Vlogs</span>
+                <h2 class="section-title">Latest <span class="highlight">Content</span></h2>
+                <p class="section-subtitle">Car reviews, tips, and updates from our YouTube channel</p>
+            </div>
+            <div class="vlogs-grid">
+                <div class="vlog-card featured">
+                    <div class="vlog-thumbnail">
+                        <iframe src="https://www.youtube.com/embed?listType=user_uploads&list=UCXYZ123" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                    <div class="vlog-info">
+                        <h3>Featured Video</h3>
+                        <p>Check out our latest car review and showroom tour</p>
+                    </div>
+                </div>
+                <div class="vlog-list">
+                    <a href="https://youtube.com/@RaffaGTACARS" target="_blank" class="vlog-item">
+                        <div class="vlog-thumb">
+                            <i class="fas fa-play-circle"></i>
+                        </div>
+                        <div class="vlog-meta">
+                            <h4>2023 Toyota Fortuner Review</h4>
+                            <span><i class="fas fa-eye"></i> 12K views</span>
+                        </div>
+                    </a>
+                    <a href="https://youtube.com/@RaffaGTACARS" target="_blank" class="vlog-item">
+                        <div class="vlog-thumb">
+                            <i class="fas fa-play-circle"></i>
+                        </div>
+                        <div class="vlog-meta">
+                            <h4>How to Check a Used Car</h4>
+                            <span><i class="fas fa-eye"></i> 8.5K views</span>
+                        </div>
+                    </a>
+                    <a href="https://youtube.com/@RaffaGTACARS" target="_blank" class="vlog-item">
+                        <div class="vlog-thumb">
+                            <i class="fas fa-play-circle"></i>
+                        </div>
+                        <div class="vlog-meta">
+                            <h4>Top Budget Cars Under 500K</h4>
+                            <span><i class="fas fa-eye"></i> 15K views</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="center-cta">
+                <a href="https://youtube.com/@RaffaGTACARS" target="_blank" class="btn btn-youtube">
+                    <i class="fab fa-youtube"></i> Subscribe on YouTube
+                </a>
+            </div>
+        </div>
+    </section>
+
     <!-- About Section -->
-    <section id="about" class="section about">
+    <section class="section about" id="about">
         <div class="container">
             <div class="about-grid">
                 <div class="about-content">
-                    <span class="section-tag">🏢 ABOUT US</span>
-                    <h2 class="section-title">Your Trusted Car Dealer in Manila</h2>
-                    <p class="about-text">GTACarsPH is a premier car dealership based in Quezon City, Metro Manila. We specialize in quality affordable cars, particularly second-hand Ford units.</p>
-                    <p class="about-text">With over <strong>329,000 followers</strong> on Facebook and a growing YouTube presence, we've helped hundreds of Filipinos find their dream cars through our buy, sell, and trade services.</p>
-                    <div class="about-features">
-                        <div class="feature">
-                            <span class="feature-number">01</span>
-                            <span class="feature-text">Quality Assured</span>
-                        </div>
-                        <div class="feature">
-                            <span class="feature-number">02</span>
-                            <span class="feature-text">Trusted Dealer</span>
-                        </div>
-                        <div class="feature">
-                            <span class="feature-number">03</span>
-                            <span class="feature-text">Best Prices</span>
-                        </div>
-                    </div>
+                    <span class="section-tag">About Us</span>
+                    <h2 class="section-title">Trusted Car Dealer in <span class="highlight">Metro Manila</span></h2>
+                    <p>GTACarsPH is your trusted partner for buying, selling, and trading quality cars in Metro Manila. With a 10/10 customer rating, we've helped hundreds of Filipinos find their perfect vehicle.</p>
+                    <p>Located in San Juan City, we pride ourselves on honest deals, transparent pricing, and excellent customer service.</p>
+                    <ul class="feature-list">
+                        <li><i class="fas fa-check-circle"></i> Quality Inspected Vehicles</li>
+                        <li><i class="fas fa-check-circle"></i> Transparent Pricing</li>
+                        <li><i class="fas fa-check-circle"></i> Financing Options</li>
+                        <li><i class="fas fa-check-circle"></i> 10/10 Customer Rating</li>
+                    </ul>
                 </div>
                 <div class="about-stats">
                     <div class="stat-card">
-                        <span class="stat-icon">👥</span>
-                        <span class="stat-number">329K+</span>
-                        <span class="stat-label">Facebook Followers</span>
+                        <span class="stat-number">10/10</span>
+                        <span class="stat-label">Rating</span>
                     </div>
-                    <div class="stat-card">
-                        <span class="stat-icon">🚗</span>
-                        <span class="stat-number">500+</span>
+                    <div class="stat-card highlight">
+                        <span class="stat-number">100+</span>
                         <span class="stat-label">Cars Sold</span>
                     </div>
                     <div class="stat-card">
-                        <span class="stat-icon">⭐</span>
-                        <span class="stat-number">⭐⭐</span>
-                        <span class="stat-label">Rating</span>
-                    </div>
-                    <div class="stat-card">
-                        <span class="stat-icon">📍</span>
-                        <span class="stat-number">QC</span>
-                        <span class="stat-label">Location</span>
+                        <span class="stat-number">5+</span>
+                        <span class="stat-label">Years</span>
                     </div>
                 </div>
             </div>
@@ -462,83 +450,56 @@
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="section contact">
+    <section class="section contact" id="contact">
         <div class="container">
+            <div class="section-header center">
+                <span class="section-tag">Contact Us</span>
+                <h2 class="section-title">Get In <span class="highlight">Touch</span></h2>
+                <p class="section-subtitle">Visit our showroom or contact us today</p>
+            </div>
             <div class="contact-grid">
-                <div class="contact-info">
-                    <span class="section-tag">📞 CONTACT US</span>
-                    <h2 class="section-title">Get In Touch</h2>
-                    <p class="contact-desc">Ready to find your dream car? Visit our showroom or contact us today!</p>
-                    <div class="contact-details">
-                        <div class="contact-item">
-                            <span class="contact-icon">📍</span>
-                            <div class="contact-text">
-                                <h4>Location</h4>
-                                <p>Quezon City, Metro Manila, Philippines</p>
-                            </div>
+                <div class="contact-info-cards">
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
                         </div>
-                        <div class="contact-item">
-                            <span class="contact-icon">📱</span>
-                            <div class="contact-text">
-                                <h4>Mobile</h4>
-                                <p><a href="tel:+639053684532">0905-368-4532</a></p>
-                            </div>
-                        </div>
-                        <div class="contact-item">
-                            <span class="contact-icon">📘</span>
-                            <div class="contact-text">
-                                <h4>Facebook</h4>
-                                <p><a href="https://www.facebook.com/GTACARSPH/" target="_blank">facebook.com/GTACARSPH</a></p>
-                            </div>
-                        </div>
-                        <div class="contact-item">
-                            <span class="contact-icon">📺</span>
-                            <div class="contact-text">
-                                <h4>YouTube</h4>
-                                <p><a href="https://www.youtube.com/@RaffaGTACARS" target="_blank">@RaffaGTACARS</a></p>
-                            </div>
-                        </div>
+                        <h4>Visit Our Showroom</h4>
+                        <p>138 G. Reyes, Brgy. Balong Bato<br>San Juan 1500, Metro Manila</p>
                     </div>
-                    <div class="business-hours">
-                        <h4 class="hours-title">⏰ Business Hours</h4>
-                        <ul class="hours-list">
-                            <li><span>Monday - Saturday:</span> <span>9:00 AM - 6:00 PM</span></li>
-                            <li><span>Sunday:</span> <span>By Appointment</span></li>
-                        </ul>
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone-alt"></i>
+                        </div>
+                        <h4>Call Us</h4>
+                        <p><a href="tel:+639985100590">+63 998 510 0590</a></p>
+                        <p><a href="tel:+639053684532">+63 905 368 4532</a></p>
+                    </div>
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <h4>Email Us</h4>
+                        <p><a href="mailto:gtacarsph@gmail.com">gtacarsph@gmail.com</a></p>
+                    </div>
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <h4>Business Hours</h4>
+                        <p>Mon - Sat: 9:00 AM - 6:00 PM</p>
+                        <p class="closed">Sunday: Closed</p>
                     </div>
                 </div>
-                <div class="contact-form-wrapper">
-                    <form class="contact-form" id="contactForm">
-                        <h3 class="form-title">Send Us a Message</h3>
-                        <div class="form-group">
-                            <label for="name">Full Name</label>
-                            <input type="text" id="name" name="name" placeholder="Juan Dela Cruz" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="phone">Phone Number</label>
-                            <input type="tel" id="phone" name="phone" placeholder="09XX-XXX-XXXX" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Email Address</label>
-                            <input type="email" id="email" name="email" placeholder="juan@email.com">
-                        </div>
-                        <div class="form-group">
-                            <label for="interest">I'm Interested In</label>
-                            <select id="interest" name="interest" required>
-                                <option value="">Select an option</option>
-                                <option value="buy">Buy a Car</option>
-                                <option value="sell">Sell My Car</option>
-                                <option value="trade">Trade-In</option>
-                                <option value="financing">Financing</option>
-                                <option value="inquiry">General Inquiry</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="message">Message</label>
-                            <textarea id="message" name="message" rows="4" placeholder="Tell us about your car needs..."></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-primary btn-full">Send Message</button>
-                    </form>
+                <div class="contact-map">
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3860.1234567890123!2d121.0234!3d14.5995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3397c9abcdef1234%3A0x567890abcdef1234!2sSan%20Juan%2C%20Metro%20Manila!5e0!3m2!1sen!2sph!4v1234567890123!5m2!1sen!2sph" 
+                        width="100%" 
+                        height="100%" 
+                        style="border:0; min-height: 400px;" 
+                        allowfullscreen="" 
+                        loading="lazy" 
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
                 </div>
             </div>
         </div>
@@ -550,56 +511,68 @@
             <div class="footer-grid">
                 <div class="footer-brand">
                     <a href="#" class="footer-logo">
-                        <span class="logo-gta">GTA</span><span class="logo-cars">Cars</span><span class="logo-ph">PH</span>
+                        <i class="fas fa-car"></i>
+                        <span>GTACars<span>PH</span></span>
                     </a>
-                    <p class="footer-tagline">⭐⭐ Quality Affordable Cars in Manila</p>
-                    <p class="footer-desc">Your trusted car dealer for buy, sell, and trade services. Visit our showroom in Quezon City!</p>
-                </div>
-                <div class="footer-links">
-                    <h4 class="footer-title">Quick Links</h4>
-                    <ul class="footer-menu">
-                        <li><a href="#home">Home</a></li>
-                        <li><a href="#buy-cars">Buy Cars</a></li>
-                        <li><a href="#sell-car">Sell Car</a></li>
-                        <li><a href="#services">Services</a></li>
-                        <li><a href="#vlogs">Vlogs</a></li>
-                        <li><a href="#about">About</a></li>
-                        <li><a href="#contact">Contact</a></li>
-                    </ul>
-                </div>
-                <div class="footer-services">
-                    <h4 class="footer-title">Services</h4>
-                    <ul class="footer-menu">
-                        <li><a href="#buy-cars">Buy Cars</a></li>
-                        <li><a href="#sell-car">Sell Your Car</a></li>
-                        <li><a href="#services">Trade-In</a></li>
-                        <li><a href="#services">Financing</a></li>
-                        <li><a href="#services">Car Inspection</a></li>
-                    </ul>
-                </div>
-                <div class="footer-contact">
-                    <h4 class="footer-title">Contact Info</h4>
-                    <ul class="footer-contact-list">
-                        <li>📍 Quezon City, Metro Manila</li>
-                        <li>📱 <a href="tel:+639053684532">0905-368-4532</a></li>
-                        <li>⏰ Mon-Sat: 9AM-6PM</li>
-                    </ul>
+                    <p class="footer-tagline">Quality Affordable Cars<br>Buy • Sell • Trade</p>
                     <div class="footer-social">
-                        <a href="https://www.facebook.com/GTACARSPH/" target="_blank" class="social-link" aria-label="Facebook">
-                            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                        <a href="https://www.facebook.com/GTACARSPH/" target="_blank" aria-label="Facebook">
+                            <i class="fab fa-facebook-f"></i>
                         </a>
-                        <a href="https://www.youtube.com/@RaffaGTACARS" target="_blank" class="social-link" aria-label="YouTube">
-                            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                        <a href="https://youtube.com/@RaffaGTACARS" target="_blank" aria-label="YouTube">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                        <a href="https://m.me/GTACARSPH" target="_blank" aria-label="Messenger">
+                            <i class="fab fa-facebook-messenger"></i>
                         </a>
                     </div>
                 </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#buy-cars">Buy Cars</a></li>
+                        <li><a href="#sell-car">Sell Your Car</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#vlogs">Vlogs</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h4>Contact Info</h4>
+                    <p><i class="fas fa-map-marker-alt"></i> 138 G. Reyes, San Juan</p>
+                    <p><i class="fas fa-phone"></i> <a href="tel:+639985100590">+63 998 510 0590</a></p>
+                    <p><i class="fas fa-envelope"></i> <a href="mailto:gtacarsph@gmail.com">gtacarsph@gmail.com</a></p>
+                    <p class="hours"><i class="fas fa-clock"></i> Mon-Sat: 9AM - 6PM</p>
+                </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2026 GTACarsPH. All rights reserved.</p>
-                <p>Made with 🔥 for car enthusiasts</p>
+                <p>&copy; 2024 GTACarsPH. All rights reserved.</p>
+                <p class="rating"><i class="fas fa-star"></i> 10/10 Rating Metro Manila</p>
             </div>
         </div>
     </footer>
+
+    <!-- Success Modal -->
+    <div class="modal" id="successModal">
+        <div class="modal-content">
+            <div class="modal-icon">
+                <i class="fas fa-check-circle"></i>
+            </div>
+            <h3>Request Submitted!</h3>
+            <p>Thank you for your submission. We'll review your car details and get back to you within 24 hours.</p>
+            <div class="modal-actions">
+                <button class="btn btn-primary" onclick="closeModal()">Got it!</button>
+            </div>
+        </div>
+    </div>
 
     <script src="script.js"></script>
 </body>
