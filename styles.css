@@ -91,8 +91,10 @@
 .nav-main-btn{width:56px;height:56px;background:var(--primary);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--white);margin-top:-2rem;border:4px solid var(--white);box-shadow:var(--shadow-lg)}
 .nav-main-btn i{font-size:1.5rem}
 
-/* Sticky CTA */
-.sticky-cta-mobile{display:none;position:fixed;bottom:80px;right:1rem;background:var(--success);color:var(--white);padding:.75rem 1.25rem;border-radius:50px;font-weight:600;z-index:998;box-shadow:var(--shadow-lg);animation:bounce 2s infinite}
+/* Sticky CTA - Gold/Yellow like logo */
+.sticky-cta-mobile{display:none;position:fixed;bottom:80px;right:1rem;background:linear-gradient(135deg,#fbbf24 0%,#d97706 100%);color:var(--gray-900);padding:.875rem 1.5rem;border-radius:50px;font-weight:700;z-index:998;box-shadow:0 4px 20px rgba(217,119,6,.4),0 0 30px rgba(251,191,36,.3);animation:bounce 2s infinite, glowGold 2s ease-in-out infinite;border:2px solid rgba(255,255,255,.3)}
+.sticky-cta-mobile i{margin-right:.5rem;font-size:1rem}
+.sticky-cta-mobile:hover{transform:scale(1.05);box-shadow:0 6px 25px rgba(217,119,6,.5),0 0 40px rgba(251,191,36,.4)}
 
 /* File Preview */
 .file-item{position:relative}
