@@ -205,56 +205,15 @@
                 </div>
             </div>
             
-            <!-- Facebook Posts Grid -->
+            <!-- Facebook Posts Grid - Auto-Fetch -->
             <div class="social-section">
                 <h3 class="social-platform-title"><i class="fab fa-facebook"></i> Facebook Updates</h3>
-                <div class="facebook-grid">
-                    <!-- FB Post 1 -->
-                    <article class="fb-post-card scroll-reveal">
-                        <div class="fb-post-header">
-                            <img src="logo.jpg" alt="GTACarsPH" class="fb-page-logo">
-                            <div class="fb-post-info">
-                                <h5>GTACarsPH</h5>
-                                <span class="fb-post-date">2 hours ago <i class="fas fa-globe-asia"></i></span>
-                            </div>
-                        </div>
-                        <div class="fb-post-content">
-                            <p class="fb-post-text">🔥 JUST ARRIVED! 🔥<br><br>
-                            2021 Ford Ranger XLT<br>
-                            ✅ 28,000 km only<br>
-                            ✅ Diesel, Manual<br>
-                            ✅ Complete papers<br>
-                            ✅ Financing available<br><br>
-                            Price: ₱980,000 (Negotiable)<br>
-                            📞 DM us or call +63 998 510 0590<br><br>
-                            #FordRanger #PickupTruck #GTACarsPH #SanJuanCars #CarForSalePH</p>
-                        </div>
-                        <div class="fb-post-image">
-                            <i class="fas fa-truck-pickup"></i>
-                        </div>
-                        <div class="fb-post-stats">
-                            <span><i class="fas fa-thumbs-up"></i> 45</span>
-                            <span><i class="fas fa-comment"></i> 12</span>
-                            <span><i class="fas fa-share"></i> 3</span>
-                        </div>
-                    </article>
-                    
-                    <!-- FB Post 2 -->
-                    <article class="fb-post-card scroll-reveal">
-                        <div class="fb-post-header">
-                            <img src="logo.jpg" alt="GTACarsPH" class="fb-page-logo">
-                            <div class="fb-post-info">
-                                <h5>GTACarsPH</h5>
-                                <span class="fb-post-date">Yesterday <i class="fas fa-globe-asia"></i></span>
-                            </div>
-                        </div>
-                        <div class="fb-post-content">
-                            <p class="fb-post-text">💰 WE BUY CARS! 💰<br><br>
-                            Benta na ang lumang kotse mo!<br>
-                            ✔️ Running or NOT running<br>
-                            ✔️ All brands accepted<br>
-                            ✔️ Cash on the spot<br>
-                            ✔️ Free pickup<br><br>
+                <div id="facebook-posts-container">
+                    <!-- Posts will be auto-loaded here by facebook-autofetch.js -->
+                    <div class="fb-loading">
+                        <i class="fab fa-facebook"></i> Loading latest posts...
+                    </div>
+                </div>
                             📍 San Juan, Metro Manila<br>
                             📱 Message us for quick appraisal<br><br>
                             #WeBuyCars #CashForCars #GTACarsPH #BentaKotse #CarBuyerPH</p>
@@ -789,5 +748,6 @@
 
     <script src="script.js"></script>
     <script src="js/youtube-autofetch.js"></script>
+    <script src="js/facebook-autofetch.js"></script>
 </body>
 </html>
