@@ -188,75 +188,15 @@
                 <p>YouTube vlogs and Facebook updates</p>
             </div>
             
-            <!-- YouTube Videos Grid -->
+            <!-- YouTube Videos Grid - Auto-Fetch -->
             <div class="social-section">
                 <h3 class="social-platform-title"><i class="fab fa-youtube"></i> YouTube Vlogs</h3>
-                <div class="youtube-grid">
-                    <!-- Video 1 -->
-                    <article class="video-card scroll-reveal">
-                        <div class="video-thumbnail">
-                            <iframe src="https://www.youtube.com/embed/PL3Odw-k8W4" title="Toyota Fortuner 2024 Review - Best SUV Under 2M?" allowfullscreen loading="lazy"></iframe>
-                        </div>
-                        <div class="video-content">
-                            <h4>Toyota Fortuner 2024 Review - Best SUV Under 2M?</h4>
-                            <p class="video-desc">Pinakamalinaw na review ng Toyota Fortuner 2024! Check natin kung worth it ba talaga ang SUV na ito. Full walkaround, interior check, at presyo discussion.</p>
-                            <div class="hashtags">
-                                <span>#ToyotaFortuner</span>
-                                <span>#SUVReview</span>
-                                <span>#GTACarsPH</span>
-                                <span>#CarReviewPH</span>
-                                <span>#SecondHandCars</span>
-                            </div>
-                            <div class="video-meta">
-                                <span><i class="fas fa-eye"></i> 15.2K views</span>
-                                <span><i class="fas fa-calendar"></i> 2 weeks ago</span>
-                            </div>
-                        </div>
-                    </article>
-                    
-                    <!-- Video 2 -->
-                    <article class="video-card scroll-reveal">
-                        <div class="video-thumbnail">
-                            <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Paano Bumili ng Second Hand Car? Tips para Iwas Scam" allowfullscreen loading="lazy"></iframe>
-                        </div>
-                        <div class="video-content">
-                            <h4>Paano Bumili ng Second Hand Car? Tips para Iwas Scam</h4>
-                            <p class="video-desc">Essential tips bago bumili ng used car. Ano ang dapat tingnan? Paano malaman kung accident-free? Lahat ng dapat mong malaman bago mag-decide!</p>
-                            <div class="hashtags">
-                                <span>#CarBuyingTips</span>
-                                <span>#UsedCarGuide</span>
-                                <span>#GTACarsPH</span>
-                                <span>#CarTipsPH</span>
-                                <span>#IwasScam</span>
-                            </div>
-                            <div class="video-meta">
-                                <span><i class="fas fa-eye"></i> 23.8K views</span>
-                                <span><i class="fas fa-calendar"></i> 1 month ago</span>
-                            </div>
-                        </div>
-                    </article>
-                    
-                    <!-- Video 3 -->
-                    <article class="video-card scroll-reveal">
-                        <div class="video-thumbnail">
-                            <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Top 5 Budget Cars Under ₱500K - Sulit na Sulit!" allowfullscreen loading="lazy"></iframe>
-                        </div>
-                        <div class="video-content">
-                            <h4>Top 5 Budget Cars Under ₱500K - Sulit na Sulit!</h4>
-                            <p class="video-desc">Hindi mo kailangan ng milyon para sa magandang kotse! Eto ang top 5 budget-friendly cars na perfect para sa beginners o pamilya.</p>
-                            <div class="hashtags">
-                                <span>#BudgetCars</span>
-                                <span>#CarsUnder500K</span>
-                                <span>#GTACarsPH</span>
-                                <span>#AffordableCars</span>
-                                <span>#CarGuidePH</span>
-                            </div>
-                            <div class="video-meta">
-                                <span><i class="fas fa-eye"></i> 31.5K views</span>
-                                <span><i class="fas fa-calendar"></i> 2 months ago</span>
-                            </div>
-                        </div>
-                    </article>
+                <div id="youtube-videos-container" class="youtube-grid">
+                    <!-- Videos will be auto-loaded here by youtube-autofetch.js -->
+                    <div class="video-card scroll-reveal" style="text-align:center;padding:2rem;color:#64748b;">
+                        <i class="fas fa-spinner fa-spin" style="font-size:2rem;margin-bottom:1rem;"></i>
+                        <p>Loading latest videos...</p>
+                    </div>
                 </div>
                 <div class="social-cta">
                     <a href="https://youtube.com/@RaffaGTACARS" target="_blank" class="btn btn-youtube">
@@ -848,5 +788,6 @@
     </div>
 
     <script src="script.js"></script>
+    <script src="js/youtube-autofetch.js"></script>
 </body>
 </html>

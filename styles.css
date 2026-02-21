@@ -326,3 +326,11 @@ html{scroll-behavior:smooth}
 /* Selection Color */
 ::selection{background:var(--primary);color:#fff}
 ::-moz-selection{background:var(--primary);color:#fff}
+
+/* YouTube Auto-Fetch Styles */
+.yt-loading{text-align:center;padding:2rem;color:var(--gray-500)}
+.yt-loading i{margin-right:.5rem;color:var(--primary)}
+.yt-error{text-align:center;padding:2rem;color:var(--error)}
+.yt-error i{margin-right:.5rem}
+[itemtype="https://schema.org/VideoObject"] meta{display:none}
+
