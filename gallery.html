@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Client Gallery | GTACarsPH - Car Transformations & Testimonials</title>
+    <meta name="description" content="Browse our client gallery showcasing car transformations, testimonials, and satisfied customers across the Philippines. See before & after results from GTACarsPH.">
+    <link rel="canonical" href="https://gtacarsph.github.io/gallery.html">
+    <meta property="og:title" content="Client Gallery | GTACarsPH">
+    <meta property="og:description" content="See real client transformations and testimonials from GTACarsPH customers across the Philippines.">
+    <meta property="og:image" content="https://gtacarsph.github.io/logo.jpg">
+    <meta property="og:url" content="https://gtacarsph.github.io/gallery.html">
+    <meta property="og:type" content="website">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css?v=4">
+</head>
+<body>
+    <!-- Desktop Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <img src="logo.jpg?v=3" alt="GTACarsPH Logo" style="height:45px;width:auto;border-radius:8px">
+            </a>
+            <ul class="nav-links" id="navMenu">
+                <li><a href="index.html#home">Home</a></li>
+                <li><a href="index.html#buy">Buy Cars</a></li>
+                <li><a href="index.html#sell">Sell Car</a></li>
+                <li><a href="gallery.html" class="active">Gallery</a></li>
+                <li><a href="index.html#services">Services</a></li>
+                <li><a href="index.html#vlogs">Vlogs</a></li>
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+            <a href="tel:+639606303785" class="btn btn-primary nav-cta">
+                <i class="fas fa-phone"></i>
+                <span>Call Now</span>
+            </a>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Bottom Navigation -->
+    <nav class="mobile-nav" id="mobileNav">
+        <a href="index.html#home" class="nav-item">
+            <i class="fas fa-home"></i>
+            <span>Home</span>
+        </a>
+        <a href="index.html#buy" class="nav-item">
+            <i class="fas fa-car"></i>
+            <span>Cars</span>
+        </a>
+        <a href="gallery.html" class="nav-item nav-item-main">
+            <div class="nav-main-btn">
+                <i class="fas fa-images"></i>
+            </div>
+            <span>Gallery</span>
+        </a>
+        <a href="index.html#sell" class="nav-item">
+            <i class="fas fa-tag"></i>
+            <span>Sell</span>
+        </a>
+        <a href="index.html#contact" class="nav-item">
+            <i class="fas fa-phone"></i>
+            <span>Contact</span>
+        </a>
+    </nav>
+
+    <!-- Gallery Hero -->
+    <section class="gallery-hero">
+        <div class="container">
+            <div class="gallery-hero-content">
+                <span class="gallery-badge"><i class="fas fa-camera"></i> Client Showcase</span>
+                <h1>Our <span class="text-gradient">Happy Clients</span></h1>
+                <p>Real stories, real transformations. Browse through our collection of satisfied customers and their automotive journeys across the Philippines.</p>
+                <div class="gallery-stats">
+                    <div class="gallery-stat">
+                        <strong>500+</strong>
+                        <span>Happy Clients</span>
+                    </div>
+                    <div class="gallery-stat">
+                        <strong>25+</strong>
+                        <span>Cities Covered</span>
+                    </div>
+                    <div class="gallery-stat">
+                        <strong>1000+</strong>
+                        <span>Cars Sold</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="gallery-hero-shapes">
+            <div class="shape shape-1"><i class="fas fa-car"></i></div>
+            <div class="shape shape-2"><i class="fas fa-star"></i></div>
+            <div class="shape shape-3"><i class="fas fa-heart"></i></div>
+        </div>
+    </section>
+
+    <!-- Gallery Navigation Tabs -->
+    <section class="gallery-nav-section">
+        <div class="container">
+            <div class="gallery-tabs">
+                <button class="gallery-tab active" data-target="masonry-gallery">
+                    <i class="fas fa-th-large"></i>
+                    <span>All Photos</span>
+                </button>
+                <button class="gallery-tab" data-target="stories-reel">
+                    <i class="fas fa-film"></i>
+                    <span>Stories</span>
+                </button>
+                <button class="gallery-tab" data-target="before-after">
+                    <i class="fas fa-columns"></i>
+                    <span>Transformations</span>
+                </button>
+                <button class="gallery-tab" data-target="map-gallery">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>Locations</span>
+                </button>
+                <button class="gallery-tab" data-target="video-grid">
+                    <i class="fas fa-video"></i>
+                    <span>Testimonials</span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- 1. Masonry Gallery with Lightbox -->
+    <section class="gallery-section active" id="masonry-gallery">
+        <div class="container">
+            <div class="section-header scroll-reveal">
+                <span class="section-label">Photo Gallery</span>
+                <h2>Client <span class="text-gradient">Moments</span></h2>
+                <p>Browse through our collection of happy customers and their new rides</p>
+            </div>
+
+            <!-- Filter Buttons -->
+            <div class="gallery-filters scroll-reveal">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="sedan">Sedans</button>
+                <button class="filter-btn" data-filter="suv">SUVs</button>
+                <button class="filter-btn" data-filter="pickup">Pickups</button>
+                <button class="filter-btn" data-filter="hatchback">Hatchbacks</button>
+                <button class="filter-btn" data-filter="luxury">Luxury</button>
+            </div>
+
+            <!-- Masonry Grid -->
+            <div class="masonry-grid" id="masonryGrid">
+                <!-- Gallery items will be populated by JS -->
+            </div>
+        </div>
+    </section>
+
+    <!-- 2. Horizontal Reel / Stories -->
+    <section class="gallery-section" id="stories-reel">
+        <div class="container">
+            <div class="section-header scroll-reveal">
+                <span class="section-label">Client Stories</span>
+                <h2>Instagram <span class="text-gradient">Stories</span></h2>
+                <p>Swipe through daily deliveries and happy moments</p>
+            </div>
+
+            <div class="stories-container">
+                <button class="stories-nav stories-prev" aria-label="Previous">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <div class="stories-track-wrapper">
+                    <div class="stories-track" id="storiesTrack">
+                        <!-- Stories populated by JS -->
+                    </div>
+                </div>
+                <button class="stories-nav stories-next" aria-label="Next">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+
+            <!-- Story Viewer Modal -->
+            <div class="story-viewer" id="storyViewer">
+                <div class="story-viewer-content">
+                    <button class="story-close" id="storyClose"><i class="fas fa-times"></i></button>
+                    <div class="story-progress">
+                        <div class="story-progress-bar" id="storyProgress"></div>
+                    </div>
+                    <div class="story-image" id="storyImage"></div>
+                    <div class="story-info">
+                        <div class="story-avatar">
+                            <img src="logo.jpg" alt="GTACarsPH">
+                        </div>
+                        <div class="story-text">
+                            <strong>GTACarsPH</strong>
+                            <span id="storyTime">2h ago</span>
+                        </div>
+                    </div>
+                    <div class="story-caption" id="storyCaption"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. Before/After Cards -->
+    <section class="gallery-section" id="before-after">
+        <div class="container">
+            <div class="section-header scroll-reveal">
+                <span class="section-label">Transformations</span>
+                <h2>Before & <span class="text-gradient">After</span></h2>
+                <p>See the incredible transformations we've delivered for our clients</p>
+            </div>
+
+            <div class="before-after-grid" id="beforeAfterGrid">
+                <!-- Before/After cards populated by JS -->
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. Map Gallery -->
+    <section class="gallery-section" id="map-gallery">
+        <div class="container">
+            <div class="section-header scroll-reveal">
+                <span class="section-label">Nationwide Reach</span>
+                <h2>Clients Across the <span class="text-gradient">Philippines</span></h2>
+                <p>From Luzon to Mindanao, we've served customers nationwide</p>
+            </div>
+
+            <div class="map-gallery-container">
+                <div class="map-wrapper">
+                    <svg class="philippines-map" viewBox="0 0 400 600" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Simplified Philippines Map Path -->
+                        <path class="map-outline" d="M120,20 L140,15 L160,25 L150,50 L130,55 L110,45 Z" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+                        <path class="map-outline" d="M100,60 L120,55 L140,70 L130,100 L100,95 L80,75 Z" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+                        <path class="map-outline" d="M60,110 L90,105 L120,120 L110,160 L70,150 L50,130 Z" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+                        <path class="map-outline" d="M30,170 L70,165 L100,180 L90,230 L40,220 L20,190 Z" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+                        <path class="map-outline" d="M50,240 L90,235 L120,250 L110,300 L60,290 L40,260 Z" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+                        <path class="map-outline" d="M80,310 L130,305 L160,320 L150,380 L90,370 L70,340 Z" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+                        <path class="map-outline" d="M100,400 L150,395 L180,410 L170,470 L110,460 L90,430 Z" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+                        <path class="map-outline" d="M250,450 L300,445 L330,460 L320,520 L260,510 L240,480 Z" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+                        <path class="map-outline" d="M280,350 L340,345 L370,360 L360,420 L290,410 L270,380 Z" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+                        <path class="map-outline" d="M300,250 L360,245 L390,260 L380,320 L310,310 L290,280 Z" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+                        <path class="map-outline" d="M320,150 L370,145 L390,160 L385,210 L330,200 L315,175 Z" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+                        
+                        <!-- Location Pins (populated by JS) -->
+                        <g id="mapPins"></g>
+                    </svg>
+                    
+                    <div class="map-legend">
+                        <div class="legend-item">
+                            <span class="legend-dot" style="background:#ff6b00"></span>
+                            <span>Major Cities</span>
+                        </div>
+                        <div class="legend-item">
+                            <span class="legend-dot" style="background:#3b82f6"></span>
+                            <span>Provincial Areas</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="map-clients-panel">
+                    <h3><i class="fas fa-users"></i> Recent Deliveries</h3>
+                    <div class="map-clients-list" id="mapClientsList">
+                        <!-- Client list populated by JS -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. Video Grid / Testimonials -->
+    <section class="gallery-section" id="video-grid">
+        <div class="container">
+            <div class="section-header scroll-reveal">
+                <span class="section-label">Video Testimonials</span>
+                <h2>Client <span class="text-gradient">Stories</span></h2>
+                <p>Hear directly from our satisfied customers</p>
+            </div>
+
+            <div class="video-grid" id="videoGrid">
+                <!-- Video cards populated by JS -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Lightbox Modal -->
+    <div class="lightbox" id="lightbox">
+        <button class="lightbox-close" id="lightboxClose"><i class="fas fa-times"></i></button>
+        <button class="lightbox-nav lightbox-prev" id="lightboxPrev"><i class="fas fa-chevron-left"></i></button>
+        <button class="lightbox-nav lightbox-next" id="lightboxNext"><i class="fas fa-chevron-right"></i></button>
+        <div class="lightbox-content">
+            <img src="" alt="Gallery Image" id="lightboxImage">
+            <div class="lightbox-info">
+                <h3 id="lightboxTitle"></h3>
+                <p id="lightboxDesc"></p>
+                <div class="lightbox-meta">
+                    <span id="lightboxClient"></span>
+                    <span id="lightboxLocation"></span>
+                </div>
+            </div>
+        </div>
+        <div class="lightbox-counter">
+            <span id="lightboxCurrent">1</span> / <span id="lightboxTotal">1</span>
+        </div>
+    </div>
+
+    <!-- CTA Section -->
+    <section class="gallery-cta">
+        <div class="container">
+            <div class="cta-box">
+                <h2>Ready to Be Our Next Happy Client?</h2>
+                <p>Join hundreds of satisfied customers who found their dream car with GTACarsPH</p>
+                <div class="cta-buttons">
+                    <a href="index.html#buy" class="btn btn-primary btn-lg">
+                        <i class="fas fa-car"></i> Browse Cars
+                    </a>
+                    <a href="tel:+639606303785" class="btn btn-outline btn-lg">
+                        <i class="fas fa-phone"></i> Call Now
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <a href="index.html" class="footer-logo">
+                        <img src="logo.jpg?v=3" alt="GTACarsPH Logo" style="height:50px;width:auto;border-radius:8px;margin-bottom:1rem">
+                    </a>
+                    <p>Quality Affordable Cars<br>Buy • Sell • Trade • Ford Repair</p>
+                    <div class="social">
+                        <a href="https://facebook.com/GTACARSPH" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://youtube.com/@RaffaGTACARS" target="_blank"><i class="fab fa-youtube"></i></a>
+                        <a href="https://m.me/GTACARSPH" target="_blank"><i class="fab fa-facebook-messenger"></i></a>
+                        <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html#buy">Buy Cars</a></li>
+                        <li><a href="index.html#sell">Sell Your Car</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="index.html#services">Services</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Gallery</h4>
+                    <ul>
+                        <li><a href="#masonry-gallery">All Photos</a></li>
+                        <li><a href="#before-after">Transformations</a></li>
+                        <li><a href="#map-gallery">Locations</a></li>
+                        <li><a href="#video-grid">Testimonials</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h4>Contact Info</h4>
+                    <p><i class="fas fa-map-marker-alt"></i> 138 G. Reyes, San Juan</p>
+                    <p><i class="fas fa-phone"></i> +63 960 630 3785</p>
+                    <p><i class="fas fa-envelope"></i> info.gtacarsph@gmail.com</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 GTACarsPH. All rights reserved.</p>
+                <p class="rating"><i class="fas fa-star"></i> 10/10 Rating Metro Manila</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js?v=4"></script>
+</body>
+</html>
