@@ -130,7 +130,7 @@
         </div>
     </section>
 
-    <!-- Sell Car Form Section -->
+<!-- Sell Car Form Section -->
     <section class="sell-car-section" id="sell-form">
         <div class="container">
             <div class="section-header text-center">
@@ -140,248 +140,84 @@
             </div>
 
             <form class="sell-car-form" id="sellCarForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST" enctype="multipart/form-data">
-                <!-- Contact Information -->
-                <div class="form-section">
-                    <h3><i class="fas fa-user"></i> Your Contact Information</h3>
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="sellerName">Full Name <span class="required">*</span></label>
-                            <input type="text" id="sellerName" name="sellerName" placeholder="Juan Dela Cruz" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="sellerPhone">Phone Number <span class="required">*</span></label>
-                            <input type="tel" id="sellerPhone" name="sellerPhone" placeholder="09XX XXX XXXX" required>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="sellerEmail">Email Address</label>
-                        <input type="email" id="sellerEmail" name="sellerEmail" placeholder="you@email.com">
-                    </div>
-                    <div class="form-group">
-                        <label for="sellerLocation">Your Location <span class="required">*</span></label>
-                        <input type="text" id="sellerLocation" name="sellerLocation" placeholder="City, Province (e.g., San Juan, Metro Manila)" required>
-                    </div>
-                </div>
-
                 <!-- Car Details -->
-                <div class="form-section">
-                    <h3><i class="fas fa-car"></i> Vehicle Details</h3>
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="carYear">Year Model <span class="required">*</span></label>
-                            <select id="carYear" name="carYear" required>
-                                <option value="">Select Year</option>
-                                <option value="2025">2025</option>
-                                <option value="2024">2024</option>
-                                <option value="2023">2023</option>
-                                <option value="2022">2022</option>
-                                <option value="2021">2021</option>
-                                <option value="2020">2020</option>
-                                <option value="2019">2019</option>
-                                <option value="2018">2018</option>
-                                <option value="2017">2017</option>
-                                <option value="2016">2016</option>
-                                <option value="2015">2015</option>
-                                <option value="2014">2014</option>
-                                <option value="2013">2013</option>
-                                <option value="2012">2012</option>
-                                <option value="2011">2011</option>
-                                <option value="2010">2010</option>
-                                <option value="2009">2009</option>
-                                <option value="2008">2008</option>
-                                <option value="2007">2007</option>
-                                <option value="2006">2006</option>
-                                <option value="2005">2005</option>
-                                <option value="older">2004 or Older</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="carBrand">Brand <span class="required">*</span></label>
-                            <select id="carBrand" name="carBrand" required>
-                                <option value="">Select Brand</option>
-                                <option value="toyota">Toyota</option>
-                                <option value="honda">Honda</option>
-                                <option value="mitsubishi">Mitsubishi</option>
-                                <option value="nissan">Nissan</option>
-                                <option value="ford">Ford</option>
-                                <option value="hyundai">Hyundai</option>
-                                <option value="kia">Kia</option>
-                                <option value="suzuki">Suzuki</option>
-                                <option value="mazda">Mazda</option>
-                                <option value="isuzu">Isuzu</option>
-                                <option value="chevrolet">Chevrolet</option>
-                                <option value="bmw">BMW</option>
-                                <option value="mercedes">Mercedes-Benz</option>
-                                <option value="other">Other</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="carModel">Model <span class="required">*</span></label>
-                            <input type="text" id="carModel" name="carModel" placeholder="e.g., Vios, Civic, Montero" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="carVariant">Variant/Trim</label>
-                            <input type="text" id="carVariant" name="carVariant" placeholder="e.g., G, E, GLX, GL">
-                        </div>
-                    </div>
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="plateNumber">Plate Number</label>
-                            <input type="text" id="plateNumber" name="plateNumber" placeholder="e.g., ABC 1234">
-                        </div>
-                        <div class="form-group">
-                            <label for="transmission">Transmission <span class="required">*</span></label>
-                            <select id="transmission" name="transmission" required>
-                                <option value="">Select</option>
-                                <option value="automatic">Automatic</option>
-                                <option value="manual">Manual</option>
-                                <option value="cvt">CVT</option>
-                            </select>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Condition & Pricing -->
-                <div class="form-section">
-                    <h3><i class="fas fa-tachometer-alt"></i> Condition & Pricing</h3>
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="mileage">Current Mileage (km) <span class="required">*</span></label>
-                            <input type="number" id="mileage" name="mileage" placeholder="e.g., 50000" min="0" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="askingPrice">Asking Price (PHP) <span class="required">*</span></label>
-                            <input type="number" id="askingPrice" name="askingPrice" placeholder="e.g., 450000" min="0" required>
-                        </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="carBrand">Car Brand/Model <span class="required">*</span></label>
+                        <input type="text" id="carBrand" name="carBrand" placeholder="e.g. Toyota Fortuner" required>
                     </div>
                     <div class="form-group">
-                        <label for="carCondition">Overall Condition <span class="required">*</span></label>
-                        <div class="condition-options">
-                            <label class="condition-option">
-                                <input type="radio" name="carCondition" value="excellent" required>
-                                <span><i class="fas fa-star"></i> Excellent</span>
-                                <small>Like new, no issues</small>
-                            </label>
-                            <label class="condition-option">
-                                <input type="radio" name="carCondition" value="good">
-                                <span><i class="fas fa-thumbs-up"></i> Good</span>
-                                <small>Minor wear, well maintained</small>
-                            </label>
-                            <label class="condition-option">
-                                <input type="radio" name="carCondition" value="fair">
-                                <span><i class="fas fa-wrench"></i> Fair</span>
-                                <small>Some repairs needed</small>
-                            </label>
-                            <label class="condition-option">
-                                <input type="radio" name="carCondition" value="poor">
-                                <span><i class="fas fa-tools"></i> Poor</span>
-                                <small>Major work needed</small>
-                            </label>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label>Known Issues or Damages</label>
-                        <div class="checkbox-group">
-                            <label class="checkbox-item">
-                                <input type="checkbox" name="issues" value="engine">
-                                <span>Engine Problems</span>
-                            </label>
-                            <label class="checkbox-item">
-                                <input type="checkbox" name="issues" value="transmission">
-                                <span>Transmission Issues</span>
-                            </label>
-                            <label class="checkbox-item">
-                                <input type="checkbox" name="issues" value="body">
-                                <span>Body Damage</span>
-                            </label>
-                            <label class="checkbox-item">
-                                <input type="checkbox" name="issues" value="paint">
-                                <span>Paint/Fade Issues</span>
-                            </label>
-                            <label class="checkbox-item">
-                                <input type="checkbox" name="issues" value="interior">
-                                <span>Interior Damage</span>
-                            </label>
-                            <label class="checkbox-item">
-                                <input type="checkbox" name="issues" value="electrical">
-                                <span>Electrical Problems</span>
-                            </label>
-                            <label class="checkbox-item">
-                                <input type="checkbox" name="issues" value="tires">
-                                <span>Worn Tires</span>
-                            </label>
-                            <label class="checkbox-item">
-                                <input type="checkbox" name="issues" value="ac">
-                                <span>AC Not Working</span>
-                            </label>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="otherIssues">Other Issues or Details</label>
-                        <textarea id="otherIssues" name="otherIssues" rows="3" placeholder="Describe any other issues, accident history, or special conditions..."></textarea>
+                        <label for="carYear">Year Model <span class="required">*</span></label>
+                        <input type="number" id="carYear" name="carYear" placeholder="e.g. 2019" min="1990" max="2026" required>
                     </div>
                 </div>
-
-                <!-- Documents -->
-                <div class="form-section">
-                    <h3><i class="fas fa-file-alt"></i> Document Status</h3>
-                    <div class="checkbox-group">
-                        <label class="checkbox-item">
-                            <input type="checkbox" name="documents" value="orcr">
-                            <span>OR/CR Available</span>
-                        </label>
-                        <label class="checkbox-item">
-                            <input type="checkbox" name="documents" value="deed">
-                            <span>Deed of Sale Ready</span>
-                        </label>
-                        <label class="checkbox-item">
-                            <input type="checkbox" name="documents" value="inspection">
-                            <span>Recent Emission Test</span>
-                        </label>
-                        <label class="checkbox-item">
-                            <input type="checkbox" name="documents" value="insurance">
-                            <span>Insurance Active</span>
-                        </label>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="mileage">Mileage (km) <span class="required">*</span></label>
+                        <input type="number" id="mileage" name="mileage" placeholder="e.g. 45000" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="condition">Condition <span class="required">*</span></label>
+                        <select id="condition" name="condition" required>
+                            <option value="">Select condition</option>
+                            <option value="excellent">Excellent</option>
+                            <option value="good">Good</option>
+                            <option value="fair">Fair</option>
+                            <option value="poor">Poor</option>
+                        </select>
                     </div>
                 </div>
-
+                <div class="form-group">
+                    <label for="expectedPrice">Expected Price (₱) <span class="required">*</span></label>
+                    <input type="number" id="expectedPrice" name="expectedPrice" placeholder="e.g. 850000" required>
+                </div>
+                
+                <!-- Contact Information -->
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="ownerName">Your Name <span class="required">*</span></label>
+                        <input type="text" id="ownerName" name="ownerName" placeholder="Juan Dela Cruz" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="contactNumber">Contact Number <span class="required">*</span></label>
+                        <input type="tel" id="contactNumber" name="contactNumber" placeholder="09XX XXX XXXX" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="location">Location <span class="required">*</span></label>
+                    <input type="text" id="location" name="location" placeholder="Quezon City, Metro Manila" required>
+                </div>
+                
                 <!-- Photo Upload -->
-                <div class="form-section">
-                    <h3><i class="fas fa-camera"></i> Upload Photos</h3>
-                    <p class="form-hint">Add clear photos of your car (exterior, interior, engine bay, any damage). This helps us give you a better offer!</p>
+                <div class="form-group">
+                    <label>Upload Photos</label>
                     <div class="file-upload-area" id="fileUploadArea">
                         <input type="file" id="carPhotos" name="carPhotos[]" multiple accept="image/*" class="file-input">
                         <div class="file-upload-content">
                             <i class="fas fa-cloud-upload-alt"></i>
-                            <p>Drag & drop photos here or <span class="browse">browse</span></p>
-                            <small>Upload up to 10 photos (JPG, PNG)</small>
+                            <p>Click to upload photos</p>
+                            <small>Max 5 images</small>
                         </div>
                     </div>
                     <div class="file-preview" id="filePreview"></div>
                 </div>
-
+                
                 <!-- Additional Notes -->
-                <div class="form-section">
-                    <h3><i class="fas fa-comment"></i> Additional Information</h3>
-                    <div class="form-group">
-                        <label for="additionalNotes">Anything else we should know?</label>
-                        <textarea id="additionalNotes" name="additionalNotes" rows="4" placeholder="Tell us about the car's history, why you're selling, recent repairs, or any special features..."></textarea>
-                    </div>
+                <div class="form-group">
+                    <label for="notes">Additional Notes</label>
+                    <textarea id="notes" name="notes" rows="3" placeholder="Any additional details..."></textarea>
                 </div>
 
                 <!-- Submit -->
-                <div class="form-section form-submit">
-                    <div class="form-privacy">
-                        <i class="fas fa-shield-alt"></i>
-                        <p>Your information is secure. We never share your data with third parties.</p>
+                <div class="form-submit" style="text-align:center;">
+                    <div class="form-privacy" style="display:flex;align-items:center;justify-content:center;gap:.75rem;margin-bottom:1.5rem;color:var(--gray-500);font-size:.9rem;">
+                        <i class="fas fa-lock" style="color:var(--success);font-size:1.25rem;"></i>
+                        <p>Your info is secure. We respond within 24 hours.</p>
                     </div>
-                    <button type="submit" class="btn btn-primary btn-large">
+                    <button type="submit" class="btn btn-primary btn-large" style="padding:1.25rem 3rem;font-size:1.1rem;border-radius:12px;width:100%;">
                         <i class="fas fa-paper-plane"></i>
-                        <span>Get My Cash Offer</span>
+                        <span>Submit Request</span>
                     </button>
-                    <p class="form-note">We'll contact you within 24 hours with a fair cash offer!</p>
                 </div>
             </form>
         </div>
