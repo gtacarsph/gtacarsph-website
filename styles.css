@@ -702,3 +702,10 @@ html{scroll-behavior:smooth}
 .footer-bottom a{color:var(--gray-400);transition:color .3s ease}
 .footer-bottom a:hover{color:var(--primary)}
 
+
+/* Filter buttons for Cars page */
+.filter-tags{display:flex;justify-content:center;gap:1rem;margin-bottom:2rem;flex-wrap:wrap}
+.filter-btn{padding:.75rem 1.5rem;background:#fff;border:2px solid var(--gray-200);border-radius:50px;color:var(--gray-600);font-family:"Plus Jakarta Sans",sans-serif;font-size:.9rem;font-weight:600;cursor:pointer;transition:all .3s ease}
+.filter-btn:hover{border-color:var(--primary);color:var(--primary)}
+.filter-btn.active{background:var(--primary);border-color:var(--primary);color:#fff;box-shadow:0 4px 15px rgba(30,64,175,.3)}
+@media(max-width:768px){.filter-tags{gap:.5rem}.filter-btn{padding:.5rem 1rem;font-size:.8rem}}
