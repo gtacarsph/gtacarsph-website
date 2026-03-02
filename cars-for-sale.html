@@ -639,5 +639,74 @@
             window.open(`https://m.me/GTACARSPH?text=${encodeURIComponent(message)}`, '_blank');
         }
     </script>
+    <script src="js/cars.js"></script>
+    <script>
+        // Load admin-added cars and merge with existing
+        function loadAdminCars() {
+            const adminCars = getAllCars().filter(car => car.status === 'available');
+            if (adminCars.length === 0) return;
+
+            const carGrid = document.getElementById('carGrid');
+            
+            adminCars.forEach((car, index) => {
+                const thumbnail = getCarThumbnail(car);
+                const card = document.createElement('div');
+                card.className = 'mp-card';
+                card.setAttribute('data-category', car.category);
+                card.onclick = () => inquire(`${car.year} ${car.brand} ${car.model}`);
+                
+                card.innerHTML = `
+                    <div class="mp-card-image" style="${thumbnail ? `background-image: url('${thumbnail}'); background-size: cover; background-position: center;` : ''}">
+                        ${!thumbnail ? `<div class="mp-card-icon"><i class="fas fa-car"></i></div>` : ''}
+                        ${index === 0 ? '<span class="mp-card-badge">Just Added</span>' : ''}
+                    </div>
+                    <div class="mp-card-info">
+                        <div class="mp-card-price">₱${car.price?.toLocaleString() || '0'}</div>
+                        <div class="mp-card-title">${car.year} ${car.brand} ${car.model}</div>
+                        <div class="mp-card-details">${car.description?.substring(0, 40) || 'Available for viewing'}...</div>
+                        <div class="mp-card-location">
+                            <i class="fas fa-map-marker-alt"></i> San Juan, Metro Manila
+                        </div>
+                    </div>
+                `;
+                
+                // Add animation
+                card.style.opacity = '0';
+                card.style.transform = 'scale(0.9)';
+                carGrid.insertBefore(card, carGrid.firstChild);
+                
+                setTimeout(() => {
+                    card.style.transition = 'all 0.3s';
+                    card.style.opacity = '1';
+                    card.style.transform = 'scale(1)';
+                }, 100 * index);
+            });
+            
+            // Update search functionality to include new cards
+            updateSearchForNewCards();
+        }
+        
+        function updateSearchForNewCards() {
+            const searchInput = document.getElementById('searchInput');
+            searchInput.addEventListener('input', (e) => {
+                const searchTerm = e.target.value.toLowerCase();
+                const allCards = document.querySelectorAll('.mp-card');
+                
+                allCards.forEach(card => {
+                    const title = card.querySelector('.mp-card-title').textContent.toLowerCase();
+                    const details = card.querySelector('.mp-card-details').textContent.toLowerCase();
+                    
+                    if (title.includes(searchTerm) || details.includes(searchTerm)) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        }
+        
+        // Load after page loads
+        window.addEventListener('load', loadAdminCars);
+    </script>
 </body>
 </html>
