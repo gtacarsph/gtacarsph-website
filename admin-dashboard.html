@@ -423,6 +423,140 @@
             transform: scale(1.1);
         }
         
+        /* Gallery Grid */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        
+        .gallery-item {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: all 0.3s;
+        }
+        
+        .gallery-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+        
+        .gallery-item-image {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            background: rgba(0,0,0,0.3);
+        }
+        
+        .gallery-item-content {
+            padding: 15px;
+        }
+        
+        .gallery-item-title {
+            font-weight: 600;
+            margin-bottom: 5px;
+            font-size: 15px;
+        }
+        
+        .gallery-item-category {
+            display: inline-block;
+            padding: 3px 10px;
+            background: rgba(220,38,38,0.2);
+            color: #dc2626;
+            font-size: 11px;
+            border-radius: 15px;
+            margin-bottom: 8px;
+        }
+        
+        .gallery-item-desc {
+            color: #888;
+            font-size: 13px;
+            line-height: 1.4;
+        }
+        
+        .gallery-item-actions {
+            display: flex;
+            gap: 8px;
+            padding: 10px 15px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        /* Image Upload */
+        .image-upload-area {
+            border: 2px dashed rgba(255,255,255,0.2);
+            border-radius: 12px;
+            padding: 40px 20px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s;
+            background: rgba(0,0,0,0.2);
+        }
+        
+        .image-upload-area:hover {
+            border-color: #dc2626;
+            background: rgba(220,38,38,0.05);
+        }
+        
+        .image-preview-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+            gap: 10px;
+            margin-top: 15px;
+        }
+        
+        .image-preview-item {
+            position: relative;
+            aspect-ratio: 1;
+            border-radius: 8px;
+            overflow: hidden;
+            border: 2px solid rgba(255,255,255,0.1);
+        }
+        
+        .image-preview-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .image-preview-item .remove-btn {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            width: 24px;
+            height: 24px;
+            background: #dc2626;
+            border: none;
+            border-radius: 50%;
+            color: #fff;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+        }
+        
+        /* Car thumbnail in table */
+        .car-thumbnail {
+            width: 60px;
+            height: 60px;
+            object-fit: cover;
+            border-radius: 8px;
+            border: 2px solid rgba(255,255,255,0.1);
+        }
+        
+        .car-thumbnail-placeholder {
+            width: 60px;
+            height: 60px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #666;
+        }
+        
         /* Responsive */
         @media (max-width: 768px) {
             .sidebar {
@@ -485,6 +619,11 @@
                     <i class="fas fa-envelope"></i>
                     <span>Submissions</span>
                     <span class="nav-badge" id="submissionsBadge">0</span>
+                </a>
+                <a class="nav-item" onclick="showSection('gallery')">
+                    <i class="fas fa-images"></i>
+                    <span>Gallery</span>
+                    <span class="nav-badge" id="galleryBadge">0</span>
                 </a>
                 <a class="nav-item" onclick="showSection('theme')">
                     <i class="fas fa-palette"></i>
@@ -641,6 +780,36 @@
                 </div>
             </div>
             
+            <!-- Gallery Section -->
+            <div id="gallery-section" class="section-content">
+                <div class="page-header">
+                    <div>
+                        <h1>Gallery Management</h1>
+                        <p>Manage testimonials and gallery photos</p>
+                    </div>
+                    <button class="btn btn-primary" onclick="openGalleryModal()">
+                        <i class="fas fa-plus"></i> Add Photo
+                    </button>
+                </div>
+                
+                <div class="section-card">
+                    <div class="section-header">
+                        <input type="text" class="form-control" placeholder="Search gallery..." id="gallerySearch" onkeyup="searchGalleryTable()" style="max-width: 300px;">
+                        <select class="form-control" id="galleryFilter" onchange="filterGalleryTable()" style="max-width: 180px;">
+                            <option value="all">All Categories</option>
+                            <option value="testimonials">Testimonials</option>
+                            <option value="transformations">Transformations</option>
+                            <option value="showroom">Showroom</option>
+                            <option value="events">Events</option>
+                            <option value="team">Team</option>
+                        </select>
+                    </div>
+                    <div class="gallery-grid" id="galleryGrid">
+                        <!-- Gallery items rendered here -->
+                    </div>
+                </div>
+            </div>
+            
             <!-- Theme Section -->
             <div id="theme-section" class="section-content">
                 <div class="page-header">
@@ -764,6 +933,16 @@
                         <label>Description</label>
                         <textarea class="form-control" id="carDescription" rows="3"></textarea>
                     </div>
+                    <div class="form-group" style="margin-top: 20px;">
+                        <label>Car Photos (Max 5)</label>
+                        <div class="image-upload-area" id="carImageUpload" onclick="document.getElementById('carImageInput').click()">
+                            <i class="fas fa-cloud-upload-alt" style="font-size: 40px; color: #666; margin-bottom: 10px;"></i>
+                            <p>Click to upload photos</p>
+                            <small style="color: #888;">JPG, PNG up to 5MB each</small>
+                        </div>
+                        <input type="file" id="carImageInput" accept="image/*" multiple style="display: none;" onchange="handleCarImages(event)">
+                        <div class="image-preview-grid" id="carImagePreview" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); gap: 10px; margin-top: 15px;"></div>
+                    </div>
                 </form>
             </div>
             <div class="modal-footer">
@@ -773,6 +952,57 @@
         </div>
     </div>
     
+    <!-- Add/Edit Gallery Modal -->
+    <div class="modal" id="galleryModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="galleryModalTitle">Add Gallery Photo</h2>
+                <button class="close-btn" onclick="closeGalleryModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="galleryForm">
+                    <input type="hidden" id="galleryItemId">
+                    <div class="form-group">
+                        <label>Photo *</label>
+                        <div class="image-upload-area" id="galleryImageUpload" onclick="document.getElementById('galleryImageInput').click()">
+                            <i class="fas fa-cloud-upload-alt" style="font-size: 40px; color: #666; margin-bottom: 10px;"></i>
+                            <p>Click to upload photo</p>
+                            <small style="color: #888;">JPG, PNG up to 5MB</small>
+                        </div>
+                        <input type="file" id="galleryImageInput" accept="image/*" style="display: none;" onchange="handleGalleryImage(event)">
+                        <div class="image-preview" id="galleryImagePreview" style="margin-top: 15px; text-align: center;"></div>
+                    </div>
+                    <div class="form-group">
+                        <label>Title *</label>
+                        <input type="text" class="form-control" id="galleryTitle" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Category *</label>
+                        <select class="form-control" id="galleryCategory" required>
+                            <option value="testimonials">Client Testimonials</option>
+                            <option value="transformations">Car Transformations</option>
+                            <option value="showroom">Showroom</option>
+                            <option value="events">Events</option>
+                            <option value="team">Team</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Description</label>
+                        <textarea class="form-control" id="galleryDescription" rows="2"></textarea>
+                    </div>
+                    <div class="form-group" id="clientNameGroup">
+                        <label>Client Name (for testimonials)</label>
+                        <input type="text" class="form-control" id="galleryClientName">
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" onclick="closeGalleryModal()">Cancel</button>
+                <button class="btn btn-primary" onclick="saveGalleryItem()">Save Photo</button>
+            </div>
+        </div>
+    </div>
+
     <!-- View Submission Modal -->
     <div class="modal" id="submissionModal">
         <div class="modal-content">
@@ -793,6 +1023,7 @@
     <script src="js/auth.js"></script>
     <script src="js/cars.js"></script>
     <script src="js/submissions.js"></script>
+    <script src="js/gallery.js"></script>
     <script src="js/theme.js"></script>
     <script src="js/dashboard.js"></script>
 </body>

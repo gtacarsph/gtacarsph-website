@@ -3,15 +3,21 @@
 // Initialize dashboard
 function initDashboard() {
     if (!requireAuth()) return;
-    
+
     loadUserInfo();
     loadDashboardStats();
     loadCarsTable();
     loadSubmissionsTable();
     loadRecentSubmissions();
+    loadGalleryTable();
     initThemePresets();
     loadProfileInfo();
 }
+
+// Temporary storage for car images before save
+let tempCarImages = [];
+// Temporary storage for gallery image
+let tempGalleryImage = null;
 
 // Load user info
 function loadUserInfo() {
@@ -28,14 +34,17 @@ function loadDashboardStats() {
     const available = getAvailableCars();
     const submissions = getAllSubmissions();
     const stats = getSubmissionStats();
-    
+    const gallery = getAllGalleryItems();
+
     document.getElementById('totalCars').textContent = cars.length;
     document.getElementById('availableCars').textContent = available.length;
     document.getElementById('carsBadge').textContent = available.length;
-    
+
     document.getElementById('totalSubmissions').textContent = submissions.length;
     document.getElementById('newSubmissions').textContent = stats.new;
     document.getElementById('submissionsBadge').textContent = stats.new;
+
+    document.getElementById('galleryBadge').textContent = gallery.length;
 }
 
 // Navigation
@@ -57,6 +66,7 @@ function showSection(sectionId) {
     // Refresh data
     if (sectionId === 'cars') loadCarsTable();
     if (sectionId === 'submissions') loadSubmissionsTable();
+    if (sectionId === 'gallery') loadGalleryTable();
     if (sectionId === 'dashboard') {
         loadDashboardStats();
         loadRecentSubmissions();
@@ -67,17 +77,28 @@ function showSection(sectionId) {
 function loadCarsTable() {
     const cars = getAllCars();
     const tbody = document.getElementById('carsTable');
-    
+
     if (cars.length === 0) {
         tbody.innerHTML = '<tr><td colspan="6" class="empty-state">No cars yet. Add your first car!</td></tr>';
         return;
     }
-    
-    tbody.innerHTML = cars.map(car => `
+
+    tbody.innerHTML = cars.map(car => {
+        const thumbnail = getCarThumbnail(car);
+        return `
         <tr>
             <td>
-                <strong>${car.brand} ${car.model}</strong>
-                <br><small style="color:#888">${car.description?.substring(0, 50) || ''}...</small>
+                <div style="display: flex; align-items: center; gap: 15px;">
+                    ${thumbnail
+                        ? `<img src="${thumbnail}" class="car-thumbnail" alt="${car.brand}">`
+                        : `<div class="car-thumbnail-placeholder"><i class="fas fa-car"></i></div>`
+                    }
+                    <div>
+                        <strong>${car.brand} ${car.model}</strong>
+                        <br><small style="color:#888">${car.description?.substring(0, 40) || ''}...</small>
+                        ${car.images && car.images.length > 0 ? `<br><small style="color:#dc2626"><i class="fas fa-images"></i> ${car.images.length} photo${car.images.length > 1 ? 's' : ''}</small>` : ''}
+                    </div>
+                </div>
             </td>
             <td>${car.year}</td>
             <td>₱${car.price?.toLocaleString() || '0'}</td>
@@ -90,13 +111,14 @@ function loadCarsTable() {
                 </div>
             </td>
         </tr>
-    `).join('');
+    `}).join('');
 }
 
 function openCarModal(carId = null) {
     document.getElementById('carModalTitle').textContent = carId ? 'Edit Car' : 'Add New Car';
     document.getElementById('carId').value = carId || '';
-    
+    tempCarImages = [];
+
     if (carId) {
         const car = getCarById(carId);
         if (car) {
@@ -107,16 +129,23 @@ function openCarModal(carId = null) {
             document.getElementById('carCategory').value = car.category;
             document.getElementById('carStatus').value = car.status;
             document.getElementById('carDescription').value = car.description || '';
+            // Load existing images
+            if (car.images && car.images.length > 0) {
+                tempCarImages = [...car.images];
+                renderCarImagePreviews();
+            }
         }
     } else {
         document.getElementById('carForm').reset();
+        document.getElementById('carImagePreview').innerHTML = '';
     }
-    
+
     document.getElementById('carModal').classList.add('show');
 }
 
 function closeCarModal() {
     document.getElementById('carModal').classList.remove('show');
+    tempCarImages = [];
 }
 
 function saveCar() {
@@ -128,15 +157,16 @@ function saveCar() {
         price: parseInt(document.getElementById('carPrice').value),
         category: document.getElementById('carCategory').value,
         status: document.getElementById('carStatus').value,
-        description: document.getElementById('carDescription').value
+        description: document.getElementById('carDescription').value,
+        images: tempCarImages
     };
-    
+
     if (carId) {
         updateCar(carId, carData);
     } else {
         addCar(carData);
     }
-    
+
     closeCarModal();
     loadCarsTable();
     loadDashboardStats();
@@ -455,6 +485,217 @@ function changePassword() {
     } else {
         alert('Error: ' + result.message);
     }
+}
+
+// Car Image Handling
+async function handleCarImages(event) {
+    const files = event.target.files;
+    if (!files || files.length === 0) return;
+
+    const maxImages = 5;
+    const remainingSlots = maxImages - tempCarImages.length;
+
+    if (remainingSlots <= 0) {
+        alert('Maximum 5 images allowed');
+        return;
+    }
+
+    const filesToProcess = Math.min(files.length, remainingSlots);
+
+    for (let i = 0; i < filesToProcess; i++) {
+        try {
+            const base64 = await fileToBase64(files[i]);
+            tempCarImages.push({
+                id: Date.now().toString() + '_' + i,
+                data: base64,
+                uploadedAt: new Date().toISOString()
+            });
+        } catch (err) {
+            console.error('Error reading file:', err);
+        }
+    }
+
+    renderCarImagePreviews();
+}
+
+function renderCarImagePreviews() {
+    const container = document.getElementById('carImagePreview');
+    if (!container) return;
+
+    container.innerHTML = tempCarImages.map((img, index) => `
+        <div class="image-preview-item">
+            <img src="${img.data}" alt="Car image ${index + 1}">
+            <button type="button" class="remove-btn" onclick="removeCarTempImage('${img.id}')">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+    `).join('');
+}
+
+function removeCarTempImage(imageId) {
+    tempCarImages = tempCarImages.filter(img => img.id !== imageId);
+    renderCarImagePreviews();
+}
+
+// Gallery Management
+function loadGalleryTable() {
+    const items = getAllGalleryItems();
+    const grid = document.getElementById('galleryGrid');
+
+    if (!grid) return;
+
+    if (items.length === 0) {
+        grid.innerHTML = '<div class="empty-state" style="grid-column: 1/-1;"><i class="fas fa-images"></i><p>No gallery items yet. Add your first photo!</p></div>';
+        return;
+    }
+
+    grid.innerHTML = items.map(item => `
+        <div class="gallery-item">
+            <img src="${item.image}" class="gallery-item-image" alt="${item.title}">
+            <div class="gallery-item-content">
+                <span class="gallery-item-category">${item.category}</span>
+                <div class="gallery-item-title">${item.title}</div>
+                ${item.clientName ? `<div style="font-size: 12px; color: #888; margin-bottom: 5px;"><i class="fas fa-user"></i> ${item.clientName}</div>` : ''}
+                <div class="gallery-item-desc">${item.description || ''}</div>
+            </div>
+            <div class="gallery-item-actions">
+                <button class="action-btn" onclick="editGalleryItem('${item.id}')" title="Edit"><i class="fas fa-edit"></i></button>
+                <button class="action-btn" onclick="deleteGalleryItem('${item.id}')" title="Delete"><i class="fas fa-trash"></i></button>
+            </div>
+        </div>
+    `).join('');
+
+    // Update badge
+    document.getElementById('galleryBadge').textContent = items.length;
+}
+
+function openGalleryModal(itemId = null) {
+    document.getElementById('galleryModalTitle').textContent = itemId ? 'Edit Gallery Photo' : 'Add Gallery Photo';
+    document.getElementById('galleryItemId').value = itemId || '';
+    tempGalleryImage = null;
+
+    if (itemId) {
+        const item = getAllGalleryItems().find(i => i.id === itemId);
+        if (item) {
+            document.getElementById('galleryTitle').value = item.title;
+            document.getElementById('galleryCategory').value = item.category;
+            document.getElementById('galleryDescription').value = item.description || '';
+            document.getElementById('galleryClientName').value = item.clientName || '';
+            tempGalleryImage = item.image;
+            document.getElementById('galleryImagePreview').innerHTML = `<img src="${item.image}" style="max-width: 200px; max-height: 200px; border-radius: 8px;">`;
+        }
+    } else {
+        document.getElementById('galleryForm').reset();
+        document.getElementById('galleryImagePreview').innerHTML = '';
+    }
+
+    document.getElementById('galleryModal').classList.add('show');
+}
+
+function closeGalleryModal() {
+    document.getElementById('galleryModal').classList.remove('show');
+    tempGalleryImage = null;
+}
+
+async function handleGalleryImage(event) {
+    const file = event.target.files[0];
+    if (!file) return;
+
+    try {
+        tempGalleryImage = await fileToBase64(file);
+        document.getElementById('galleryImagePreview').innerHTML = `<img src="${tempGalleryImage}" style="max-width: 200px; max-height: 200px; border-radius: 8px;">`;
+    } catch (err) {
+        console.error('Error reading file:', err);
+    }
+}
+
+function saveGalleryItem() {
+    const itemId = document.getElementById('galleryItemId').value;
+    const title = document.getElementById('galleryTitle').value;
+    const category = document.getElementById('galleryCategory').value;
+    const description = document.getElementById('galleryDescription').value;
+    const clientName = document.getElementById('galleryClientName').value;
+
+    if (!tempGalleryImage) {
+        alert('Please upload a photo');
+        return;
+    }
+
+    const itemData = {
+        title,
+        category,
+        description,
+        clientName,
+        image: tempGalleryImage
+    };
+
+    if (itemId) {
+        updateGalleryItem(itemId, itemData);
+    } else {
+        addGalleryItem(itemData);
+    }
+
+    closeGalleryModal();
+    loadGalleryTable();
+}
+
+function editGalleryItem(itemId) {
+    openGalleryModal(itemId);
+}
+
+function deleteGalleryItem(itemId) {
+    if (confirm('Are you sure you want to delete this gallery item?')) {
+        deleteGalleryItem(itemId);
+        loadGalleryTable();
+    }
+}
+
+function searchGalleryTable() {
+    const query = document.getElementById('gallerySearch').value;
+    const items = query ? searchGallery(query) : getAllGalleryItems();
+    renderGalleryGrid(items);
+}
+
+function filterGalleryTable() {
+    const category = document.getElementById('galleryFilter').value;
+    const items = getGalleryByCategory(category);
+    renderGalleryGrid(items);
+}
+
+function renderGalleryGrid(items) {
+    const grid = document.getElementById('galleryGrid');
+    if (!grid) return;
+
+    if (items.length === 0) {
+        grid.innerHTML = '<div class="empty-state" style="grid-column: 1/-1;"><i class="fas fa-images"></i><p>No gallery items found</p></div>';
+        return;
+    }
+
+    grid.innerHTML = items.map(item => `
+        <div class="gallery-item">
+            <img src="${item.image}" class="gallery-item-image" alt="${item.title}">
+            <div class="gallery-item-content">
+                <span class="gallery-item-category">${item.category}</span>
+                <div class="gallery-item-title">${item.title}</div>
+                ${item.clientName ? `<div style="font-size: 12px; color: #888; margin-bottom: 5px;"><i class="fas fa-user"></i> ${item.clientName}</div>` : ''}
+                <div class="gallery-item-desc">${item.description || ''}</div>
+            </div>
+            <div class="gallery-item-actions">
+                <button class="action-btn" onclick="editGalleryItem('${item.id}')" title="Edit"><i class="fas fa-edit"></i></button>
+                <button class="action-btn" onclick="deleteGalleryItem('${item.id}')" title="Delete"><i class="fas fa-trash"></i></button>
+            </div>
+        </div>
+    `).join('');
+}
+
+// File to Base64 helper (in gallery.js but duplicated here for safety)
+function fileToBase64(file) {
+    return new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.onload = () => resolve(reader.result);
+        reader.onerror = reject;
+        reader.readAsDataURL(file);
+    });
 }
 
 // Initialize on load

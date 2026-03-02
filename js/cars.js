@@ -155,5 +155,40 @@ function formatPrice(price) {
     return '₱' + price.toLocaleString('en-PH');
 }
 
+// Add image to car
+function addCarImage(carId, base64Image) {
+    const car = getCarById(carId);
+    if (car) {
+        if (!car.images) car.images = [];
+        car.images.push({
+            id: Date.now().toString(),
+            data: base64Image,
+            uploadedAt: new Date().toISOString()
+        });
+        updateCar(carId, { images: car.images });
+        return true;
+    }
+    return false;
+}
+
+// Remove image from car
+function removeCarImage(carId, imageId) {
+    const car = getCarById(carId);
+    if (car && car.images) {
+        car.images = car.images.filter(img => img.id !== imageId);
+        updateCar(carId, { images: car.images });
+        return true;
+    }
+    return false;
+}
+
+// Get car thumbnail (first image or placeholder)
+function getCarThumbnail(car) {
+    if (car.images && car.images.length > 0) {
+        return car.images[0].data;
+    }
+    return null;
+}
+
 // Initialize on load
 initCars();
