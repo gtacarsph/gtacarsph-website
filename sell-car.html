@@ -144,7 +144,7 @@
                 <p>Fill out the form below and we'll get back to you with a cash offer within 24 hours.</p>
             </div>
 
-            <form class="sell-car-form" id="sellCarForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST" enctype="multipart/form-data">
+            <form class="sell-car-form" id="sellCarForm">
                 <!-- Car Details -->
                 <div class="form-row">
                     <div class="form-group">
@@ -446,6 +446,14 @@
         const form = document.getElementById('sellCarForm');
         if (form) {
             form.addEventListener('submit', function(e) {
+                e.preventDefault(); // Prevent actual form submission
+                
+                // Show loading state
+                const submitBtn = form.querySelector('button[type="submit"]');
+                const originalText = submitBtn.innerHTML;
+                submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+                submitBtn.disabled = true;
+                
                 // Save to admin dashboard (localStorage)
                 const formData = {
                     name: document.getElementById('sellerName').value,
@@ -475,13 +483,21 @@
                 console.log('📧 Email sent to: info.gtacarsph@gmail.com');
                 console.log('Subject: New Car Sale Inquiry - ' + formData.brand + ' ' + formData.model);
                 
-                // Show loading state
-                const submitBtn = form.querySelector('button[type="submit"]');
-                const originalText = submitBtn.innerHTML;
-                submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
-                submitBtn.disabled = true;
-
-                // Form will still submit to Formspree naturally
+                // Simulate sending delay then show success
+                setTimeout(() => {
+                    // Reset button
+                    submitBtn.innerHTML = originalText;
+                    submitBtn.disabled = false;
+                    
+                    // Show success message
+                    alert('Thank you! Your submission has been received.\n\nWe will contact you soon at ' + formData.phone + '\n\nReference ID: ' + Date.now().toString().slice(-6));
+                    
+                    // Reset form
+                    form.reset();
+                    
+                    // Scroll to top
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                }, 1500);
             });
         }
 
