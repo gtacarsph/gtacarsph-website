@@ -348,6 +348,12 @@
         </div>
     </footer>
 
+    <!-- Admin Login Link (hidden in footer) -->
+    <div style="text-align:center;padding:10px;font-size:12px;">
+        <a href="admin-login.html" style="color:#333;text-decoration:none;">Admin</a>
+    </div>
+
+    <script src="js/submissions.js"></script>
     <script>
         // Mobile Navigation Toggle
         const navToggle = document.getElementById('navToggle');
@@ -440,14 +446,42 @@
         const form = document.getElementById('sellCarForm');
         if (form) {
             form.addEventListener('submit', function(e) {
+                // Save to admin dashboard (localStorage)
+                const formData = {
+                    name: document.getElementById('sellerName').value,
+                    phone: document.getElementById('sellerPhone').value,
+                    email: document.getElementById('sellerEmail')?.value || '',
+                    location: document.getElementById('sellerLocation').value,
+                    brand: document.getElementById('carBrand').value,
+                    model: document.getElementById('carModel').value,
+                    year: document.getElementById('carYear').value,
+                    expectedPrice: document.getElementById('expectedPrice').value,
+                    condition: document.getElementById('carCondition')?.value || '',
+                    notes: document.getElementById('additionalNotes')?.value || ''
+                };
+                
+                // Store in localStorage for admin dashboard
+                const submissions = JSON.parse(localStorage.getItem('gtacarsph_submissions') || '[]');
+                submissions.push({
+                    id: Date.now().toString(),
+                    ...formData,
+                    status: 'new',
+                    emailSent: true,
+                    createdAt: new Date().toISOString()
+                });
+                localStorage.setItem('gtacarsph_submissions', JSON.stringify(submissions));
+                
+                // Log email to console (simulating send to info.gtacarsph@gmail.com)
+                console.log('📧 Email sent to: info.gtacarsph@gmail.com');
+                console.log('Subject: New Car Sale Inquiry - ' + formData.brand + ' ' + formData.model);
+                
                 // Show loading state
                 const submitBtn = form.querySelector('button[type="submit"]');
                 const originalText = submitBtn.innerHTML;
                 submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
                 submitBtn.disabled = true;
 
-                // Let the form submit naturally to Formspree
-                // The page will redirect to their thank you page
+                // Form will still submit to Formspree naturally
             });
         }
 
