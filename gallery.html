@@ -372,5 +372,82 @@
     </footer>
 
     <script src="script.js?v=5"></script>
+    <script src="js/gallery.js"></script>
+    <script>
+        // Load admin-uploaded gallery items and merge with existing
+        function loadAdminGallery() {
+            const adminItems = getAllGalleryItems();
+            if (adminItems.length === 0) return;
+
+            // Add admin items to masonry grid
+            const grid = document.getElementById('masonryGrid');
+            if (!grid) return;
+
+            adminItems.forEach((item, index) => {
+                const galleryItem = document.createElement('div');
+                galleryItem.className = `gallery-item ${index % 3 === 0 ? 'tall' : index % 5 === 0 ? 'wide' : ''}`;
+                galleryItem.innerHTML = `
+                    <img src="${item.image}" alt="${item.title}" loading="lazy">
+                    <span class="car-type">${item.category}</span>
+                    <div class="gallery-item-overlay">
+                        <h4>${item.clientName || 'GTACarsPH Client'}</h4>
+                        <p>${item.title}</p>
+                        <p>${item.description || ''}</p>
+                    </div>
+                `;
+                galleryItem.addEventListener('click', () => {
+                    // Simple lightbox for admin-uploaded items
+                    const lightbox = document.createElement('div');
+                    lightbox.className = 'lightbox show';
+                    lightbox.innerHTML = `
+                        <button class="lightbox-close" onclick="this.parentElement.remove()">&times;</button>
+                        <div class="lightbox-content">
+                            <img src="${item.image}" alt="${item.title}">
+                            <div class="lightbox-caption">
+                                <h3>${item.title}</h3>
+                                <p>${item.description || ''}</p>
+                                ${item.clientName ? `<p><i class="fas fa-user"></i> ${item.clientName}</p>` : ''}
+                            </div>
+                        </div>
+                    `;
+                    lightbox.addEventListener('click', (e) => {
+                        if (e.target === lightbox) lightbox.remove();
+                    });
+                    document.body.appendChild(lightbox);
+                });
+                grid.appendChild(galleryItem);
+            });
+
+            // Add admin items to stories reel
+            const storiesTrack = document.getElementById('storiesTrack');
+            if (storiesTrack) {
+                adminItems.forEach(item => {
+                    const storyItem = document.createElement('div');
+                    storyItem.className = 'story-item';
+                    storyItem.innerHTML = `
+                        <div class="story-ring">
+                            <div class="story-thumb">
+                                <img src="${item.image}" alt="${item.title}">
+                            </div>
+                        </div>
+                        <div class="story-name">${item.clientName || 'Client'}</div>
+                    `;
+                    storyItem.addEventListener('click', () => {
+                        // Show admin story
+                        document.getElementById('storyImage').style.backgroundImage = `url('${item.image}')`;
+                        document.getElementById('storyCaption').innerHTML = `
+                            <h3>${item.title}</h3>
+                            <p>${item.description || ''}</p>
+                        `;
+                        document.getElementById('storyViewer').classList.add('show');
+                    });
+                    storiesTrack.appendChild(storyItem);
+                });
+            }
+        }
+
+        // Load after script.js initializes
+        window.addEventListener('load', loadAdminGallery);
+    </script>
 </body>
 </html>
