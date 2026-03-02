@@ -636,7 +636,23 @@
         // Inquire function
         function inquire(carName) {
             const message = `Hi GTACarsPH! I'm interested in the ${carName}. Is it still available?`;
-            window.open(`https://m.me/GTACARSPH?text=${encodeURIComponent(message)}`, '_blank');
+            const messengerUrl = `https://m.me/GTACARSPH?text=${encodeURIComponent(message)}`;
+            const fbUrl = `https://facebook.com/messages/t/GTACARSPH?text=${encodeURIComponent(message)}`;
+            
+            // Try Messenger first, fallback to regular Facebook
+            const newWindow = window.open(messengerUrl, '_blank');
+            
+            // If popup blocked or failed, show fallback
+            if (!newWindow || newWindow.closed || typeof newWindow.closed === 'undefined') {
+                // Copy message to clipboard
+                navigator.clipboard.writeText(message).then(() => {
+                    alert(`Messenger didn't open. Message copied to clipboard:\n\n"${message}"\n\nPlease message us on Facebook or call 0960-630-3785`);
+                }).catch(() => {
+                    alert(`Please message us:\n\nFacebook: fb.com/GTACARSPH\nPhone: 0960-630-3785\n\nMessage: "${message}"`);
+                });
+                // Open Facebook as fallback
+                window.open(fbUrl, '_blank');
+            }
         }
     </script>
     <script src="js/cars.js"></script>
