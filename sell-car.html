@@ -26,6 +26,15 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link rel="stylesheet" href="styles.css?v=5">
     
+    <!-- EmailJS for sending form submissions to email -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function() {
+            // EmailJS public key - replace with your actual public key from emailjs.com
+            emailjs.init("YOUR_PUBLIC_KEY");
+        })();
+    </script>
+    
     <!-- Schema.org Structured Data -->
     <script type="application/ld+json">
     {
@@ -443,6 +452,12 @@
         }
 
         // Form submission
+        // EmailJS Configuration - REPLACE THESE WITH YOUR ACTUAL VALUES
+        const EMAILJS_SERVICE_ID = 'YOUR_SERVICE_ID';     // From EmailJS dashboard
+        const EMAILJS_TEMPLATE_ID = 'YOUR_TEMPLATE_ID';   // From EmailJS dashboard
+        const EMAILJS_PUBLIC_KEY = 'YOUR_PUBLIC_KEY';     // From EmailJS dashboard
+        const RECIPIENT_EMAIL = 'info.gtacarsph@gmail.com';
+        
         const form = document.getElementById('sellCarForm');
         if (form) {
             form.addEventListener('submit', function(e) {
@@ -454,50 +469,82 @@
                 submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
                 submitBtn.disabled = true;
                 
-                // Save to admin dashboard (localStorage)
+                // Collect form data
                 const formData = {
                     name: document.getElementById('sellerName').value,
                     phone: document.getElementById('sellerPhone').value,
-                    email: document.getElementById('sellerEmail')?.value || '',
+                    email: document.getElementById('sellerEmail')?.value || 'Not provided',
                     location: document.getElementById('sellerLocation').value,
                     brand: document.getElementById('carBrand').value,
                     model: document.getElementById('carModel').value,
                     year: document.getElementById('carYear').value,
                     expectedPrice: document.getElementById('expectedPrice').value,
-                    condition: document.getElementById('carCondition')?.value || '',
-                    notes: document.getElementById('additionalNotes')?.value || ''
+                    condition: document.getElementById('carCondition')?.value || 'Not specified',
+                    notes: document.getElementById('additionalNotes')?.value || 'None',
+                    to_email: RECIPIENT_EMAIL,
+                    submit_date: new Date().toLocaleString('en-PH', { timeZone: 'Asia/Manila' })
                 };
                 
-                // Store in localStorage for admin dashboard
+                // Save to admin dashboard (localStorage) - always works
                 const submissions = JSON.parse(localStorage.getItem('gtacarsph_submissions') || '[]');
+                const submissionId = Date.now().toString();
                 submissions.push({
-                    id: Date.now().toString(),
+                    id: submissionId,
                     ...formData,
                     status: 'new',
-                    emailSent: true,
+                    emailSent: false, // Will update after EmailJS sends
                     createdAt: new Date().toISOString()
                 });
                 localStorage.setItem('gtacarsph_submissions', JSON.stringify(submissions));
                 
-                // Log email to console (simulating send to info.gtacarsph@gmail.com)
-                console.log('📧 Email sent to: info.gtacarsph@gmail.com');
-                console.log('Subject: New Car Sale Inquiry - ' + formData.brand + ' ' + formData.model);
-                
-                // Simulate sending delay then show success
-                setTimeout(() => {
-                    // Reset button
+                // Check if EmailJS is configured
+                if (EMAILJS_SERVICE_ID === 'YOUR_SERVICE_ID') {
+                    // EmailJS not configured yet - show setup message
                     submitBtn.innerHTML = originalText;
                     submitBtn.disabled = false;
                     
-                    // Show success message
-                    alert('Thank you! Your submission has been received.\n\nWe will contact you soon at ' + formData.phone + '\n\nReference ID: ' + Date.now().toString().slice(-6));
+                    alert('⚠️ Email setup required!\n\nYour submission was saved locally.\n\nTo enable email sending:\n1. Sign up at emailjs.com\n2. Create Email Service (Gmail)\n3. Create Email Template\n4. Update the config in this file\n\nReference ID: ' + submissionId.slice(-6));
                     
-                    // Reset form
                     form.reset();
-                    
-                    // Scroll to top
-                    window.scrollTo({ top: 0, behavior: 'smooth' });
-                }, 1500);
+                    return;
+                }
+                
+                // Send email using EmailJS
+                emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, formData, EMAILJS_PUBLIC_KEY)
+                    .then(function(response) {
+                        console.log('✅ Email sent successfully!', response);
+                        
+                        // Update submission as email sent
+                        const updatedSubmissions = JSON.parse(localStorage.getItem('gtacarsph_submissions') || '[]');
+                        const subIndex = updatedSubmissions.findIndex(s => s.id === submissionId);
+                        if (subIndex !== -1) {
+                            updatedSubmissions[subIndex].emailSent = true;
+                            localStorage.setItem('gtacarsph_submissions', JSON.stringify(updatedSubmissions));
+                        }
+                        
+                        // Reset button
+                        submitBtn.innerHTML = originalText;
+                        submitBtn.disabled = false;
+                        
+                        // Show success message
+                        alert('✅ Thank you! Your submission has been sent.\n\nWe will contact you soon at ' + formData.phone + '\n\nReference ID: ' + submissionId.slice(-6));
+                        
+                        // Reset form
+                        form.reset();
+                        
+                        // Scroll to top
+                        window.scrollTo({ top: 0, behavior: 'smooth' });
+                    })
+                    .catch(function(error) {
+                        console.error('❌ Email failed:', error);
+                        
+                        // Reset button
+                        submitBtn.innerHTML = originalText;
+                        submitBtn.disabled = false;
+                        
+                        // Show error but note that data was saved
+                        alert('⚠️ Submission saved but email failed to send.\n\nWe have your info and will contact you at ' + formData.phone + '\n\nReference ID: ' + submissionId.slice(-6) + '\n\nError: ' + error.text);
+                    });
             });
         }
 
