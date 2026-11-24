@@ -1,635 +1,501 @@
-/* ============================================
-   GTACarsPH — LUXURY WEBSITE v2.0
-   Interactive Features
-   ============================================ */
-
-document.addEventListener('DOMContentLoaded', () => {
-
-  // ============================================
-  // SAMPLE INVENTORY DATA
-  // ============================================
-  window.carsInventory = [
+1|/* ============================================
+2|   GTACarsPH — LUXURY WEBSITE v2.0
+3|   Interactive Features
+4|   ============================================ */
+5|
+6|document.addEventListener('DOMContentLoaded', () => {
+7|
+8|  // ============================================
+9|  // SAMPLE INVENTORY DATA
+10|  // ============================================
+11|  window.carsInventory = [
     {
       id: 1,
-      brand: 'Toyota',
-      model: 'Fortuner 2.8L Q',
-      year: 2021,
-      price: 1680000,
-      mileage: 28000,
-      fuel: 'Diesel',
+      brand: 'Ford',
+      model: 'EcoSport Titanium 1.5L',
+      year: 2022,
+      price: 698000,
+      mileage: 18000,
+      fuel: 'Gasoline',
       transmission: 'Automatic',
-      image: 'https://images.unsplash.com/photo-1623869675781-80aa3102a5d0?w=600&q=80',
+      image: 'https://images.unsplash.com/photo-1606664514181-ff2586c6a58f?w=600&q=80',
       badge: 'Featured',
-      description: 'Well-maintained Toyota Fortuner, one owner, full service history.'
+      description: 'Compact SUV, perfect for city driving. Low mileage, well-maintained, one owner.'
     },
     {
       id: 2,
-      brand: 'Honda',
-      model: 'Civic RS Turbo',
-      year: 2022,
-      price: 1250000,
-      mileage: 15000,
+      brand: 'Ford',
+      model: 'Fiesta Sport 1.5L',
+      year: 2020,
+      price: 398000,
+      mileage: 45000,
       fuel: 'Gasoline',
       transmission: 'Automatic',
-      image: 'https://images.unsplash.com/photo-1617897903246-719242758050?w=600&q=80',
-      badge: 'Featured',
-      description: 'Sporty Civic RS Turbo, low mileage, pristine condition.'
+      image: 'https://images.unsplash.com/photo-1544636331-e26879cd4d9b?w=600&q=80',
+      badge: 'Best Value',
+      description: 'Fun-to-drive hatchback, fuel-efficient, perfect first car. Freshly detailed!'
     },
     {
       id: 3,
       brand: 'Ford',
-      model: 'Ranger Wildtrak 2.0L',
-      year: 2020,
-      price: 1450000,
-      mileage: 35000,
-      fuel: 'Diesel',
+      model: 'Territory Titanium X 1.5L',
+      year: 2023,
+      price: 1280000,
+      mileage: 12000,
+      fuel: 'Gasoline',
       transmission: 'Automatic',
-      image: 'https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?w=600&q=80',
+      image: 'https://images.unsplash.com/photo-1617469767053-d3b7fb1e8b32?w=600&q=80',
       badge: 'Featured',
-      description: 'Ford Ranger Wildtrak, perfect for work and adventure.'
+      description: 'Brand new look Territory! Loaded with tech — sunroof, 360 cam, premium leather.'
     },
     {
       id: 4,
-      brand: 'Mitsubishi',
-      model: 'Montero Sport GT',
+      brand: 'Ford',
+      model: 'Ranger Wildtrak 2.0L Bi-Turbo',
       year: 2021,
-      price: 1580000,
-      mileage: 22000,
+      price: 1450000,
+      mileage: 30000,
       fuel: 'Diesel',
       transmission: 'Automatic',
-      image: 'https://images.unsplash.com/photo-1544636331-e26879cd4d9b?w=600&q=80',
+      image: 'https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?w=600&q=80',
       badge: 'Sold',
-      description: 'Top-of-the-line Montero Sport with panoramic sunroof.'
+      description: 'Top-of-the-line Wildtrak, loaded with accessories. Ready for any adventure.'
     },
     {
       id: 5,
-      brand: 'Nissan',
-      model: 'Navarra Pro-4X',
+      brand: 'Ford',
+      model: 'Everest Titanium 2.0L 4x4',
       year: 2022,
-      price: 1390000,
-      mileage: 18000,
+      price: 1850000,
+      mileage: 22000,
       fuel: 'Diesel',
       transmission: 'Automatic',
-      image: 'https://images.unsplash.com/photo-1544636331-e26879cd4d9b?w=600&q=80',
+      image: 'https://images.unsplash.com/photo-1552519507-da3b142c6e3d?w=600&q=80',
       badge: 'Featured',
-      description: 'Adventure-ready Navarra with off-road package.'
+      description: 'Premier 7-seater SUV. Leather seats, panoramic roof, Terrain Management.'
     },
     {
       id: 6,
-      brand: 'Hyundai',
-      model: 'Tucson GLX',
-      year: 2023,
-      price: 1350000,
-      mileage: 8000,
+      brand: 'Ford',
+      model: 'Focus Titanium 2.0L',
+      year: 2019,
+      price: 498000,
+      mileage: 55000,
       fuel: 'Gasoline',
       transmission: 'Automatic',
-      image: 'https://images.unsplash.com/photo-1617897903246-719242758050?w=600&q=80',
-      badge: 'Featured',
-      description: 'Brand new look, low mileage Tucson, like brand new!'
+      image: 'https://images.unsplash.com/photo-1580273916550-e323be2ae537?w=600&q=80',
+      badge: '',
+      description: 'Well-kept Focus Titanium, DPS6 already serviced. Runs like new!'
     },
     {
       id: 7,
       brand: 'Ford',
-      model: 'Everest Titanium 2.0L',
+      model: 'EcoSport Trend 1.5L',
       year: 2021,
-      price: 1850000,
+      price: 598000,
       mileage: 25000,
-      fuel: 'Diesel',
+      fuel: 'Gasoline',
       transmission: 'Automatic',
-      image: 'https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?w=600&q=80',
-      badge: '',
-      description: 'Family SUV with 7 seats, premium sound system.'
+      image: 'https://images.unsplash.com/photo-1606664514181-ff2586c6a58f?w=600&q=80',
+      badge: 'Featured',
+      description: 'Affordable EcoSport Trend. Heater hose upgrade done. One owner, all papers complete.'
     },
     {
       id: 8,
-      brand: 'Toyota',
-      model: 'Hilux Conquest',
-      year: 2020,
-      price: 1250000,
-      mileage: 40000,
-      fuel: 'Diesel',
-      transmission: 'Manual',
-      image: 'https://images.unsplash.com/photo-1623869675781-80aa3102a5d0?w=600&q=80',
+      brand: 'Ford',
+      model: 'Territory Trend 1.5L',
+      year: 2022,
+      price: 1080000,
+      mileage: 16000,
+      fuel: 'Gasoline',
+      transmission: 'Automatic',
+      image: 'https://images.unsplash.com/photo-1617469767053-d3b7fb1e8b32?w=600&q=80',
       badge: '',
-      description: 'The legendary Hilux, built tough, ready for anything.'
+      description: 'Sleek Territory Trend. Low mileage, Ford PMS done, still under warranty.'
     }
   ];
-
-  // ============================================
-  // HERO SLIDESHOW
-  // ============================================
-  function initHeroSlideshow() {
-    const slideshow = document.querySelector('.hero-slideshow');
-    if (!slideshow) return;
-
-    const slides = slideshow.querySelectorAll('.hero-slide');
-    const dots = document.querySelectorAll('.hero-dot');
-    let current = 0;
-    let interval;
-
-    function showSlide(index) {
-      slides.forEach(s => s.classList.remove('active'));
-      dots.forEach(d => d.classList.remove('active'));
-      slides[index].classList.add('active');
-      dots[index].classList.add('active');
-      current = index;
-    }
-
-    function nextSlide() {
-      showSlide((current + 1) % slides.length);
-    }
-
-    function startSlideshow() {
-      interval = setInterval(nextSlide, 6000);
-    }
-
-    function stopSlideshow() {
-      clearInterval(interval);
-    }
-
-    if (dots.length) {
-      dots.forEach(dot => {
-        dot.addEventListener('click', () => {
-          showSlide(parseInt(dot.dataset.index));
-          stopSlideshow();
-          startSlideshow();
-        });
-      });
-    }
-
-    startSlideshow();
-  }
-
-  // ============================================
-  // HERO PARTICLES
-  // ============================================
-  function initParticles() {
-    const container = document.querySelector('.hero-particles');
-    if (!container) return;
-
-    for (let i = 0; i < 30; i++) {
-      const particle = document.createElement('div');
-      particle.className = 'particle';
-      particle.style.left = Math.random() * 100 + '%';
-      particle.style.animationDelay = Math.random() * 8 + 's';
-      particle.style.animationDuration = (8 + Math.random() * 4) + 's';
-      particle.style.width = (2 + Math.random() * 3) + 'px';
-      particle.style.height = particle.style.width;
-      container.appendChild(particle);
-    }
-  }
-
-  // ============================================
-  // NAVBAR SCROLL EFFECT
-  // ============================================
-  function initNavbar() {
-    const navbar = document.getElementById('navbar');
-    if (!navbar) return;
-
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > 80) {
-        navbar.classList.add('scrolled');
-      } else {
-        navbar.classList.remove('scrolled');
-      }
-    });
-  }
-
-  // ============================================
-  // MOBILE MENU
-  // ============================================
-  function initMobileMenu() {
-    const toggle = document.querySelector('.menu-toggle');
-    const navMenu = document.getElementById('navMenu');
-    if (!toggle || !navMenu) return;
-
-    toggle.addEventListener('click', () => {
-      toggle.classList.toggle('active');
-      navMenu.classList.toggle('open');
-      document.body.style.overflow = navMenu.classList.contains('open') ? 'hidden' : '';
-    });
-
-    // Close menu on link click
-    navMenu.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', () => {
-        toggle.classList.remove('active');
-        navMenu.classList.remove('open');
-        document.body.style.overflow = '';
-      });
-    });
-  }
-
-  // ============================================
-  // SCROLL ANIMATIONS (AOS-style)
-  // ============================================
-  function initScrollAnimations() {
-    const elements = document.querySelectorAll('.animate-on-scroll');
-
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-          observer.unobserve(entry.target);
-        }
-      });
-    }, {
-      threshold: 0.1,
-      rootMargin: '0px 0px -50px 0px'
-    });
-
-    elements.forEach(el => observer.observe(el));
-  }
-
-  // ============================================
-  // BACK TO TOP
-  // ============================================
-  function initBackToTop() {
-    const btn = document.querySelector('.back-to-top');
-    if (!btn) return;
-
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > 500) {
-        btn.classList.add('visible');
-      } else {
-        btn.classList.remove('visible');
-      }
-    });
-
-    btn.addEventListener('click', () => {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
-  }
-
-  // ============================================
-  // INVENTORY RENDERER
-  // ============================================
-  function renderInventory(cars, containerId = 'inventoryGrid') {
-    const container = document.getElementById(containerId);
-    if (!container || !cars) return;
-
-    if (!cars.length) {
-      container.innerHTML = `
-        <div class="inventory-empty">
-          <i class="fas fa-car"></i>
-          <h3>No Cars Found</h3>
-          <p>Try adjusting your filters to see more results.</p>
-        </div>
-      `;
-      return;
-    }
-
-    container.innerHTML = cars.map(car => `
-      <div class="car-card animate-on-scroll">
-        <div class="car-card-image">
-          <img src="${car.image}" alt="${car.brand} ${car.model}" loading="lazy">
-          ${car.badge ? `<span class="car-card-badge ${car.badge.toLowerCase()}">${car.badge}</span>` : ''}
-        </div>
-        <div class="car-card-body">
-          <h3 class="car-card-title">${car.brand} ${car.model}</h3>
-          <div class="car-card-price">₱${car.price.toLocaleString()}</div>
-          <div class="car-card-specs">
-            <span class="car-card-spec"><i class="fas fa-calendar"></i> ${car.year}</span>
-            <span class="car-card-spec"><i class="fas fa-tachometer-alt"></i> ${car.mileage.toLocaleString()} km</span>
-            <span class="car-card-spec"><i class="fas fa-gas-pump"></i> ${car.fuel}</span>
-            <span class="car-card-spec"><i class="fas fa-cog"></i> ${car.transmission}</span>
-          </div>
-          <p style="font-size:0.8rem;color:var(--clr-text-muted);margin-bottom:1rem;">${car.description}</p>
-          <div class="car-card-actions">
-            <a href="https://facebook.com/GTACARSPH" target="_blank" class="btn btn-primary btn-sm"><i class="fab fa-facebook-messenger"></i> Inquire</a>
-            <a href="tel:+639606303785" class="btn btn-secondary btn-sm"><i class="fas fa-phone"></i> Call</a>
-          </div>
-        </div>
-      </div>
-    `).join('');
-
-    // Re-observe new animated elements
-    initScrollAnimations();
-  }
-
-  // ============================================
-  // INVENTORY FILTERS
-  // ============================================
-  function initInventoryFilters() {
-    const filterForm = document.getElementById('filterForm');
-    if (!filterForm) return;
-
-    const allCars = window.carsInventory || [];
-
-    function applyFilters() {
-      const brand = document.getElementById('filterBrand')?.value || 'all';
-      const minPrice = parseInt(document.getElementById('filterMinPrice')?.value) || 0;
-      const maxPrice = parseInt(document.getElementById('filterMaxPrice')?.value) || Infinity;
-      const minYear = parseInt(document.getElementById('filterYear')?.value) || 0;
-      const fuel = document.getElementById('filterFuel')?.value || 'all';
-
-      let filtered = allCars.filter(car => {
-        if (brand !== 'all' && car.brand !== brand) return false;
-        if (car.price < minPrice || car.price > maxPrice) return false;
-        if (minYear && car.year < minYear) return false;
-        if (fuel !== 'all' && car.fuel !== fuel) return false;
-        return true;
-      });
-
-      renderInventory(filtered);
-    }
-
-    filterForm.querySelectorAll('select, input').forEach(el => {
-      el.addEventListener('change', applyFilters);
-    });
-
-    // Initial render
-    renderInventory(allCars);
-  }
-
-  // ============================================
-  // GALLERY
-  // ============================================
-  function initGallery() {
-    const lightbox = document.getElementById('lightbox');
-    if (!lightbox) return;
-
-    const lightboxImg = lightbox.querySelector('img');
-    const closeBtn = lightbox.querySelector('.lightbox-close');
-    const prevBtn = lightbox.querySelector('.lightbox-prev');
-    const nextBtn = lightbox.querySelector('.lightbox-next');
-    const filterBtns = document.querySelectorAll('.gallery-filter-btn');
-    let currentIndex = 0;
-
-    function openLightbox(index) {
-      currentIndex = index;
-      const items = document.querySelectorAll('.gallery-item');
-      if (items[index]) {
-        const img = items[index].querySelector('img');
-        lightboxImg.src = img.src;
-        lightboxImg.alt = img.alt;
-        lightbox.classList.add('active');
-        document.body.style.overflow = 'hidden';
-      }
-    }
-
-    function closeLightbox() {
-      lightbox.classList.remove('active');
-      document.body.style.overflow = '';
-    }
-
-    function navigate(direction) {
-      const items = document.querySelectorAll('.gallery-item:not([style*="display: none"])');
-      if (!items.length) return;
-      let newIndex = currentIndex + direction;
-      if (newIndex < 0) newIndex = items.length - 1;
-      if (newIndex >= items.length) newIndex = 0;
-      openLightbox(newIndex);
-    }
-
-    // Click on gallery items
-    document.querySelectorAll('.gallery-item').forEach((item, index) => {
-      item.addEventListener('click', () => openLightbox(index));
-    });
-
-    closeBtn.addEventListener('click', closeLightbox);
-    prevBtn.addEventListener('click', () => navigate(-1));
-    nextBtn.addEventListener('click', () => navigate(1));
-
-    // Keyboard navigation
-    document.addEventListener('keydown', (e) => {
-      if (!lightbox.classList.contains('active')) return;
-      if (e.key === 'Escape') closeLightbox();
-      if (e.key === 'ArrowLeft') navigate(-1);
-      if (e.key === 'ArrowRight') navigate(1);
-    });
-
-    // Click outside image
-    lightbox.addEventListener('click', (e) => {
-      if (e.target === lightbox) closeLightbox();
-    });
-
-    // Gallery filters
-    if (filterBtns.length) {
-      filterBtns.forEach(btn => {
-        btn.addEventListener('click', () => {
-          filterBtns.forEach(b => b.classList.remove('active'));
-          btn.classList.add('active');
-          const filter = btn.dataset.filter || 'all';
-          document.querySelectorAll('.gallery-item').forEach(item => {
-            if (filter === 'all' || item.dataset.category === filter) {
-              item.style.display = '';
-            } else {
-              item.style.display = 'none';
-            }
-          });
-        });
-      });
-    }
-  }
-
-  // ============================================
-  // FINANCING CALCULATOR
-  // ============================================
-  function initCalculator() {
-    const calcForm = document.getElementById('calcForm');
-    if (!calcForm) return;
-
-    function calculate() {
-      const price = parseFloat(document.getElementById('calcPrice')?.value) || 0;
-      const downPercent = parseFloat(document.getElementById('calcDown')?.value) || 20;
-      const term = parseFloat(document.getElementById('calcTerm')?.value) || 60;
-      const rate = 0.08; // 8% annual interest
-
-      const downPayment = price * (downPercent / 100);
-      const loanAmount = price - downPayment;
-      const monthlyRate = rate / 12;
-      const monthlyPayment = loanAmount * (monthlyRate * Math.pow(1 + monthlyRate, term)) / (Math.pow(1 + monthlyRate, term) - 1);
-      const totalPayment = monthlyPayment * term;
-      const totalInterest = totalPayment - loanAmount;
-
-      document.getElementById('calcMonthly').textContent = '₱' + Math.round(monthlyPayment).toLocaleString();
-      document.getElementById('calcDownResult').textContent = '₱' + Math.round(downPayment).toLocaleString();
-      document.getElementById('calcLoanAmount').textContent = '₱' + Math.round(loanAmount).toLocaleString();
-      document.getElementById('calcTotalInterest').textContent = '₱' + Math.round(totalInterest).toLocaleString();
-      document.getElementById('calcTotalPayment').textContent = '₱' + Math.round(totalPayment).toLocaleString();
-    }
-
-    calcForm.querySelectorAll('input, select').forEach(el => {
-      el.addEventListener('input', calculate);
-      el.addEventListener('change', calculate);
-    });
-
-    calculate();
-  }
-
-  // ============================================
-  // CONTACT FORM (placeholder)
-  // ============================================
-  function initContactForm() {
-    const form = document.getElementById('contactForm');
-    if (!form) return;
-
-    form.addEventListener('submit', (e) => {
-      e.preventDefault();
-
-      const btn = form.querySelector('button[type="submit"]');
-      const originalText = btn.innerHTML;
-      btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
-      btn.disabled = true;
-
-      // Simulate send — replace with EmailJS or formspree
-      setTimeout(() => {
-        btn.innerHTML = '<i class="fas fa-check"></i> Message Sent!';
-        btn.style.background = '#22c55e';
-        form.reset();
-
-        setTimeout(() => {
-          btn.innerHTML = originalText;
-          btn.disabled = false;
-          btn.style.background = '';
-        }, 3000);
-      }, 1500);
-    });
-  }
-
-  // ============================================
-  // SELL CAR FORM (placeholder)
-  // ============================================
-  function initSellForm() {
-    const form = document.getElementById('sellForm');
-    if (!form) return;
-
-    form.addEventListener('submit', (e) => {
-      e.preventDefault();
-
-      const btn = form.querySelector('button[type="submit"]');
-      const originalText = btn.innerHTML;
-      btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Submitting...';
-      btn.disabled = true;
-
-      setTimeout(() => {
-        btn.innerHTML = '<i class="fas fa-check"></i> Submitted! We\'ll contact you!';
-        btn.style.background = '#22c55e';
-        form.reset();
-
-        setTimeout(() => {
-          btn.innerHTML = originalText;
-          btn.disabled = false;
-          btn.style.background = '';
-        }, 3000);
-      }, 1500);
-    });
-  }
-
-  // ============================================
-  // TESTIMONIALS DATA
-  // ============================================
-  function renderTestimonials() {
-    const container = document.getElementById('testimonialsGrid');
-    if (!container) return;
-
-    const testimonials = [
-      { name: 'Juan dela Cruz', role: 'Happy Customer', text: 'Bought a Honda Civic from GTACarsPH. Smooth transaction, no hidden issues. Highly recommend!', rating: 5 },
-      { name: 'Maria Santos', role: 'Return Customer', text: 'Second car ko na to sa kanila. Trustworthy at napaka-professional. Ford repair nila world-class!', rating: 5 },
-      { name: 'Carlos Mendoza', role: 'First-time Buyer', text: 'First time buying a used car, and GTACarsPH made it so easy. Got approved for financing in 2 days!', rating: 5 },
-      { name: 'Ana Reyes', role: 'Car Seller', text: 'Binenta ko sasakyan ko sa kanila. Fair price, cash agad. Walang sakit ng ulo!', rating: 5 },
-      { name: 'Dennis Tan', role: 'Ford Owner', text: 'Ford Focus ko pinaayos nila. ABS module repair — 3 days lang okay na! Sila lang nagawa nyan.', rating: 5 }
-    ];
-
-    container.innerHTML = testimonials.map(t => `
-      <div class="testimonial-card animate-on-scroll">
-        <p class="testimonial-text">"${t.text}"</p>
-        <div class="testimonial-stars">${'★'.repeat(t.rating)}${'☆'.repeat(5 - t.rating)}</div>
-        <div class="testimonial-author">
-          <div class="testimonial-avatar">${t.name.charAt(0)}</div>
-          <div>
-            <div class="testimonial-name">${t.name}</div>
-            <div class="testimonial-role">${t.role}</div>
-          </div>
-        </div>
-      </div>
-    `).join('');
-  }
-
-  // ============================================
-  // ACTIVE PAGE HIGHLIGHT
-  // ============================================
-  function highlightActivePage() {
-    const currentPage = window.location.pathname.split('/').pop() || 'index.html';
-    document.querySelectorAll('.nav-links a').forEach(link => {
-      const href = link.getAttribute('href');
-      if (href === currentPage || (currentPage === 'index.html' && (href === '#' || href === 'index.html' || href === ''))) {
-        link.classList.add('active');
-      }
-    });
-  }
-
-  // ============================================
-  // CAROUSEL (for featured cars on mobile)
-  // ============================================
-  function initCarousel() {
-    const track = document.querySelector('.carousel-track');
-    if (!track) return;
-
-    let isDown = false;
-    let startX;
-    let scrollLeft;
-
-    track.addEventListener('mousedown', (e) => {
-      isDown = true;
-      startX = e.pageX - track.offsetLeft;
-      scrollLeft = track.scrollLeft;
-      track.style.cursor = 'grabbing';
-    });
-
-    track.addEventListener('mouseleave', () => {
-      isDown = false;
-      track.style.cursor = 'grab';
-    });
-
-    track.addEventListener('mouseup', () => {
-      isDown = false;
-      track.style.cursor = 'grab';
-    });
-
-    track.addEventListener('mousemove', (e) => {
-      if (!isDown) return;
-      e.preventDefault();
-      const x = e.pageX - track.offsetLeft;
-      const walk = (x - startX) * 2;
-      track.scrollLeft = scrollLeft - walk;
-    });
-  }
-
-  // ============================================
-  // SMOOTH SCROLL FOR ANCHOR LINKS
-  // ============================================
-  function initSmoothScroll() {
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function(e) {
-        const href = this.getAttribute('href');
-        if (href === '#') return;
-        e.preventDefault();
-        const target = document.querySelector(href);
-        if (target) {
-          target.scrollIntoView({ behavior: 'smooth' });
-        }
-      });
-    });
-  }
-
-  // ============================================
-  // INIT ALL
-  // ============================================
-  initNavbar();
-  initMobileMenu();
-  initHeroSlideshow();
-  initParticles();
-  initScrollAnimations();
-  initBackToTop();
-  initInventoryFilters();
-  initGallery();
-  initCalculator();
-  initContactForm();
-  initSellForm();
-  renderTestimonials();
-  highlightActivePage();
-  initCarousel();
-  initSmoothScroll();
-
-});
+117|
+118|  // ============================================
+119|  // HERO SLIDESHOW
+120|  // ============================================
+121|  function initHeroSlideshow() {
+122|    const slideshow = document.querySelector('.hero-slideshow');
+123|    if (!slideshow) return;
+124|
+125|    const slides = slideshow.querySelectorAll('.hero-slide');
+126|    const dots = document.querySelectorAll('.hero-dot');
+127|    let current = 0;
+128|    let interval;
+129|
+130|    function showSlide(index) {
+131|      slides.forEach(s => s.classList.remove('active'));
+132|      dots.forEach(d => d.classList.remove('active'));
+133|      slides[index].classList.add('active');
+134|      dots[index].classList.add('active');
+135|      current = index;
+136|    }
+137|
+138|    function nextSlide() {
+139|      showSlide((current + 1) % slides.length);
+140|    }
+141|
+142|    function startSlideshow() {
+143|      interval = setInterval(nextSlide, 6000);
+144|    }
+145|
+146|    function stopSlideshow() {
+147|      clearInterval(interval);
+148|    }
+149|
+150|    if (dots.length) {
+151|      dots.forEach(dot => {
+152|        dot.addEventListener('click', () => {
+153|          showSlide(parseInt(dot.dataset.index));
+154|          stopSlideshow();
+155|          startSlideshow();
+156|        });
+157|      });
+158|    }
+159|
+160|    startSlideshow();
+161|  }
+162|
+163|  // ============================================
+164|  // HERO PARTICLES
+165|  // ============================================
+166|  function initParticles() {
+167|    const container = document.querySelector('.hero-particles');
+168|    if (!container) return;
+169|
+170|    for (let i = 0; i < 30; i++) {
+171|      const particle = document.createElement('div');
+172|      particle.className = 'particle';
+173|      particle.style.left = Math.random() * 100 + '%';
+174|      particle.style.animationDelay = Math.random() * 8 + 's';
+175|      particle.style.animationDuration = (8 + Math.random() * 4) + 's';
+176|      particle.style.width = (2 + Math.random() * 3) + 'px';
+177|      particle.style.height = particle.style.width;
+178|      container.appendChild(particle);
+179|    }
+180|  }
+181|
+182|  // ============================================
+183|  // NAVBAR SCROLL EFFECT
+184|  // ============================================
+185|  function initNavbar() {
+186|    const navbar = document.getElementById('navbar');
+187|    if (!navbar) return;
+188|
+189|    window.addEventListener('scroll', () => {
+190|      if (window.scrollY > 80) {
+191|        navbar.classList.add('scrolled');
+192|      } else {
+193|        navbar.classList.remove('scrolled');
+194|      }
+195|    });
+196|  }
+197|
+198|  // ============================================
+199|  // MOBILE MENU
+200|  // ============================================
+201|  function initMobileMenu() {
+202|    const toggle = document.querySelector('.menu-toggle');
+203|    const navMenu = document.getElementById('navMenu');
+204|    if (!toggle || !navMenu) return;
+205|
+206|    toggle.addEventListener('click', () => {
+207|      toggle.classList.toggle('active');
+208|      navMenu.classList.toggle('open');
+209|      document.body.style.overflow = navMenu.classList.contains('open') ? 'hidden' : '';
+210|    });
+211|
+212|    // Close menu on link click
+213|    navMenu.querySelectorAll('a').forEach(link => {
+214|      link.addEventListener('click', () => {
+215|        toggle.classList.remove('active');
+216|        navMenu.classList.remove('open');
+217|        document.body.style.overflow = '';
+218|      });
+219|    });
+220|  }
+221|
+222|  // ============================================
+223|  // SCROLL ANIMATIONS (AOS-style)
+224|  // ============================================
+225|  function initScrollAnimations() {
+226|    const elements = document.querySelectorAll('.animate-on-scroll');
+227|
+228|    const observer = new IntersectionObserver((entries) => {
+229|      entries.forEach(entry => {
+230|        if (entry.isIntersecting) {
+231|          entry.target.classList.add('visible');
+232|          observer.unobserve(entry.target);
+233|        }
+234|      });
+235|    }, {
+236|      threshold: 0.1,
+237|      rootMargin: '0px 0px -50px 0px'
+238|    });
+239|
+240|    elements.forEach(el => observer.observe(el));
+241|  }
+242|
+243|  // ============================================
+244|  // BACK TO TOP
+245|  // ============================================
+246|  function initBackToTop() {
+247|    const btn = document.querySelector('.back-to-top');
+248|    if (!btn) return;
+249|
+250|    window.addEventListener('scroll', () => {
+251|      if (window.scrollY > 500) {
+252|        btn.classList.add('visible');
+253|      } else {
+254|        btn.classList.remove('visible');
+255|      }
+256|    });
+257|
+258|    btn.addEventListener('click', () => {
+259|      window.scrollTo({ top: 0, behavior: 'smooth' });
+260|    });
+261|  }
+262|
+263|  // ============================================
+264|  // INVENTORY RENDERER
+265|  // ============================================
+266|  function renderInventory(cars, containerId = 'inventoryGrid') {
+267|    const container = document.getElementById(containerId);
+268|    if (!container || !cars) return;
+269|
+270|    if (!cars.length) {
+271|      container.innerHTML = `
+272|        <div class="inventory-empty">
+273|          <i class="fas fa-car"></i>
+274|          <h3>No Cars Found</h3>
+275|          <p>Try adjusting your filters to see more results.</p>
+276|        </div>
+277|      `;
+278|      return;
+279|    }
+280|
+281|    container.innerHTML = cars.map(car => `
+282|      <div class="car-card animate-on-scroll">
+283|        <div class="car-card-image">
+284|          <img src="${car.image}" alt="${car.brand} ${car.model}" loading="lazy">
+285|          ${car.badge ? `<span class="car-card-badge ${car.badge.toLowerCase()}">${car.badge}</span>` : ''}
+286|        </div>
+287|        <div class="car-card-body">
+288|          <h3 class="car-card-title">${car.brand} ${car.model}</h3>
+289|          <div class="car-card-price">₱${car.price.toLocaleString()}</div>
+290|          <div class="car-card-specs">
+291|            <span class="car-card-spec"><i class="fas fa-calendar"></i> ${car.year}</span>
+292|            <span class="car-card-spec"><i class="fas fa-tachometer-alt"></i> ${car.mileage.toLocaleString()} km</span>
+293|            <span class="car-card-spec"><i class="fas fa-gas-pump"></i> ${car.fuel}</span>
+294|            <span class="car-card-spec"><i class="fas fa-cog"></i> ${car.transmission}</span>
+295|          </div>
+296|          <p style="font-size:0.8rem;color:var(--clr-text-muted);margin-bottom:1rem;">${car.description}</p>
+297|          <div class="car-card-actions">
+298|            <a href="https://facebook.com/GTACARSPH" target="_blank" class="btn btn-primary btn-sm"><i class="fab fa-facebook-messenger"></i> Inquire</a>
+299|            <a href="tel:+639****3785" class="btn btn-secondary btn-sm"><i class="fas fa-phone"></i> Call</a>
+300|          </div>
+301|        </div>
+302|      </div>
+303|    `).join('');
+304|
+305|    // Re-observe new animated elements
+306|    initScrollAnimations();
+307|  }
+308|
+309|  // ============================================
+310|  // INVENTORY FILTERS
+311|  // ============================================
+312|  function initInventoryFilters() {
+313|    const filterForm = document.getElementById('filterForm');
+314|    if (!filterForm) return;
+315|
+316|    const allCars = window.carsInventory || [];
+317|
+318|    function applyFilters() {
+319|      const brand = document.getElementById('filterBrand')?.value || 'all';
+320|      const minPrice = parseInt(document.getElementById('filterMinPrice')?.value) || 0;
+321|      const maxPrice = parseInt(document.getElementById('filterMaxPrice')?.value) || Infinity;
+322|      const minYear = parseInt(document.getElementById('filterYear')?.value) || 0;
+323|      const fuel = document.getElementById('filterFuel')?.value || 'all';
+324|
+325|      let filtered = allCars.filter(car => {
+326|        if (brand !== 'all' && car.brand !== brand) return false;
+327|        if (car.price < minPrice || car.price > maxPrice) return false;
+328|        if (minYear && car.year < minYear) return false;
+329|        if (fuel !== 'all' && car.fuel !== fuel) return false;
+330|        return true;
+331|      });
+332|
+333|      renderInventory(filtered);
+334|    }
+335|
+336|    filterForm.querySelectorAll('select, input').forEach(el => {
+337|      el.addEventListener('change', applyFilters);
+338|    });
+339|
+340|    // Initial render
+341|    renderInventory(allCars);
+342|  }
+343|
+344|  // ============================================
+345|  // GALLERY
+346|  // ============================================
+347|  function initGallery() {
+348|    const lightbox = document.getElementById('lightbox');
+349|    if (!lightbox) return;
+350|
+351|    const lightboxImg = lightbox.querySelector('img');
+352|    const closeBtn = lightbox.querySelector('.lightbox-close');
+353|    const prevBtn = lightbox.querySelector('.lightbox-prev');
+354|    const nextBtn = lightbox.querySelector('.lightbox-next');
+355|    const filterBtns = document.querySelectorAll('.gallery-filter-btn');
+356|    let currentIndex = 0;
+357|
+358|    function openLightbox(index) {
+359|      currentIndex = index;
+360|      const items = document.querySelectorAll('.gallery-item');
+361|      if (items[index]) {
+362|        const img = items[index].querySelector('img');
+363|        lightboxImg.src = img.src;
+364|        lightboxImg.alt = img.alt;
+365|        lightbox.classList.add('active');
+366|        document.body.style.overflow = 'hidden';
+367|      }
+368|    }
+369|
+370|    function closeLightbox() {
+371|      lightbox.classList.remove('active');
+372|      document.body.style.overflow = '';
+373|    }
+374|
+375|    function navigate(direction) {
+376|      const items = document.querySelectorAll('.gallery-item:not([style*="display: none"])');
+377|      if (!items.length) return;
+378|      let newIndex = currentIndex + direction;
+379|      if (newIndex < 0) newIndex = items.length - 1;
+380|      if (newIndex >= items.length) newIndex = 0;
+381|      openLightbox(newIndex);
+382|    }
+383|
+384|    // Click on gallery items
+385|    document.querySelectorAll('.gallery-item').forEach((item, index) => {
+386|      item.addEventListener('click', () => openLightbox(index));
+387|    });
+388|
+389|    closeBtn.addEventListener('click', closeLightbox);
+390|    prevBtn.addEventListener('click', () => navigate(-1));
+391|    nextBtn.addEventListener('click', () => navigate(1));
+392|
+393|    // Keyboard navigation
+394|    document.addEventListener('keydown', (e) => {
+395|      if (!lightbox.classList.contains('active')) return;
+396|      if (e.key === 'Escape') closeLightbox();
+397|      if (e.key === 'ArrowLeft') navigate(-1);
+398|      if (e.key === 'ArrowRight') navigate(1);
+399|    });
+400|
+401|    // Click outside image
+402|    lightbox.addEventListener('click', (e) => {
+403|      if (e.target === lightbox) closeLightbox();
+404|    });
+405|
+406|    // Gallery filters
+407|    if (filterBtns.length) {
+408|      filterBtns.forEach(btn => {
+409|        btn.addEventListener('click', () => {
+410|          filterBtns.forEach(b => b.classList.remove('active'));
+411|          btn.classList.add('active');
+412|          const filter = btn.dataset.filter || 'all';
+413|          document.querySelectorAll('.gallery-item').forEach(item => {
+414|            if (filter === 'all' || item.dataset.category === filter) {
+415|              item.style.display = '';
+416|            } else {
+417|              item.style.display = 'none';
+418|            }
+419|          });
+420|        });
+421|      });
+422|    }
+423|  }
+424|
+425|  // ============================================
+426|  // FINANCING CALCULATOR
+427|  // ============================================
+428|  function initCalculator() {
+429|    const calcForm = document.getElementById('calcForm');
+430|    if (!calcForm) return;
+431|
+432|    function calculate() {
+433|      const price = parseFloat(document.getElementById('calcPrice')?.value) || 0;
+434|      const downPercent = parseFloat(document.getElementById('calcDown')?.value) || 20;
+435|      const term = parseFloat(document.getElementById('calcTerm')?.value) || 60;
+436|      const rate = 0.08; // 8% annual interest
+437|
+438|      const downPayment = price * (downPercent / 100);
+439|      const loanAmount = price - downPayment;
+440|      const monthlyRate = rate / 12;
+441|      const monthlyPayment = loanAmount * (monthlyRate * Math.pow(1 + monthlyRate, term)) / (Math.pow(1 + monthlyRate, term) - 1);
+442|      const totalPayment = monthlyPayment * term;
+443|      const totalInterest = totalPayment - loanAmount;
+444|
+445|      document.getElementById('calcMonthly').textContent = '₱' + Math.round(monthlyPayment).toLocaleString();
+446|      document.getElementById('calcDownResult').textContent = '₱' + Math.round(downPayment).toLocaleString();
+447|      document.getElementById('calcLoanAmount').textContent = '₱' + Math.round(loanAmount).toLocaleString();
+448|      document.getElementById('calcTotalInterest').textContent = '₱' + Math.round(totalInterest).toLocaleString();
+449|      document.getElementById('calcTotalPayment').textContent = '₱' + Math.round(totalPayment).toLocaleString();
+450|    }
+451|
+452|    calcForm.querySelectorAll('input, select').forEach(el => {
+453|      el.addEventListener('input', calculate);
+454|      el.addEventListener('change', calculate);
+455|    });
+456|
+457|    calculate();
+458|  }
+459|
+460|  // ============================================
+461|  // CONTACT FORM (placeholder)
+462|  // ============================================
+463|  function initContactForm() {
+464|    const form = document.getElementById('contactForm');
+465|    if (!form) return;
+466|
+467|    form.addEventListener('submit', (e) => {
+468|      e.preventDefault();
+469|
+470|      const btn = form.querySelector('button[type="submit"]');
+471|      const originalText = btn.innerHTML;
+472|      btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+473|      btn.disabled = true;
+474|
+475|      // Simulate send — replace with EmailJS or formspree
+476|      setTimeout(() => {
+477|        btn.innerHTML = '<i class="fas fa-check"></i> Message Sent!';
+478|        btn.style.background = '#22c55e';
+479|        form.reset();
+480|
+481|        setTimeout(() => {
+482|          btn.innerHTML = originalText;
+483|          btn.disabled = false;
+484|          btn.style.background = '';
+485|        }, 3000);
+486|      }, 1500);
+487|    });
+488|  }
+489|
+490|  // ============================================
+491|  // SELL CAR FORM (placeholder)
+492|  // ============================================
+493|  function initSellForm() {
+494|    const form = document.getElementById('sellForm');
+495|    if (!form) return;
+496|
+497|    form.addEventListener('submit', (e) => {
+498|      e.preventDefault();
+499|
+500|      const btn = form.querySelector('button[type="submit"]');
+501|
