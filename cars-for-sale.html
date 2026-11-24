@@ -1,728 +1,380 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cars for Sale | GTACarsPH Marketplace</title>
-    <meta name="description" content="Browse quality used cars for sale at GTACarsPH. Toyota, Honda, Ford and more. Affordable prices, financing available.">
-    <link rel="canonical" href="https://gtacarsph.github.io/gtacarsph-website/cars-for-sale.html">
-    
-    <!-- Open Graph -->
-    <meta property="og:title" content="Cars for Sale | GTACarsPH">
-    <meta property="og:description" content="Quality used cars at affordable prices.">
-    <meta property="og:image" content="https://gtacarsph.github.io/gtacarsph-website/logo.jpg">
-    <meta property="og:url" content="https://gtacarsph.github.io/gtacarsph-website/cars-for-sale.html">
-    
-    <!-- Favicon -->
-    <link rel="icon" type="image/jpeg" href="logo.jpg">
-    <link rel="shortcut icon" type="image/jpeg" href="logo.jpg">
-    <link rel="apple-touch-icon" href="logo.jpg">
-    
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Segoe+UI:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <link rel="stylesheet" href="styles.css?v=5">
-    
-    <!-- Facebook Marketplace Style CSS -->
-    <style>
-        /* FB Marketplace Colors */
-        :root {
-            --fb-blue: #1877f2;
-            --fb-bg: #f0f2f5;
-            --fb-white: #ffffff;
-            --fb-gray: #65676b;
-            --fb-dark: #050505;
-            --fb-border: #dddfe2;
-            --fb-green: #00a400;
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GTACarsPH | Buy Premium Used Cars — San Juan Metro Manila</title>
+  <meta name="description" content="Browse our inventory of premium used cars for sale at GTACarsPH in San Juan, Metro Manila. Ford, Toyota, Honda, Mitsubishi — financing available. Call 0960-630-3785.">
+  <link rel="canonical" href="https://gtacarsph.com/cars-for-sale.html">
+  <meta property="og:title" content="GTACarsPH | Buy Premium Used Cars — San Juan Metro Manila">
+  <meta property="og:description" content="Browse our inventory of premium used cars for sale. Ford, Toyota, Honda, Mitsubishi & more. Financing available. Call 0960-630-3785.">
+  <meta property="og:image" content="https://gtacarsph.com/logo.jpg">
+  <meta property="og:url" content="https://gtacarsph.com/cars-for-sale.html">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="en_PH">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="GTACarsPH | Buy Premium Used Cars — San Juan Metro Manila">
+  <meta name="twitter:description" content="Browse our inventory of premium used cars for sale. Financing available. Call 0960-630-3785.">
+  <meta name="twitter:image" content="https://gtacarsph.com/logo.jpg">
+  <link rel="icon" type="image/jpeg" href="logo.jpg">
+  <link rel="shortcut icon" type="image/jpeg" href="logo.jpg">
+  <link rel="apple-touch-icon" href="logo.jpg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="styles.css?v=5">
+
+  <!-- Schema.org ItemList for inventory -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "item": {
+          "@type": "Car",
+          "name": "Ford Everest 2020",
+          "brand": "Ford",
+          "modelDate": 2020,
+          "fuelType": "Diesel",
+          "offers": {
+            "@type": "Offer",
+            "priceCurrency": "PHP",
+            "price": "988000",
+            "itemCondition": "https://schema.org/UsedCondition"
+          }
         }
-        
-        /* Marketplace Header */
-        .mp-header {
-            background: var(--fb-white);
-            border-bottom: 1px solid var(--fb-border);
-            padding: 1rem 0;
-            position: sticky;
-            top: 70px;
-            z-index: 100;
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "item": {
+          "@type": "Car",
+          "name": "Toyota Fortuner 2021",
+          "brand": "Toyota",
+          "modelDate": 2021,
+          "fuelType": "Diesel",
+          "offers": {
+            "@type": "Offer",
+            "priceCurrency": "PHP",
+            "price": "1580000",
+            "itemCondition": "https://schema.org/UsedCondition"
+          }
         }
-        .mp-header-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 1rem;
-            display: flex;
-            align-items: center;
-            gap: 1rem;
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "item": {
+          "@type": "Car",
+          "name": "Honda Civic 2022",
+          "brand": "Honda",
+          "modelDate": 2022,
+          "fuelType": "Gasoline",
+          "offers": {
+            "@type": "Offer",
+            "priceCurrency": "PHP",
+            "price": "1180000",
+            "itemCondition": "https://schema.org/UsedCondition"
+          }
         }
-        .mp-title {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--fb-dark);
+      },
+      {
+        "@type": "ListItem",
+        "position": 4,
+        "item": {
+          "@type": "Car",
+          "name": "Mitsubishi Montero Sport 2021",
+          "brand": "Mitsubishi",
+          "modelDate": 2021,
+          "fuelType": "Diesel",
+          "offers": {
+            "@type": "Offer",
+            "priceCurrency": "PHP",
+            "price": "1380000",
+            "itemCondition": "https://schema.org/UsedCondition"
+          }
         }
-        .mp-search {
-            flex: 1;
-            max-width: 400px;
+      },
+      {
+        "@type": "ListItem",
+        "position": 5,
+        "item": {
+          "@type": "Car",
+          "name": "Nissan Navara 2020",
+          "brand": "Nissan",
+          "modelDate": 2020,
+          "fuelType": "Diesel",
+          "offers": {
+            "@type": "Offer",
+            "priceCurrency": "PHP",
+            "price": "1080000",
+            "itemCondition": "https://schema.org/UsedCondition"
+          }
         }
-        .mp-search input {
-            width: 100%;
-            padding: 0.75rem 1rem 0.75rem 2.5rem;
-            border: none;
-            border-radius: 50px;
-            background: var(--fb-bg);
-            font-size: 0.95rem;
-            transition: all 0.2s;
+      },
+      {
+        "@type": "ListItem",
+        "position": 6,
+        "item": {
+          "@type": "Car",
+          "name": "Hyundai Tucson 2023",
+          "brand": "Hyundai",
+          "modelDate": 2023,
+          "fuelType": "Gasoline",
+          "offers": {
+            "@type": "Offer",
+            "priceCurrency": "PHP",
+            "price": "1280000",
+            "itemCondition": "https://schema.org/UsedCondition"
+          }
         }
-        .mp-search input:focus {
-            outline: none;
-            background: var(--fb-white);
-            box-shadow: 0 0 0 2px var(--fb-blue);
-        }
-        .mp-search-icon {
-            position: relative;
-        }
-        .mp-search-icon::before {
-            content: '\f002';
-            font-family: 'Font Awesome 6 Free';
-            font-weight: 900;
-            position: absolute;
-            left: 1rem;
-            top: 50%;
-            transform: translateY(-50%);
-            color: var(--fb-gray);
-        }
-        
-        /* Category Pills */
-        .mp-categories {
-            background: var(--fb-white);
-            padding: 1rem 0;
-            border-bottom: 1px solid var(--fb-border);
-        }
-        .mp-categories-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 1rem;
-            display: flex;
-            gap: 0.75rem;
-            overflow-x: auto;
-            scrollbar-width: none;
-        }
-        .mp-categories-content::-webkit-scrollbar {
-            display: none;
-        }
-        .mp-pill {
-            padding: 0.5rem 1rem;
-            background: var(--fb-bg);
-            border: none;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            font-weight: 500;
-            color: var(--fb-dark);
-            cursor: pointer;
-            white-space: nowrap;
-            transition: all 0.2s;
-        }
-        .mp-pill:hover {
-            background: #e4e6eb;
-        }
-        .mp-pill.active {
-            background: var(--fb-blue);
-            color: white;
-        }
-        
-        /* Marketplace Grid */
-        .mp-section {
-            background: var(--fb-bg);
-            padding: 1.5rem 0;
-            min-height: 70vh;
-        }
-        .mp-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 1rem;
-        }
-        .mp-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-            gap: 1rem;
-        }
-        
-        /* Listing Card - FB Style */
-        .mp-card {
-            background: var(--fb-white);
-            border-radius: 8px;
-            overflow: hidden;
-            cursor: pointer;
-            transition: all 0.2s;
-            box-shadow: 0 1px 2px rgba(0,0,0,0.1);
-        }
-        .mp-card:hover {
-            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-            transform: translateY(-2px);
-        }
-        .mp-card-image {
-            position: relative;
-            aspect-ratio: 1;
-            background: var(--fb-bg);
-            overflow: hidden;
-        }
-        .mp-card-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.3s;
-        }
-        .mp-card:hover .mp-card-image img {
-            transform: scale(1.05);
-        }
-        .mp-card-badge {
-            position: absolute;
-            top: 8px;
-            left: 8px;
-            background: rgba(0,0,0,0.7);
-            color: white;
-            padding: 4px 8px;
-            border-radius: 4px;
-            font-size: 0.75rem;
-            font-weight: 600;
-        }
-        .mp-card-icon {
-            width: 100%;
-            height: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--fb-gray);
-            font-size: 4rem;
-        }
-        .mp-card-info {
-            padding: 0.75rem;
-        }
-        .mp-card-price {
-            font-size: 1.1rem;
-            font-weight: 700;
-            color: var(--fb-dark);
-            margin-bottom: 0.25rem;
-        }
-        .mp-card-title {
-            font-size: 0.9rem;
-            color: var(--fb-dark);
-            margin-bottom: 0.5rem;
-            line-height: 1.3;
-            display: -webkit-box;
-            -webkit-line-clamp: 2;
-            -webkit-box-orient: vertical;
-            overflow: hidden;
-        }
-        .mp-card-details {
-            font-size: 0.8rem;
-            color: var(--fb-gray);
-            margin-bottom: 0.5rem;
-        }
-        .mp-card-location {
-            display: flex;
-            align-items: center;
-            gap: 0.25rem;
-            font-size: 0.75rem;
-            color: var(--fb-gray);
-        }
-        .mp-card-location i {
-            font-size: 0.7rem;
-        }
-        
-        /* Mobile Responsive */
-        @media (max-width: 768px) {
-            .mp-header {
-                top: 60px;
-            }
-            .mp-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 0.5rem;
-            }
-            .mp-card-info {
-                padding: 0.5rem;
-            }
-            .mp-card-price {
-                font-size: 0.95rem;
-            }
-            .mp-card-title {
-                font-size: 0.8rem;
-            }
-            .mp-title {
-                font-size: 1.1rem;
-            }
-        }
-    </style>
+      }
+    ],
+    "name": "Premium Used Cars for Sale at GTACarsPH",
+    "description": "Browse our complete inventory of quality pre-owned vehicles in San Juan, Metro Manila.",
+    "url": "https://gtacarsph.com/cars-for-sale.html",
+    "numberOfItems": 6,
+    "mainEntityOfPage": {
+      "@type": "CollectionPage",
+      "@id": "https://gtacarsph.com/cars-for-sale.html"
+    }
+  }
+  </script>
 </head>
 <body>
-    <!-- Desktop Navigation -->
-    <nav class="navbar" id="navbar">
-        <div class="container">
-            <a href="index.html" class="logo">
-                <img src="logo.jpg?v=3" alt="GTACarsPH Logo" style="height:45px;width:auto;border-radius:8px">
-            </a>
-            <ul class="nav-links" id="navMenu">
-                <li><a href="index.html#home">Home</a></li>
-                <li><a href="cars-for-sale.html" class="active">Buy Cars</a></li>
-                <li><a href="sell-car.html">Sell Car</a></li>
-                <li><a href="gallery.html">Gallery</a></li>
-                <li><a href="index.html#services">Services</a></li>
-                <li><a href="index.html#vlogs">Vlogs</a></li>
-                <li><a href="index.html#about">About</a></li>
-                <li><a href="index.html#contact">Contact</a></li>
-            </ul>
-            <a href="tel:+639606303785" class="btn btn-primary nav-cta">
-                <i class="fas fa-phone"></i>
-                <span>Call Now</span>
-            </a>
-            <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
-                <i class="fas fa-bars"></i>
-            </button>
-        </div>
-    </nav>
 
-    <!-- Mobile Bottom Navigation -->
-    <nav class="mobile-nav" id="mobileNav">
-        <a href="index.html#home" class="nav-item">
-            <i class="fas fa-home"></i>
-            <span>Home</span>
-        </a>
-        <a href="cars-for-sale.html" class="nav-item">
-            <i class="fas fa-car"></i>
-            <span>Cars</span>
-        </a>
-        <a href="sell-car.html" class="nav-item nav-item-main">
-            <div class="nav-main-btn">
-                <i class="fas fa-tags"></i>
-            </div>
-            <span>Sell</span>
-        </a>
-        <a href="gallery.html" class="nav-item">
-            <i class="fas fa-images"></i>
-            <span>Gallery</span>
-        </a>
-        <a href="index.html#contact" class="nav-item">
-            <i class="fas fa-phone"></i>
-            <span>Contact</span>
-        </a>
-    </nav>
-
-    <!-- Marketplace Header -->
-    <header class="mp-header">
-        <div class="mp-header-content">
-            <h1 class="mp-title">🚗 Cars for Sale</h1>
-            <div class="mp-search mp-search-icon">
-                <input type="text" placeholder="Search cars..." id="searchInput">
-            </div>
-        </div>
-    </header>
-
-    <!-- Category Pills -->
-    <div class="mp-categories">
-        <div class="mp-categories-content">
-            <button class="mp-pill active" data-filter="all">All</button>
-            <button class="mp-pill" data-filter="suv">SUV</button>
-            <button class="mp-pill" data-filter="sedan">Sedan</button>
-            <button class="mp-pill" data-filter="pickup">Pickup</button>
-            <button class="mp-pill" data-filter="hatchback">Hatchback</button>
-            <button class="mp-pill" data-filter="van">Van</button>
-        </div>
+  <!-- ========== NAVIGATION ========== -->
+  <nav class="navbar" id="navbar">
+    <div class="container">
+      <a href="index.html" class="logo">
+        <img src="logo.jpg?v=3" alt="GTACarsPH Logo" class="logo-img">
+        <span>GTACarsPH</span>
+      </a>
+      <button class="menu-toggle" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <ul class="nav-links" id="navMenu">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="cars-for-sale.html" class="active">Buy Cars</a></li>
+        <li><a href="sell-car.html">Sell Your Car</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html" class="nav-cta">Contact Us</a></li>
+      </ul>
     </div>
+  </nav>
 
-    <!-- Marketplace Grid -->
-    <section class="mp-section">
-        <div class="mp-container">
-            <div class="mp-grid" id="carGrid">
-                <!-- Car 1 -->
-                <div class="mp-card" data-category="suv" onclick="inquire('2019 Toyota Fortuner')">
-                    <div class="mp-card-image">
-                        <span class="mp-card-badge">Hot Deal</span>
-                        <div class="mp-card-icon"><i class="fas fa-car"></i></div>
-                    </div>
-                    <div class="mp-card-info">
-                        <div class="mp-card-price">₱1,250,000</div>
-                        <div class="mp-card-title">2019 Toyota Fortuner 2.8 4x2 DSL AT</div>
-                        <div class="mp-card-details">Diesel • Automatic • 45k km</div>
-                        <div class="mp-card-location">
-                            <i class="fas fa-map-marker-alt"></i> San Juan, Metro Manila
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Car 2 -->
-                <div class="mp-card" data-category="sedan" onclick="inquire('2020 Honda Civic')">
-                    <div class="mp-card-image">
-                        <div class="mp-card-icon"><i class="fas fa-car"></i></div>
-                    </div>
-                    <div class="mp-card-info">
-                        <div class="mp-card-price">₱850,000</div>
-                        <div class="mp-card-title">2020 Honda Civic 1.8 E CVT</div>
-                        <div class="mp-card-details">Gasoline • Automatic • 32k km</div>
-                        <div class="mp-card-location">
-                            <i class="fas fa-map-marker-alt"></i> San Juan, Metro Manila
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Car 3 -->
-                <div class="mp-card" data-category="pickup" onclick="inquire('2021 Ford Ranger')">
-                    <div class="mp-card-image">
-                        <span class="mp-card-badge">New</span>
-                        <div class="mp-card-icon"><i class="fas fa-truck-pickup"></i></div>
-                    </div>
-                    <div class="mp-card-info">
-                        <div class="mp-card-price">₱980,000</div>
-                        <div class="mp-card-title">2021 Ford Ranger XLT 2.2 4x2 MT</div>
-                        <div class="mp-card-details">Diesel • Manual • 28k km</div>
-                        <div class="mp-card-location">
-                            <i class="fas fa-map-marker-alt"></i> San Juan, Metro Manila
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Car 4 -->
-                <div class="mp-card" data-category="suv" onclick="inquire('2018 Mitsubishi Montero')">
-                    <div class="mp-card-image">
-                        <div class="mp-card-icon"><i class="fas fa-car"></i></div>
-                    </div>
-                    <div class="mp-card-info">
-                        <div class="mp-card-price">₱950,000</div>
-                        <div class="mp-card-title">2018 Mitsubishi Montero Sport GLS</div>
-                        <div class="mp-card-details">Diesel • Automatic • 55k km</div>
-                        <div class="mp-card-location">
-                            <i class="fas fa-map-marker-alt"></i> San Juan, Metro Manila
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Car 5 -->
-                <div class="mp-card" data-category="sedan" onclick="inquire('2019 Toyota Vios')">
-                    <div class="mp-card-image">
-                        <span class="mp-card-badge">Sale</span>
-                        <div class="mp-card-icon"><i class="fas fa-car"></i></div>
-                    </div>
-                    <div class="mp-card-info">
-                        <div class="mp-card-price">₱550,000</div>
-                        <div class="mp-card-title">2019 Toyota Vios 1.3 E CVT</div>
-                        <div class="mp-card-details">Gasoline • Automatic • 38k km</div>
-                        <div class="mp-card-location">
-                            <i class="fas fa-map-marker-alt"></i> San Juan, Metro Manila
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Car 6 -->
-                <div class="mp-card" data-category="hatchback" onclick="inquire('2020 Honda Jazz')">
-                    <div class="mp-card-image">
-                        <div class="mp-card-icon"><i class="fas fa-car"></i></div>
-                    </div>
-                    <div class="mp-card-info">
-                        <div class="mp-card-price">₱680,000</div>
-                        <div class="mp-card-title">2020 Honda Jazz 1.5 V CVT</div>
-                        <div class="mp-card-details">Gasoline • Automatic • 25k km</div>
-                        <div class="mp-card-location">
-                            <i class="fas fa-map-marker-alt"></i> San Juan, Metro Manila
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Car 7 -->
-                <div class="mp-card" data-category="suv" onclick="inquire('2017 Nissan Terra')">
-                    <div class="mp-card-image">
-                        <div class="mp-card-icon"><i class="fas fa-car"></i></div>
-                    </div>
-                    <div class="mp-card-info">
-                        <div class="mp-card-price">₱890,000</div>
-                        <div class="mp-card-title">2017 Nissan Terra 2.5 EL 4x2 AT</div>
-                        <div class="mp-card-details">Diesel • Automatic • 62k km</div>
-                        <div class="mp-card-location">
-                            <i class="fas fa-map-marker-alt"></i> San Juan, Metro Manila
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Car 8 -->
-                <div class="mp-card" data-category="pickup" onclick="inquire('2019 Toyota Hilux')">
-                    <div class="mp-card-image">
-                        <span class="mp-card-badge">Hot Deal</span>
-                        <div class="mp-card-icon"><i class="fas fa-truck-pickup"></i></div>
-                    </div>
-                    <div class="mp-card-info">
-                        <div class="mp-card-price">₱920,000</div>
-                        <div class="mp-card-title">2019 Toyota Hilux G 2.4 4x2 MT</div>
-                        <div class="mp-card-details">Diesel • Manual • 48k km</div>
-                        <div class="mp-card-location">
-                            <i class="fas fa-map-marker-alt"></i> San Juan, Metro Manila
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Car 9 -->
-                <div class="mp-card" data-category="sedan" onclick="inquire('2018 Mazda 3')">
-                    <div class="mp-card-image">
-                        <div class="mp-card-icon"><i class="fas fa-car"></i></div>
-                    </div>
-                    <div class="mp-card-info">
-                        <div class="mp-card-price">₱720,000</div>
-                        <div class="mp-card-title">2018 Mazda 3 2.0 Sedan AT</div>
-                        <div class="mp-card-details">Gasoline • Automatic • 42k km</div>
-                        <div class="mp-card-location">
-                            <i class="fas fa-map-marker-alt"></i> San Juan, Metro Manila
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Car 10 -->
-                <div class="mp-card" data-category="suv" onclick="inquire('2020 Hyundai Tucson')">
-                    <div class="mp-card-image">
-                        <div class="mp-card-icon"><i class="fas fa-car"></i></div>
-                    </div>
-                    <div class="mp-card-info">
-                        <div class="mp-card-price">₱980,000</div>
-                        <div class="mp-card-title">2020 Hyundai Tucson 2.0 CRDi GL</div>
-                        <div class="mp-card-details">Diesel • Automatic • 30k km</div>
-                        <div class="mp-card-location">
-                            <i class="fas fa-map-marker-alt"></i> San Juan, Metro Manila
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Car 11 -->
-                <div class="mp-card" data-category="van" onclick="inquire('2019 Toyota Hiace')">
-                    <div class="mp-card-image">
-                        <div class="mp-card-icon"><i class="fas fa-shuttle-van"></i></div>
-                    </div>
-                    <div class="mp-card-info">
-                        <div class="mp-card-price">₱1,100,000</div>
-                        <div class="mp-card-title">2019 Toyota Hiace GL Grandia</div>
-                        <div class="mp-card-details">Diesel • Manual • 35k km</div>
-                        <div class="mp-card-location">
-                            <i class="fas fa-map-marker-alt"></i> San Juan, Metro Manila
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Car 12 -->
-                <div class="mp-card" data-category="sedan" onclick="inquire('2021 Kia Soluto')">
-                    <div class="mp-card-image">
-                        <span class="mp-card-badge">New</span>
-                        <div class="mp-card-icon"><i class="fas fa-car"></i></div>
-                    </div>
-                    <div class="mp-card-info">
-                        <div class="mp-card-price">₱580,000</div>
-                        <div class="mp-card-title">2021 Kia Soluto 1.4 EX AT</div>
-                        <div class="mp-card-details">Gasoline • Automatic • 18k km</div>
-                        <div class="mp-card-location">
-                            <i class="fas fa-map-marker-alt"></i> San Juan, Metro Manila
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Load More -->
-            <div style="text-align:center;margin-top:2rem;">
-                <button class="mp-pill" style="padding:0.75rem 2rem;font-size:1rem;" onclick="alert('More cars coming soon! Contact us for full inventory.')">
-                    <i class="fas fa-spinner"></i> Load More
-                </button>
-            </div>
+  <!-- ========== PAGE BANNER ========== -->
+  <section class="page-banner">
+    <div class="page-banner-overlay"></div>
+    <div class="container">
+      <div class="page-banner-content">
+        <ul class="breadcrumbs">
+          <li><a href="index.html">Home</a></li>
+          <li><span class="breadcrumb-separator"><i class="fas fa-chevron-right"></i></span></li>
+          <li><span class="current">Buy Cars</span></li>
+        </ul>
+        <h1 class="page-banner-title">Our <span class="gold-text">Inventory</span></h1>
+        <p class="page-banner-subtitle">Quality pre-owned vehicles — inspected, certified, and ready to drive.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FILTER BAR ========== -->
+  <section class="section filter-section">
+    <div class="container">
+      <form id="filterForm" class="filter-bar">
+        <div class="filter-group">
+          <label for="filterBrand" class="filter-label">Brand</label>
+          <select id="filterBrand" class="filter-select">
+            <option value="All">All Brands</option>
+            <option value="Toyota">Toyota</option>
+            <option value="Honda">Honda</option>
+            <option value="Ford">Ford</option>
+            <option value="Mitsubishi">Mitsubishi</option>
+            <option value="Nissan">Nissan</option>
+            <option value="Hyundai">Hyundai</option>
+          </select>
         </div>
-    </section>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-brand">
-                    <img src="logo.jpg?v=3" alt="GTACarsPH" style="height:50px;width:auto;border-radius:8px;margin-bottom:1rem">
-                    <p>Your trusted partner for buying and selling quality cars in Metro Manila.</p>
-                    <div class="footer-social">
-                        <a href="https://facebook.com/GTACARSPH" target="_blank"><i class="fab fa-facebook"></i></a>
-                        <a href="https://youtube.com/@RaffaGTACARS" target="_blank"><i class="fab fa-youtube"></i></a>
-                        <a href="https://tiktok.com/@gtacarsph" target="_blank"><i class="fab fa-tiktok"></i></a>
-                    </div>
-                </div>
-                <div class="footer-links">
-                    <h4>Quick Links</h4>
-                    <ul>
-                        <li><a href="cars-for-sale.html">Buy Cars</a></li>
-                        <li><a href="sell-car.html">Sell Your Car</a></li>
-                        <li><a href="gallery.html">Gallery</a></li>
-                        <li><a href="index.html#services">Services</a></li>
-                    </ul>
-                </div>
-                <div class="footer-contact">
-                    <h4>Contact Us</h4>
-                    <p><i class="fas fa-map-marker-alt"></i> 138 G. Reyes, San Juan, Metro Manila</p>
-                    <p><i class="fas fa-phone"></i> 0960 630 3785</p>
-                    <p><i class="fas fa-envelope"></i> gtacarsph@gmail.com</p>
-                    <p><i class="fas fa-clock"></i> Mon-Sat: 9AM - 6PM</p>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2025 GTACarsPH. All rights reserved.</p>
-            </div>
+        <div class="filter-group">
+          <label for="filterMinPrice" class="filter-label">Min Price</label>
+          <input type="number" id="filterMinPrice" class="filter-input" placeholder="₱0" min="0">
         </div>
-    </footer>
 
-    <script>
-        // Mobile Navigation Toggle
-        const navToggle = document.getElementById('navToggle');
-        const navMenu = document.getElementById('navMenu');
-        
-        if (navToggle) {
-            navToggle.addEventListener('click', () => {
-                navMenu.classList.toggle('active');
-                navToggle.classList.toggle('active');
-            });
-        }
+        <div class="filter-group">
+          <label for="filterMaxPrice" class="filter-label">Max Price</label>
+          <input type="number" id="filterMaxPrice" class="filter-input" placeholder="₱10,000,000" min="0">
+        </div>
 
-        // Navbar scroll effect
-        const navbar = document.getElementById('navbar');
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 50) {
-                navbar.classList.add('scrolled');
-            } else {
-                navbar.classList.remove('scrolled');
-            }
-        });
+        <div class="filter-group">
+          <label for="filterYear" class="filter-label">Year</label>
+          <select id="filterYear" class="filter-select">
+            <option value="All">All Years</option>
+            <option value="2023">2023</option>
+            <option value="2022">2022</option>
+            <option value="2021">2021</option>
+            <option value="2020">2020</option>
+          </select>
+        </div>
 
-        // Category Filter
-        const pills = document.querySelectorAll('.mp-pill[data-filter]');
-        const cards = document.querySelectorAll('.mp-card');
-        
-        pills.forEach(pill => {
-            pill.addEventListener('click', () => {
-                // Remove active from all pills
-                pills.forEach(p => p.classList.remove('active'));
-                pill.classList.add('active');
-                
-                const filter = pill.getAttribute('data-filter');
-                
-                cards.forEach(card => {
-                    if (filter === 'all' || card.getAttribute('data-category') === filter) {
-                        card.style.display = 'block';
-                        setTimeout(() => {
-                            card.style.opacity = '1';
-                            card.style.transform = 'scale(1)';
-                        }, 10);
-                    } else {
-                        card.style.opacity = '0';
-                        card.style.transform = 'scale(0.9)';
-                        setTimeout(() => {
-                            card.style.display = 'none';
-                        }, 200);
-                    }
-                });
-            });
-        });
+        <div class="filter-group">
+          <label for="filterFuel" class="filter-label">Fuel Type</label>
+          <select id="filterFuel" class="filter-select">
+            <option value="All">All Fuel Types</option>
+            <option value="Gasoline">Gasoline</option>
+            <option value="Diesel">Diesel</option>
+          </select>
+        </div>
 
-        // Search functionality
-        const searchInput = document.getElementById('searchInput');
-        searchInput.addEventListener('input', (e) => {
-            const searchTerm = e.target.value.toLowerCase();
-            
-            cards.forEach(card => {
-                const title = card.querySelector('.mp-card-title').textContent.toLowerCase();
-                const details = card.querySelector('.mp-card-details').textContent.toLowerCase();
-                
-                if (title.includes(searchTerm) || details.includes(searchTerm)) {
-                    card.style.display = 'block';
-                } else {
-                    card.style.display = 'none';
-                }
-            });
-        });
+        <div class="filter-group filter-group-action">
+          <button type="submit" class="btn btn-primary btn-filter-search">
+            <i class="fas fa-search"></i> Search
+          </button>
+          <button type="reset" class="btn btn-outline-gold btn-filter-reset">
+            <i class="fas fa-undo"></i> Reset
+          </button>
+        </div>
+      </form>
+    </div>
+  </section>
 
-        // Inquire function
-        function inquire(carName) {
-            const message = `Hi GTACarsPH! I'm interested in the ${carName}. Is it still available?`;
-            const messengerUrl = `https://m.me/GTACARSPH?text=${encodeURIComponent(message)}`;
-            const fbUrl = `https://facebook.com/messages/t/GTACARSPH?text=${encodeURIComponent(message)}`;
-            
-            // Try Messenger first, fallback to regular Facebook
-            const newWindow = window.open(messengerUrl, '_blank');
-            
-            // If popup blocked or failed, show fallback
-            if (!newWindow || newWindow.closed || typeof newWindow.closed === 'undefined') {
-                // Copy message to clipboard
-                navigator.clipboard.writeText(message).then(() => {
-                    alert(`Messenger didn't open. Message copied to clipboard:\n\n"${message}"\n\nPlease message us on Facebook or call 0960-630-3785`);
-                }).catch(() => {
-                    alert(`Please message us:\n\nFacebook: fb.com/GTACARSPH\nPhone: 0960-630-3785\n\nMessage: "${message}"`);
-                });
-                // Open Facebook as fallback
-                window.open(fbUrl, '_blank');
-            }
-        }
-    </script>
-    <script src="js/cars.js"></script>
-    <script>
-        // Load admin-added cars and merge with existing
-        function loadAdminCars() {
-            const adminCars = getAllCars().filter(car => car.status === 'available');
-            if (adminCars.length === 0) return;
+  <!-- ========== INVENTORY GRID ========== -->
+  <section class="section inventory-section">
+    <div class="container">
+      <div class="inventory-header">
+        <div class="section-header">
+          <span class="section-label">Available Vehicles</span>
+          <h2 class="section-title">Browse Our <span class="gold-text">Collection</span></h2>
+          <p class="section-subtitle">Every car is thoroughly inspected and comes with our quality guarantee.</p>
+        </div>
+        <div class="inventory-count" id="inventoryCount">
+          <span id="resultCount">0</span> vehicles found
+        </div>
+      </div>
+      <div class="featured-grid" id="inventoryGrid"></div>
 
-            const carGrid = document.getElementById('carGrid');
-            
-            adminCars.forEach((car, index) => {
-                const thumbnail = getCarThumbnail(car);
-                const card = document.createElement('div');
-                card.className = 'mp-card';
-                card.setAttribute('data-category', car.category);
-                card.onclick = () => inquire(`${car.year} ${car.brand} ${car.model}`);
-                
-                card.innerHTML = `
-                    <div class="mp-card-image" style="${thumbnail ? `background-image: url('${thumbnail}'); background-size: cover; background-position: center;` : ''}">
-                        ${!thumbnail ? `<div class="mp-card-icon"><i class="fas fa-car"></i></div>` : ''}
-                        ${index === 0 ? '<span class="mp-card-badge">Just Added</span>' : ''}
-                    </div>
-                    <div class="mp-card-info">
-                        <div class="mp-card-price">₱${car.price?.toLocaleString() || '0'}</div>
-                        <div class="mp-card-title">${car.year} ${car.brand} ${car.model}</div>
-                        <div class="mp-card-details">${car.description?.substring(0, 40) || 'Available for viewing'}...</div>
-                        <div class="mp-card-location">
-                            <i class="fas fa-map-marker-alt"></i> San Juan, Metro Manila
-                        </div>
-                    </div>
-                `;
-                
-                // Add animation
-                card.style.opacity = '0';
-                card.style.transform = 'scale(0.9)';
-                carGrid.insertBefore(card, carGrid.firstChild);
-                
-                setTimeout(() => {
-                    card.style.transition = 'all 0.3s';
-                    card.style.opacity = '1';
-                    card.style.transform = 'scale(1)';
-                }, 100 * index);
-            });
-            
-            // Update search functionality to include new cards
-            updateSearchForNewCards();
-        }
-        
-        function updateSearchForNewCards() {
-            const searchInput = document.getElementById('searchInput');
-            searchInput.addEventListener('input', (e) => {
-                const searchTerm = e.target.value.toLowerCase();
-                const allCards = document.querySelectorAll('.mp-card');
-                
-                allCards.forEach(card => {
-                    const title = card.querySelector('.mp-card-title').textContent.toLowerCase();
-                    const details = card.querySelector('.mp-card-details').textContent.toLowerCase();
-                    
-                    if (title.includes(searchTerm) || details.includes(searchTerm)) {
-                        card.style.display = 'block';
-                    } else {
-                        card.style.display = 'none';
-                    }
-                });
-            });
-        }
-        
-        // Load after page loads
-        window.addEventListener('load', loadAdminCars);
-    </script>
+      <!-- ========== NO RESULTS ========== -->
+      <div class="no-results" id="noResults" style="display: none;">
+        <div class="no-results-icon">
+          <i class="fas fa-car-side"></i>
+        </div>
+        <h3 class="no-results-title">No Vehicles Found</h3>
+        <p class="no-results-text">
+          We couldn't find any vehicles matching your criteria. Try adjusting your filters or <a href="contact.html" class="gold-text">contact us</a> directly — we might have something coming in soon!
+        </p>
+        <button class="btn btn-outline-gold btn-lg" onclick="document.getElementById('filterForm').reset(); document.getElementById('filterForm').dispatchEvent(new Event('submit'));">
+          <i class="fas fa-undo"></i> Reset Filters
+        </button>
+        <a href="contact.html" class="btn btn-primary btn-lg">
+          <i class="fas fa-envelope"></i> Contact Us
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== CTA SECTION ========== -->
+  <section class="section" style="background: var(--clr-bg-secondary);">
+    <div class="container">
+      <div class="section-header centered">
+        <span class="section-label">Can't Find What You're Looking For?</span>
+        <h2 class="section-title">We'll Help You Find <span class="gold-text">The Perfect Car</span></h2>
+        <p class="section-subtitle">Tell us your preferences and budget — we'll source the right vehicle for you with our best price guarantee.</p>
+        <div class="section-divider"></div>
+      </div>
+      <div class="text-center mt-4">
+        <a href="contact.html" class="btn btn-primary btn-lg">
+          <i class="fas fa-paper-plane"></i> Send Us Your Requirements
+        </a>
+        <a href="tel:+639606303785" class="btn btn-outline-gold btn-lg">
+          <i class="fas fa-phone"></i> Call 0960-630-3785
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <h3>GTACarsPH</h3>
+          <p>Your trusted used car dealership and Ford specialist in San Juan, Metro Manila. Quality cars, honest deals, professional service.</p>
+          <div class="footer-social">
+            <a href="https://facebook.com/GTACARSPH" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://m.me/GTACARSPH" target="_blank" aria-label="Messenger"><i class="fab fa-facebook-messenger"></i></a>
+            <a href="https://youtube.com/@RaffaGTACARS" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+            <a href="tel:+639606303785" aria-label="Phone"><i class="fas fa-phone"></i></a>
+          </div>
+        </div>
+        <div>
+          <h4>Quick Links</h4>
+          <ul class="footer-links">
+            <li><a href="cars-for-sale.html">Buy a Car</a></li>
+            <li><a href="sell-car.html">Sell Your Car</a></li>
+            <li><a href="services.html">Our Services</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Services</h4>
+          <ul class="footer-links">
+            <li><a href="services.html">Car Sales</a></li>
+            <li><a href="services.html">Trade-In</a></li>
+            <li><a href="services.html">Financing</a></li>
+            <li><a href="https://facebook.com/FordRepairPH" target="_blank">Ford Repair PH</a></li>
+            <li><a href="https://facebook.com/EVboiGaragePH" target="_blank">EVboi Garage PH</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Contact</h4>
+          <ul class="footer-links">
+            <li><a href="tel:+639606303785">0960-630-3785</a></li>
+            <li><a href="tel:+639053684532">0905-368-4532</a></li>
+            <li><a href="https://facebook.com/GTACARSPH" target="_blank">Facebook</a></li>
+            <li><a href="https://m.me/GTACARSPH" target="_blank">Messenger</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 GTACarsPH. All rights reserved. | 138 G. Reyes St., San Juan City, Metro Manila</p>
+        <div class="footer-bottom-links">
+          <a href="privacy-policy.html">Privacy Policy</a>
+          <a href="sitemap.xml">Sitemap</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ========== FLOATING BUTTONS ========== -->
+  <div class="floating-buttons">
+    <a href="https://m.me/GTACARSPH" target="_blank" class="floating-btn floating-btn-messenger" aria-label="Message us on Messenger">
+      <i class="fab fa-facebook-messenger"></i>
+      <span class="tooltip">Message us</span>
+    </a>
+    <a href="https://wa.me/639606303785" target="_blank" class="floating-btn floating-btn-whatsapp" aria-label="Message us on WhatsApp">
+      <i class="fab fa-whatsapp"></i>
+      <span class="tooltip">WhatsApp</span>
+    </a>
+    <a href="tel:+639606303785" class="floating-btn floating-btn-phone" aria-label="Call us">
+      <i class="fas fa-phone"></i>
+      <span class="tooltip">Call now</span>
+    </a>
+    <button class="floating-btn back-to-top" aria-label="Back to top">
+      <i class="fas fa-chevron-up"></i>
+      <span class="tooltip">Back to top</span>
+    </button>
+  </div>
+
+  <script src="script.js?v=5"></script>
 </body>
 </html>
