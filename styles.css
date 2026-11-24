@@ -306,6 +306,100 @@ h1, h2, h3, h4, h5, h6 {
 .gap-1 { gap: 0.5rem; }
 .gap-2 { gap: 1rem; }
 
+
+/* ===== MODERN POLISH ===== */
+/* Gradient text for headings */
+.section-title .gold-text {
+  background: linear-gradient(135deg, #006BB7 0%, #002D72 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.hero-title .gold-text {
+  background: linear-gradient(135deg, #006BB7 0%, #002D72 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Button shine effect */
+.btn-primary {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, #006BB7 0%, #002D72 100%);
+}
+.btn-primary::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+  transition: left 0.6s ease;
+}
+.btn-primary:hover::after { left: 100%; }
+
+/* Car card image zoom + overlay */
+.car-card-image::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 60%, rgba(0,45,114,0.15) 100%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+.car-card:hover .car-card-image::after { opacity: 1; }
+
+/* Section background alternation */
+.section:nth-child(even) { background: #fff; }
+
+/* Hero slide smooth crossfade */
+.hero-slide { transition: opacity 1.2s ease-in-out; }
+
+/* Feature card icon pulse on hover */
+.feature-card:hover .feature-icon,
+.service-card:hover .service-icon {
+  background: linear-gradient(135deg, #006BB7 0%, #002D72 100%);
+  color: #fff;
+  transform: scale(1.1);
+}
+.feature-icon, .service-icon { transition: all 0.3s ease; }
+
+/* Stat bar gradient numbers */
+.stats-bar-number {
+  background: linear-gradient(135deg, #fff, #cce0ff);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Testimonial star pulse */
+.testimonial-stars i { color: #f5a623; }
+
+/* Smooth scroll hint */
+.hero-scroll-indicator {
+  position: absolute;
+  bottom: 2rem;
+  right: 2.5rem;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--text-muted);
+  font-size: 0.7rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  writing-mode: vertical-rl;
+  animation: floatY 3s ease infinite;
+}
+@keyframes floatY {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
 /* ===== Responsive ===== */
 @media (max-width: 1024px) {
   .footer-grid { grid-template-columns: 1fr 1fr; }

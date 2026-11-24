@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
       mileage: 68000,
       fuel: 'Gasoline',
       transmission: 'Automatic',
-      image: 'https://images.unsplash.com/photo-1606664514181-ff2586c6a58f?w=600&q=80',
+      image: 'images/ecosport-1.jpg',
       badge: 'Best Seller',
       description: 'Ford EcoSport 2015, well-maintained, smooth city drive. Complete papers.'
     },
@@ -31,7 +31,7 @@ document.addEventListener('DOMContentLoaded', () => {
       mileage: 71000,
       fuel: 'Gasoline',
       transmission: 'Automatic',
-      image: 'https://images.unsplash.com/photo-1580273916550-e323be2ae537?w=600&q=80',
+      image: 'images/focus-1.jpg',
       badge: 'Featured',
       description: 'Ford Focus Titanium, DPS6 fully serviced. Feature-packed sedan.'
     },
@@ -44,7 +44,7 @@ document.addEventListener('DOMContentLoaded', () => {
       mileage: 62000,
       fuel: 'Gasoline',
       transmission: 'Automatic',
-      image: 'https://images.unsplash.com/photo-1544636331-e26879cd4d9b?w=600&q=80',
+      image: 'images/fiesta-1.jpg',
       badge: 'Best Value',
       description: 'Fun-to-drive Fiesta Sport, fuel-efficient, perfect first car.'
     },
@@ -57,7 +57,7 @@ document.addEventListener('DOMContentLoaded', () => {
       mileage: 18000,
       fuel: 'Gasoline',
       transmission: 'Automatic',
-      image: 'https://images.unsplash.com/photo-1617469767053-d3b7fb1e8b32?w=600&q=80',
+      image: 'images/territory-1.jpg',
       badge: 'Featured',
       description: 'Ford Territory 2021, low mileage, tech-loaded. Under warranty.'
     },
@@ -70,7 +70,7 @@ document.addEventListener('DOMContentLoaded', () => {
       mileage: 32000,
       fuel: 'Diesel',
       transmission: 'Automatic',
-      image: 'https://images.unsplash.com/photo-1552519507-da3b142c6e3d?w=600&q=80',
+      image: 'images/everest-1.jpg',
       badge: 'Premium',
       description: 'Ford Everest Titanium, 7-seater SUV, leather, panoramic roof.'
     },
@@ -83,7 +83,7 @@ document.addEventListener('DOMContentLoaded', () => {
       mileage: 54000,
       fuel: 'Gasoline',
       transmission: 'Automatic',
-      image: 'https://images.unsplash.com/photo-1606664514181-ff2586c6a58f?w=600&q=80',
+      image: 'images/ecosport-2.jpg',
       badge: 'Featured',
       description: 'Ford EcoSport Titanium, top variant. Heater hose upgrade done.'
     },
@@ -96,7 +96,7 @@ document.addEventListener('DOMContentLoaded', () => {
       mileage: 48000,
       fuel: 'Diesel',
       transmission: 'Automatic',
-      image: 'https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?w=600&q=80',
+      image: 'images/ranger-1.jpg',
       badge: '',
       description: 'Ford Ranger Wildtrak, tough and reliable. Ready for work or play.'
     },
@@ -109,7 +109,7 @@ document.addEventListener('DOMContentLoaded', () => {
       mileage: 12000,
       fuel: 'Gasoline',
       transmission: 'Automatic',
-      image: 'https://images.unsplash.com/photo-1617469767053-d3b7fb1e8b32?w=600&q=80',
+      image: 'images/territory-1.jpg',
       badge: 'Featured',
       description: 'Ford Territory Titanium, sunroof, 360 cam, premium leather.'
     }
